@@ -1,0 +1,548 @@
+[
+  {
+    "text": "cockpit is a webbased graphical interface for servers",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 53,
+    "word_count": 8,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 53,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.3
+  },
+  {
+    "text": "astral to join openai",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 21,
+    "word_count": 4,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 26,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.35
+  },
+  {
+    "text": "bombarding gamblers with offers greatly increases betting and gambling harm",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 75,
+    "word_count": 10,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 75,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.5
+  },
+  {
+    "text": "google details new 24hour process to sideload unverified android apps",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 69,
+    "word_count": 10,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 74,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 17.15
+  },
+  {
+    "text": "how the turner twins are mythbusting modern technical apparel",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 61,
+    "word_count": 9,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 61,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 14.1
+  },
+  {
+    "text": "return of the obra dinn spherical mapped dithering for a 1bpp firstperson game",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 78,
+    "word_count": 13,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 78,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.8
+  },
+  {
+    "text": "show hn three new kitten tts models  smallest less than 25mb",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 60,
+    "word_count": 11,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 60,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 14.0
+  },
+  {
+    "text": "esolangbench evaluating genuine reasoning in llms via esoteric languages",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 72,
+    "word_count": 9,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 72,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.2
+  },
+  {
+    "text": "clockwise acquired by salesforce and shutting down next week",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 60,
+    "word_count": 9,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 60,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 14.0
+  },
+  {
+    "text": "be intentional about how ai changes your codebase",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 49,
+    "word_count": 8,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 54,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.15
+  },
+  {
+    "text": "from oscilloscope to wireshark a udp story 2022",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 47,
+    "word_count": 8,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 47,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.7
+  },
+  {
+    "text": "4chan mocks 520k fine for uk online safety breaches",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 51,
+    "word_count": 9,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 51,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.1
+  },
+  {
+    "text": "nanogpt slowrun 10x data efficiency with infinite compute",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 57,
+    "word_count": 8,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 57,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.7
+  },
+  {
+    "text": "launch hn voltair yc w26  drone and charging network for power utilities",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 72,
+    "word_count": 12,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 77,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 17.45
+  },
+  {
+    "text": "scaling karpathys autoresearch what happens when the agent gets a gpu cluster",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 77,
+    "word_count": 12,
+    "tags": [
+      "Automation"
+    ],
+    "signal_strength": 77,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.7
+  },
+  {
+    "text": "openbsd pf queues break the 4 gbps barrier",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 42,
+    "word_count": 8,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 42,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.2
+  },
+  {
+    "text": "juggalo makeup blocks facial recognition technology 2019",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 56,
+    "word_count": 7,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 56,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.6
+  },
+  {
+    "text": "my random forest was mostly learning timetoexpiry noise",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 55,
+    "word_count": 8,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 55,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.5
+  },
+  {
+    "text": "an update on steam  gog changes for openttd",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 43,
+    "word_count": 8,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 43,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.3
+  },
+  {
+    "text": "the need for an independent ai grid",
+    "source": "hackernews",
+    "cleaned": true,
+    "length": 35,
+    "word_count": 7,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 40,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.75
+  },
+  {
+    "text": "fbi admits buying americans location data and says it wont stop",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 63,
+    "word_count": 11,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 63,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.3
+  },
+  {
+    "text": "ferrari boss touch buttons cost half as much as physical controls",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 65,
+    "word_count": 11,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 65,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.5
+  },
+  {
+    "text": "windows 11s free video editor clipchamp now requires onedrive",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 61,
+    "word_count": 9,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 61,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.1
+  },
+  {
+    "text": "firefox 149 will offer a free builtin vpn split views tab notes and optional ai windows",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 87,
+    "word_count": 16,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 92,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 16.95
+  },
+  {
+    "text": "us f35 damaged by suspected iranian fire makes emergency landing sources say",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 76,
+    "word_count": 12,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 76,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.6
+  },
+  {
+    "text": "anthropics claude claws its way towards the top of the ai market",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 64,
+    "word_count": 12,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 69,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 14.65
+  },
+  {
+    "text": "us tech execs smuggled nvidia chips to china prosecutors say",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 60,
+    "word_count": 10,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 60,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.0
+  },
+  {
+    "text": "pentagon replies to anthropics lawsuit says refusal to accept the governments contractual terms is not protected",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 112,
+    "word_count": 16,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 112,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 17.2
+  },
+  {
+    "text": "a rogue al agent triggered a major security alert at meta by taking action without approval that led to the exposure of sensitive company and user data",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 151,
+    "word_count": 27,
+    "tags": [
+      "Automation"
+    ],
+    "signal_strength": 151,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 21.1
+  },
+  {
+    "text": "patreon ceo calls ai companies fair use argument bogus says creators should be paid",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 83,
+    "word_count": 14,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 88,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 16.55
+  },
+  {
+    "text": "gamers rebel against nvidias dlss 5 ai slop filter",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 50,
+    "word_count": 9,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 55,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.25
+  },
+  {
+    "text": "apple warns iphone users to update software after mass hacking campaigns",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 72,
+    "word_count": 11,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 77,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 15.45
+  },
+  {
+    "text": "tinder plans to let ai scan your camera roll  in a feature the dating app says is set to roll out in the us later this spring tinder plans to access users camera rolls to pick photos and determine what theyre into",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 213,
+    "word_count": 42,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 218,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 28.9
+  },
+  {
+    "text": "chinas transition to electric vehicles softens the effect of the iran war",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 73,
+    "word_count": 12,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 73,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.3
+  },
+  {
+    "text": "us messageboard 4chan mocks 520000 fine for uk online safety breaches",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 69,
+    "word_count": 11,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 69,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.9
+  },
+  {
+    "text": "nearly 150 retired federal and state judges have filed an amicus brief supporting anthropic in its lawsuit against the pentagon",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 127,
+    "word_count": 20,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 132,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 20.95
+  },
+  {
+    "text": "small publishers are losing search traffic at an alarming rate because of chatbots",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 82,
+    "word_count": 13,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 82,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 14.2
+  },
+  {
+    "text": "meta is killing off the metaverse as it pivots to ai",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 52,
+    "word_count": 11,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 57,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 13.45
+  },
+  {
+    "text": "social media isnt just speech its also a defective hazardous product",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 68,
+    "word_count": 11,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 68,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.8
+  },
+  {
+    "text": "openclaw demand in china is driving up the price of used macbooks",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 65,
+    "word_count": 12,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 65,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.5
+  },
+  {
+    "text": "instagram worse for mental health than whatsapp global study finds",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 66,
+    "word_count": 10,
+    "tags": [
+      "General"
+    ],
+    "signal_strength": 66,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 12.6
+  },
+  {
+    "text": "government panel wants google and openai to pay content creators for ai training use",
+    "source": "reddit",
+    "cleaned": true,
+    "length": 84,
+    "word_count": 14,
+    "tags": [
+      "AI"
+    ],
+    "signal_strength": 89,
+    "processed_at": "2026-03-20T00:08:56.784296",
+    "trust_score": 16.65
+  }
+]
