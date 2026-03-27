@@ -1,0 +1,106 @@
+[
+  {
+    "pattern": "social agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "super agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "micro agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "cofounder agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "smuggling agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "video agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "fast agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "support agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "just agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "security agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "health agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "under agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "content agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "tech agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "chips agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "china agent",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent major",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent company",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent traffic",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent billion",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent slop",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent feel",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent like",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent pricing",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent google",
+    "frequency": 1
+  },
+  {
+    "pattern": "agent studio",
+    "frequency": 1
+  }
+]
