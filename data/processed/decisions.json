@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "security agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
+  },
+  {
+    "pattern": "social agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
+  },
+  {
+    "pattern": "ffmpeg agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
+  },
+  {
+    "pattern": "support agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
+  },
+  {
+    "pattern": "super agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
+  }
+]

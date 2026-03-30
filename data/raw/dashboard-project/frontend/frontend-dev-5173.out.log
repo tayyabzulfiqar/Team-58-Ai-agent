@@ -1,0 +1,48 @@
+
+> team58-ai-engine-dashboard@1.0.0 dev
+> vite --host 0.0.0.0 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m2139[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.10:[1m5173[22m/[39m
+[2m6:59:22 am[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/App.jsx[22m
+[2m6:59:22 am[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m6:59:22 am[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m3:30:06 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m3:30:41 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:20:13 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m4:22:44 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:33:13 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m4:33:51 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:38:28 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m4:39:04 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:47:58 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m4:48:51 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m4:55:47 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m4:55:55 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:01:34 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:31:16 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m5:36:15 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m5:40:36 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:40:48 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:40:56 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:41:04 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:41:12 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m5:41:22 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:02:30 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
+[2m6:03:02 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:03:19 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:03:26 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:03:42 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:03:58 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:04:06 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:04:20 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:04:33 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:04:42 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:04:48 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:05:01 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:05:06 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:07:39 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m6:12:14 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/pages/Dashboard.jsx[22m
