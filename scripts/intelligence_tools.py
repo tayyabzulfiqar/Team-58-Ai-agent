@@ -430,18 +430,16 @@ def estimate_roi(brand_alignment_score: int, engagement_potential: int, audience
 
 
 def chat_with_claude(message: str) -> str:
-    """Send message to Claude via proxy API and return clean text response"""
-    # Check env vars at runtime, not import time
-    api_key = os.getenv("API_KEY", "").strip()
-    base_url = os.getenv("BASE_URL", "").rstrip("/")
+    """Send message to GROQ API and return clean text response"""
+    # Load from env vars (set in Railway dashboard)
+    api_key = os.getenv("API_KEY", "")
+    base_url = os.getenv("BASE_URL", "https://api.groq.com/openai/v1")
     model = os.getenv("MODEL", "llama-3.3-70b-versatile")
     
     if not api_key:
-        return "Error: API_KEY not configured. Please set API_KEY environment variable."
-    if not base_url:
-        return "Error: BASE_URL not configured. Please set BASE_URL environment variable."
+        return "Error: API_KEY not set in Railway environment variables"
     
-    api_url = f"{base_url}/v1/chat/completions"
+    api_url = f"{base_url}/chat/completions"
     
     try:
         response = requests.post(
