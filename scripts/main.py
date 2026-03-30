@@ -4,22 +4,21 @@ Complete AI Decision Pipeline with Advanced Controllers
 """
 import sys
 import os
+
+# Add project root to Python path for absolute imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from datetime import datetime
 from typing import Dict, Any
 
-# Add all directories to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'agents'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'memory'))
-sys.path.append(os.path.join(os.path.dirname(__file__), 'controllers'))
-
-from agents.data_agent import DataAgent
-from agents.processing_agent import ProcessingAgent
-from agents.intelligence_agent import IntelligenceAgent
-from agents.decision_agent import DecisionAgent
-from memory.memory_engine import MemoryEngine
-from controllers.pattern_engine import PatternEngine
-from controllers.strategy_engine import StrategyEngine
-from controllers.execution_engine import ExecutionEngine
+from scripts.agents.data_agent import DataAgent
+from scripts.agents.processing_agent import ProcessingAgent
+from scripts.agents.intelligence_agent import IntelligenceAgent
+from scripts.agents.decision_agent import DecisionAgent
+from scripts.memory.memory_engine import MemoryEngine
+from scripts.controllers.pattern_engine import PatternEngine
+from scripts.controllers.strategy_engine import StrategyEngine
+from scripts.controllers.execution_engine import ExecutionEngine
 
 class AIEngine:
     def __init__(self):

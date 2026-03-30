@@ -2,20 +2,23 @@
 Agent Registry - Registers and manages all system agents
 """
 import sys
-sys.path.append('c:\\Users\\HP\\team58-ai-engine\\scripts')
+import os
 
-from agents.data_agent import DataAgent
-from agents.processing_agent import ProcessingAgent
-from agents.lead_qualification_agent import LeadQualificationAgent
-from controllers.lead_strategy_engine import LeadStrategyEngine
-from intelligence.feedback_analyzer import FeedbackAnalyzer
-from intelligence.pattern_learner import PatternLearner
-from intelligence.learning_optimizer import LearningOptimizer
-from intelligence.market_analyzer import MarketAnalyzer
-from intelligence.competitor_analyzer import CompetitorAnalyzer
-from intelligence.positioning_engine import PositioningEngine
-from intelligence.prediction_engine import PredictionEngine
-from intelligence.celebrity_intelligence_agent import CelebrityIntelligenceAgent
+# Add project root to Python path for absolute imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from scripts.agents.data_agent import DataAgent
+from scripts.agents.processing_agent import ProcessingAgent
+from scripts.agents.lead_qualification_agent import LeadQualificationAgent
+from scripts.controllers.lead_strategy_engine import LeadStrategyEngine
+from scripts.intelligence.feedback_analyzer import FeedbackAnalyzer
+from scripts.intelligence.pattern_learner import PatternLearner
+from scripts.intelligence.learning_optimizer import LearningOptimizer
+from scripts.intelligence.market_analyzer import MarketAnalyzer
+from scripts.intelligence.competitor_analyzer import CompetitorAnalyzer
+from scripts.intelligence.positioning_engine import PositioningEngine
+from scripts.intelligence.prediction_engine import PredictionEngine
+from scripts.intelligence.celebrity_intelligence_agent import CelebrityIntelligenceAgent
 
 
 class AgentRegistry:

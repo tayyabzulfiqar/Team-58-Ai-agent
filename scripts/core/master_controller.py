@@ -3,11 +3,14 @@ Master Controller - Central orchestration system
 Manages full pipeline and single agent execution with session isolation
 """
 import sys
-sys.path.append('c:\\Users\\HP\\team58-ai-engine\\scripts')
+import os
 
-from core.session_manager import SessionManager
-from core.agent_registry import AgentRegistry
-from core.role_manager import RoleManager
+# Add project root to Python path for absolute imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from scripts.core.session_manager import SessionManager
+from scripts.core.agent_registry import AgentRegistry
+from scripts.core.role_manager import RoleManager
 from typing import Dict, Any, List, Optional
 
 

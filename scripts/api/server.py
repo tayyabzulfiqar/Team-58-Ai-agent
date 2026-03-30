@@ -4,7 +4,9 @@ Provides endpoints to run full pipeline and get results
 """
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+# Add project root to Python path for absolute imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,9 +17,9 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-from core.master_controller import MasterController
-from scheduler.auto_scheduler import start_scheduler, get_scheduler_status
-from scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
+from scripts.core.master_controller import MasterController
+from scripts.scheduler.auto_scheduler import start_scheduler, get_scheduler_status
+from scripts.scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
 
 app = FastAPI(
     title="AI Engine API",

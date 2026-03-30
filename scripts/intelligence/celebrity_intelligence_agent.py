@@ -3,10 +3,13 @@ Celebrity Intelligence Agent
 Data-driven persona analysis, market intelligence, and growth prediction for influencers/celebrities
 """
 import sys
-sys.path.append('c:\\Users\\HP\\team58-ai-engine\\scripts')
+import os
 
-from intelligence.market_analyzer import MarketAnalyzer
-from intelligence.competitor_analyzer import CompetitorAnalyzer
+# Add project root to Python path for absolute imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from scripts.intelligence.market_analyzer import MarketAnalyzer
+from scripts.intelligence.competitor_analyzer import CompetitorAnalyzer
 from typing import Dict, Any, List
 from datetime import datetime
 
