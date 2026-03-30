@@ -16,6 +16,18 @@ SEARXNG_URL = os.getenv("SEARXNG_URL", "https://searx.be").rstrip("/")
 TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID", "").strip()
 TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "").strip()
 
+# STRICT VALIDATION for required proxy-based Claude API variables
+if not BASE_URL:
+    raise Exception("BASE_URL missing in environment - required for proxy API")
+
+if not MODEL:
+    raise Exception("MODEL missing in environment - required for proxy API")
+
+if not API_KEY:
+    raise Exception("API_KEY missing in environment - required for proxy API")
+
+print(f"SUCCESS: Loaded API config - BASE_URL: {BASE_URL}, MODEL: {MODEL}")
+
 API_URL = f"{BASE_URL}/v1/chat/completions" if BASE_URL else "https://api.openai.com/v1/chat/completions"
 
 FALLBACK_CELEBRITIES = [
@@ -425,3 +437,35 @@ def estimate_roi(brand_alignment_score: int, engagement_potential: int, audience
         "estimated_revenue": revenue_range,
         "projected_roas": f"{roas}x",
     }
+
+
+def chat_with_claude(message: str) -> str:
+    """Send message to Claude via proxy API and return clean text response"""
+    if not API_KEY or not BASE_URL:
+        return "Error: API not configured. Please set BASE_URL and API_KEY."
+    
+    try:
+        response = requests.post(
+            API_URL,
+            headers={
+                "Authorization": f"Bearer {API_KEY}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": MODEL,
+                "messages": [
+                    {"role": "user", "content": message}
+                ],
+                "temperature": 0.7,
+                "max_tokens": 1000,
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        
+        data = response.json()
+        content = data["choices"][0]["message"]["content"]
+        return content.strip()
+    except Exception as exc:
+        print(f"Chat Error: {exc}")
+        return f"Error: {exc}"

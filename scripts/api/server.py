@@ -20,6 +20,8 @@ from datetime import datetime
 from scripts.core.master_controller import MasterController
 from scripts.scheduler.auto_scheduler import start_scheduler, get_scheduler_status
 from scripts.scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
+from scripts.env_debug import print_env_status
+from scripts.intelligence_tools import chat_with_claude
 
 app = FastAPI(
     title="AI Engine API",
@@ -30,7 +32,7 @@ app = FastAPI(
 # Enable CORS for dashboard
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=["*"],  # allow all for now
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -57,10 +59,29 @@ class SingleAgentRequest(BaseModel):
     input_data: Dict[str, Any]
     role: str = "admin"
 
+class ChatRequest(BaseModel):
+    message: str
+
+@app.post("/chat")
+async def chat_endpoint(request: ChatRequest):
+    try:
+        response = chat_with_claude(request.message)
+        return {"response": response}
+    except Exception as e:
+        return {"response": f"Error: {str(e)}"}
+
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 @app.on_event("startup")
 async def startup_event():
     """Start auto-scheduler on server startup"""
     global scheduler_started
+    
+    # Print environment variable status for debugging
+    print_env_status()
+    
     if not scheduler_started:
         start_scheduler()
         scheduler_started = True
