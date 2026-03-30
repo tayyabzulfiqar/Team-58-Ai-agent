@@ -21,17 +21,23 @@ from scripts.core.master_controller import MasterController
 # Ensure log directory exists (safe for Railway)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 LOG_DIR = os.path.join(BASE_DIR, "data", "live")
-os.makedirs(LOG_DIR, exist_ok=True)
 LOG_FILE = os.path.join(LOG_DIR, "priority_events.log")
 
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
+# Setup logging - handle Railway read-only filesystem gracefully
+try:
+    os.makedirs(LOG_DIR, exist_ok=True)
+    handlers = [
         logging.FileHandler(LOG_FILE),
         logging.StreamHandler()
     ]
+except (OSError, PermissionError):
+    # Railway or read-only filesystem - use console only
+    handlers = [logging.StreamHandler()]
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=handlers
 )
 logger = logging.getLogger('EventTrigger')
 
