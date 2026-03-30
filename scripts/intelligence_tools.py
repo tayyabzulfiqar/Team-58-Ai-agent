@@ -16,19 +16,9 @@ SEARXNG_URL = os.getenv("SEARXNG_URL", "https://searx.be").rstrip("/")
 TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID", "").strip()
 TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "").strip()
 
-# STRICT VALIDATION for required proxy-based Claude API variables
-if not BASE_URL:
-    raise Exception("BASE_URL missing in environment - required for proxy API")
-
-if not MODEL:
-    raise Exception("MODEL missing in environment - required for proxy API")
-
-if not API_KEY:
-    raise Exception("API_KEY missing in environment - required for proxy API")
-
-print(f"SUCCESS: Loaded API config - BASE_URL: {BASE_URL}, MODEL: {MODEL}")
-
 API_URL = f"{BASE_URL}/v1/chat/completions" if BASE_URL else "https://api.openai.com/v1/chat/completions"
+
+print(f"INFO: API_URL configured: {API_URL}")
 
 FALLBACK_CELEBRITIES = [
     {
@@ -441,18 +431,27 @@ def estimate_roi(brand_alignment_score: int, engagement_potential: int, audience
 
 def chat_with_claude(message: str) -> str:
     """Send message to Claude via proxy API and return clean text response"""
-    if not API_KEY or not BASE_URL:
-        return "Error: API not configured. Please set BASE_URL and API_KEY."
+    # Check env vars at runtime, not import time
+    api_key = os.getenv("API_KEY", "").strip()
+    base_url = os.getenv("BASE_URL", "").rstrip("/")
+    model = os.getenv("MODEL", "claude-3-5-sonnet-20241022")
+    
+    if not api_key:
+        return "Error: API_KEY not configured. Please set API_KEY environment variable."
+    if not base_url:
+        return "Error: BASE_URL not configured. Please set BASE_URL environment variable."
+    
+    api_url = f"{base_url}/v1/chat/completions"
     
     try:
         response = requests.post(
-            API_URL,
+            api_url,
             headers={
-                "Authorization": f"Bearer {API_KEY}",
+                "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
             },
             json={
-                "model": MODEL,
+                "model": model,
                 "messages": [
                     {"role": "user", "content": message}
                 ],
