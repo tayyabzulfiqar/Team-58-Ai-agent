@@ -62,7 +62,7 @@ class MasterController:
             else:
                 # Need to process
                 processing_agent = self.agent_registry.get_agent("processing_agent")
-                processed_leads = processing_agent.process_batch(leads) if processing_agent else leads
+                processed_leads = processing_agent.process_raw_data(leads) if processing_agent else leads
             
             self.session_manager.save_step("processing", {"processed_count": len(processed_leads)})
             results["steps_completed"].append("processing")
