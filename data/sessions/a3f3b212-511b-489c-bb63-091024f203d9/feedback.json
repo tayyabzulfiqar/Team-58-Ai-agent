@@ -1,0 +1,83 @@
+{
+  "total_analyzed": 3,
+  "predicted_wins": 3,
+  "predicted_losses": 0,
+  "win_rate": 1.0,
+  "avg_strategy_quality": 6.666666666666667,
+  "success_signals": {
+    "ads": 5,
+    "scaling": 3,
+    "hiring": 3,
+    "scaling problems": 3,
+    "Growth Enablement": 3
+  },
+  "failure_signals": {},
+  "results": [
+    {
+      "lead": "TechScale Solutions",
+      "score": 88,
+      "color": "\ud83d\udd34 RED",
+      "strategy_quality": 8,
+      "predicted_success": true,
+      "confidence": 0.8749580537666584,
+      "reasons": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "Moderate inefficiency (+12)",
+        "Perfect target industry (+10)",
+        "Hiring/scaling/new funding (+15)"
+      ],
+      "pain": "scaling problems",
+      "angle": "Growth Enablement",
+      "channels": [
+        "linkedin",
+        "email",
+        "phone"
+      ],
+      "evaluated_at": "2026-03-27T06:20:17.032428"
+    },
+    {
+      "lead": "GrowthRocket Agency",
+      "score": 75,
+      "color": "\ud83d\udfe0 ORANGE",
+      "strategy_quality": 5,
+      "predicted_success": true,
+      "confidence": 0.5901192233621451,
+      "reasons": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "No visible pain (+3)",
+        "Somewhat relevant (+6)",
+        "Hiring/scaling/new funding (+15)"
+      ],
+      "pain": "scaling problems",
+      "angle": "Growth Enablement",
+      "channels": [
+        "email",
+        "linkedin"
+      ],
+      "evaluated_at": "2026-03-27T06:20:17.032428"
+    },
+    {
+      "lead": "Enterprise Co",
+      "score": 60,
+      "color": "\ud83d\udfe1 YELLOW",
+      "strategy_quality": 7,
+      "predicted_success": true,
+      "confidence": 0.6730034673259583,
+      "reasons": [
+        "Weak relevance (+5)",
+        "Actively running paid ads (+15)",
+        "Moderate inefficiency (+12)",
+        "Not ideal (+2)",
+        "Hiring/scaling/new funding (+15)"
+      ],
+      "pain": "scaling problems",
+      "angle": "Growth Enablement",
+      "channels": [
+        "email"
+      ],
+      "evaluated_at": "2026-03-27T06:20:17.032428"
+    }
+  ]
+}

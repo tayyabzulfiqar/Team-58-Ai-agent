@@ -1,0 +1,67 @@
+{
+  "total_winners": 1,
+  "total_losers": 2,
+  "top_patterns": [],
+  "weak_patterns": [],
+  "insights": [
+    "Overall win rate: 33.3% (1/3)",
+    "Average winner score: 88.0",
+    "Average loser score: 37.5",
+    "Score threshold is well-calibrated"
+  ],
+  "winner_patterns": {
+    "colors": {
+      "\ud83d\udd34 RED": 1
+    },
+    "scores": [
+      88
+    ],
+    "pains": {
+      "scaling problems": 1
+    },
+    "angles": {
+      "Growth Enablement": 1
+    },
+    "channels": {
+      "linkedin": 1,
+      "email": 1,
+      "phone": 1
+    },
+    "signals": {
+      "ads": 2,
+      "scaling": 1,
+      "hiring": 1
+    },
+    "avg_quality": 10.0,
+    "avg_score": 88.0
+  },
+  "loser_patterns": {
+    "colors": {
+      "\ud83d\udfe0 ORANGE": 1,
+      "\u26ab BLACK": 1
+    },
+    "scores": [
+      75,
+      0
+    ],
+    "pains": {
+      "scaling problems": 1,
+      "N/A": 1
+    },
+    "angles": {
+      "Growth Enablement": 1,
+      "None": 1
+    },
+    "channels": {
+      "email": 1,
+      "linkedin": 1
+    },
+    "signals": {
+      "ads": 3,
+      "scaling": 1,
+      "hiring": 1
+    },
+    "avg_quality": 3.5,
+    "avg_score": 37.5
+  }
+}

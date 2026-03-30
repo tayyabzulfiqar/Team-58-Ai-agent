@@ -1,0 +1,25 @@
+{
+  "strategies": [
+    {
+      "company": "Session 2 Corp",
+      "score": 17,
+      "color": "BLACK",
+      "priority": "IGNORE",
+      "channel": [],
+      "angle": "None",
+      "hook": "N/A",
+      "offer": {
+        "name": "None",
+        "description": "Lead does not meet criteria"
+      },
+      "cta": "None",
+      "message": "No outreach - lead disqualified",
+      "execution_plan": [
+        "Do not contact",
+        "Archive for future re-evaluation"
+      ],
+      "pain_identified": "N/A",
+      "reason": "Score 17 below threshold"
+    }
+  ]
+}

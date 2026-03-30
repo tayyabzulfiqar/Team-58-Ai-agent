@@ -1,0 +1,89 @@
+{
+  "total_analyzed": 3,
+  "predicted_wins": 1,
+  "predicted_losses": 2,
+  "win_rate": 0.3333333333333333,
+  "avg_strategy_quality": 5.666666666666667,
+  "success_signals": {
+    "ads": 2,
+    "scaling": 1,
+    "hiring": 1,
+    "scaling problems": 1,
+    "Growth Enablement": 1
+  },
+  "failure_signals": {
+    "ads": 3,
+    "scaling": 1,
+    "hiring": 1,
+    "scaling problems": 1,
+    "Growth Enablement": 1,
+    "N/A": 1,
+    "None": 1
+  },
+  "results": [
+    {
+      "lead": "TechScale Solutions",
+      "score": 88,
+      "color": "\ud83d\udd34 RED",
+      "strategy_quality": 10,
+      "predicted_success": true,
+      "confidence": 0.8694569327798464,
+      "reasons": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "Moderate inefficiency (+12)",
+        "Perfect target industry (+10)",
+        "Hiring/scaling/new funding (+15)"
+      ],
+      "pain": "scaling problems",
+      "angle": "Growth Enablement",
+      "channels": [
+        "linkedin",
+        "email",
+        "phone"
+      ],
+      "evaluated_at": "2026-03-27T06:13:07.735736"
+    },
+    {
+      "lead": "GrowthRocket Agency",
+      "score": 75,
+      "color": "\ud83d\udfe0 ORANGE",
+      "strategy_quality": 5,
+      "predicted_success": false,
+      "confidence": 0.6536435207706119,
+      "reasons": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "No visible pain (+3)",
+        "Somewhat relevant (+6)",
+        "Hiring/scaling/new funding (+15)"
+      ],
+      "pain": "scaling problems",
+      "angle": "Growth Enablement",
+      "channels": [
+        "email",
+        "linkedin"
+      ],
+      "evaluated_at": "2026-03-27T06:13:07.735736"
+    },
+    {
+      "lead": "Personal Blog",
+      "score": 0,
+      "color": "\u26ab BLACK",
+      "strategy_quality": 2,
+      "predicted_success": false,
+      "confidence": 0.4226202012360579,
+      "reasons": [
+        "Weak relevance (+5)",
+        "No ads detected (+0)",
+        "No visible pain (+3)",
+        "Not ideal (+2)",
+        "No urgency (+2)"
+      ],
+      "pain": "N/A",
+      "angle": "None",
+      "channels": [],
+      "evaluated_at": "2026-03-27T06:13:07.735736"
+    }
+  ]
+}

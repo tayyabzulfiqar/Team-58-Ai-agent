@@ -1,0 +1,15 @@
+{
+  "id": "performance_20260326_233131_5489",
+  "type": "performance",
+  "data": {
+    "execution_time_seconds": 0.019395,
+    "total_processed": 8,
+    "total_decisions": 8,
+    "avg_quality_score": 0.9725000000000001,
+    "pipeline_success": true
+  },
+  "timestamp": "2026-03-26T23:31:31.036418",
+  "confidence": 1.0,
+  "access_count": 0,
+  "last_accessed": "2026-03-26T23:31:31.036418"
+}

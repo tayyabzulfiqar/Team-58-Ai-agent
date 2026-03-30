@@ -1,0 +1,244 @@
+{
+  "session_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+  "mode": "full_pipeline",
+  "summary": {
+    "total_leads": 3,
+    "red": 1,
+    "orange": 1,
+    "yellow": 1,
+    "black": 0,
+    "average_score": 74.3,
+    "predictions_generated": 3
+  },
+  "market_insights": {
+    "top_problems": [
+      {
+        "problem": "low conversion",
+        "mentions": 1,
+        "severity": "LOW"
+      },
+      {
+        "problem": "high cost",
+        "mentions": 1,
+        "severity": "LOW"
+      },
+      {
+        "problem": "ROAS",
+        "mentions": 1,
+        "severity": "LOW"
+      },
+      {
+        "problem": "scaling issues",
+        "mentions": 1,
+        "severity": "LOW"
+      }
+    ],
+    "demand_signals": [
+      {
+        "signal": "hiring",
+        "mentions": 1,
+        "strength": "WEAK"
+      },
+      {
+        "signal": "series b",
+        "mentions": 1,
+        "strength": "WEAK"
+      },
+      {
+        "signal": "B2B SaaS growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      },
+      {
+        "signal": "Marketing growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      },
+      {
+        "signal": "Enterprise Software growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      }
+    ],
+    "urgency_level": "LOW",
+    "hot_markets": [
+      {
+        "market": "B2B SaaS",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      },
+      {
+        "market": "Marketing",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      },
+      {
+        "market": "Enterprise Software",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      }
+    ],
+    "market_sentiment": "EXPLORATORY - Early stage market",
+    "total_leads_analyzed": 3,
+    "pain_point_count": 4,
+    "analyzed_at": "2026-03-27T06:20:17.017608"
+  },
+  "competitor_insights": {
+    "competition_level": "LOW",
+    "competitor_activity": {
+      "leads_running_ads": 3,
+      "total_leads": 3,
+      "ads_penetration": "100.0%",
+      "competitor_presence": "HIGH",
+      "intensity": "Aggressive"
+    },
+    "market_gap": [
+      {
+        "type": "underserved_segment",
+        "description": "Many leads with low scores indicate underserved needs",
+        "opportunity": "High - potential to capture unoptimized market"
+      }
+    ],
+    "opportunity_score": 65,
+    "recommendations": [
+      "Low saturation - aggressive market entry recommended",
+      "MODERATE OPPORTUNITY - Test with limited budget before scaling"
+    ],
+    "analyzed_at": "2026-03-27T06:20:17.020099"
+  },
+  "positioning": [
+    {
+      "angle": "Performance Leader",
+      "tagline": "We don't just run ads\u2014we optimize for profit",
+      "positioning": "ROI-first agency focused on measurable revenue growth",
+      "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+      "market_gap_used": "Capturing overlooked segment with specialized approach",
+      "messaging_direction": {
+        "headline_tone": "Results-focused, data-backed",
+        "key_message": "We fix broken funnels and recover lost revenue",
+        "proof_points": [
+          "ROI tracking",
+          "Case studies",
+          "Before/after metrics"
+        ],
+        "emotion": "Confidence, security, relief"
+      },
+      "key_differentiators": [
+        "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+      ],
+      "generated_at": "2026-03-27T06:20:17.022092"
+    },
+    {
+      "angle": "Performance Leader",
+      "tagline": "We don't just run ads\u2014we optimize for profit",
+      "positioning": "ROI-first agency focused on measurable revenue growth",
+      "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+      "market_gap_used": "Capturing overlooked segment with specialized approach",
+      "messaging_direction": {
+        "headline_tone": "Results-focused, data-backed",
+        "key_message": "We fix broken funnels and recover lost revenue",
+        "proof_points": [
+          "ROI tracking",
+          "Case studies",
+          "Before/after metrics"
+        ],
+        "emotion": "Confidence, security, relief"
+      },
+      "key_differentiators": [
+        "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+      ],
+      "generated_at": "2026-03-27T06:20:17.022092"
+    },
+    {
+      "angle": "Performance Leader",
+      "tagline": "We don't just run ads\u2014we optimize for profit",
+      "positioning": "ROI-first agency focused on measurable revenue growth",
+      "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+      "market_gap_used": "Capturing overlooked segment with specialized approach",
+      "messaging_direction": {
+        "headline_tone": "Results-focused, data-backed",
+        "key_message": "We fix broken funnels and recover lost revenue",
+        "proof_points": [
+          "ROI tracking",
+          "Case studies",
+          "Before/after metrics"
+        ],
+        "emotion": "Confidence, security, relief"
+      },
+      "key_differentiators": [
+        "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+      ],
+      "generated_at": "2026-03-27T06:20:17.022092"
+    }
+  ],
+  "predictions": [
+    {
+      "success_probability": 73,
+      "campaign_strength": "STRONG",
+      "score_contribution": 30.8,
+      "market_contribution": 12.5,
+      "competition_contribution": 14.8,
+      "positioning_contribution": 15,
+      "insights": [
+        "GOOD PROBABILITY: Strong positioning with favorable conditions",
+        "Strongest factor: Lead quality (30.8/35)"
+      ],
+      "risks": [
+        "LOW URGENCY: Longer sales cycle expected"
+      ],
+      "predicted_outcome": "Good chance of success with consistent execution",
+      "generated_at": "2026-03-27T06:20:17.025084"
+    },
+    {
+      "success_probability": 68,
+      "campaign_strength": "STRONG",
+      "score_contribution": 26.2,
+      "market_contribution": 12.5,
+      "competition_contribution": 14.8,
+      "positioning_contribution": 15,
+      "insights": [
+        "GOOD PROBABILITY: Strong positioning with favorable conditions",
+        "Strongest factor: Lead quality (26.2/35)"
+      ],
+      "risks": [
+        "LOW URGENCY: Longer sales cycle expected"
+      ],
+      "predicted_outcome": "Moderate success expected - optimize based on early results",
+      "generated_at": "2026-03-27T06:20:17.025084"
+    },
+    {
+      "success_probability": 63,
+      "campaign_strength": "STRONG",
+      "score_contribution": 21.0,
+      "market_contribution": 12.5,
+      "competition_contribution": 14.8,
+      "positioning_contribution": 15,
+      "insights": [
+        "MODERATE PROBABILITY: Viable but requires careful execution",
+        "Strongest factor: Lead quality (21.0/35)"
+      ],
+      "risks": [
+        "LOW URGENCY: Longer sales cycle expected"
+      ],
+      "predicted_outcome": "Moderate success expected - optimize based on early results",
+      "generated_at": "2026-03-27T06:20:17.026082"
+    }
+  ],
+  "steps_completed": [
+    "processing",
+    "scoring",
+    "strategy",
+    "market_analysis",
+    "competitor_analysis",
+    "positioning",
+    "prediction",
+    "learning"
+  ],
+  "errors": null
+}

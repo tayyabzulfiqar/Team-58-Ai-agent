@@ -1,0 +1,95 @@
+{
+  "total_winners": 3,
+  "total_losers": 0,
+  "top_patterns": [
+    {
+      "type": "signal",
+      "pattern": "ads",
+      "winner_count": 5,
+      "loser_count": 0,
+      "ratio": 5.0,
+      "strength": "high"
+    },
+    {
+      "type": "pain",
+      "pattern": "scaling problems",
+      "winner_count": 3,
+      "loser_count": 0,
+      "ratio": 3.0,
+      "strength": "high"
+    },
+    {
+      "type": "angle",
+      "pattern": "Growth Enablement",
+      "winner_count": 3,
+      "loser_count": 0,
+      "ratio": 3.0,
+      "strength": "high"
+    },
+    {
+      "type": "signal",
+      "pattern": "scaling",
+      "winner_count": 3,
+      "loser_count": 0,
+      "ratio": 3.0,
+      "strength": "high"
+    },
+    {
+      "type": "signal",
+      "pattern": "hiring",
+      "winner_count": 3,
+      "loser_count": 0,
+      "ratio": 3.0,
+      "strength": "high"
+    }
+  ],
+  "weak_patterns": [],
+  "insights": [
+    "Overall win rate: 100.0% (3/3)",
+    "Strong signals in winning leads:",
+    "  \u2022 ads: 5x winners vs 0x losers",
+    "  \u2022 scaling problems: 3x winners vs 0x losers",
+    "  \u2022 Growth Enablement: 3x winners vs 0x losers",
+    "RECOMMENDATION: Increase weight for 'ads' in scoring"
+  ],
+  "winner_patterns": {
+    "colors": {
+      "\ud83d\udd34 RED": 1,
+      "\ud83d\udfe0 ORANGE": 1,
+      "\ud83d\udfe1 YELLOW": 1
+    },
+    "scores": [
+      88,
+      75,
+      60
+    ],
+    "pains": {
+      "scaling problems": 3
+    },
+    "angles": {
+      "Growth Enablement": 3
+    },
+    "channels": {
+      "linkedin": 2,
+      "email": 3,
+      "phone": 1
+    },
+    "signals": {
+      "ads": 5,
+      "scaling": 3,
+      "hiring": 3
+    },
+    "avg_quality": 6.666666666666667,
+    "avg_score": 74.33333333333333
+  },
+  "loser_patterns": {
+    "colors": {},
+    "scores": [],
+    "pains": {},
+    "angles": {},
+    "channels": {},
+    "signals": {},
+    "avg_quality": 0,
+    "avg_score": 0
+  }
+}

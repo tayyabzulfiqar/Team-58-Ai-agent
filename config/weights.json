@@ -1,0 +1,14 @@
+{
+  "weights": {
+    "service_fit": 27,
+    "ads_presence": 16,
+    "pain_clarity": 22,
+    "icp_match": 10,
+    "urgency_signals": 15,
+    "decision_maker": 10,
+    "business_size": 5
+  },
+  "last_updated": "2026-03-27T06:20:17.237903",
+  "update_count": 0,
+  "version": "2.0"
+}

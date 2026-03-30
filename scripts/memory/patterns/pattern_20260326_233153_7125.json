@@ -1,0 +1,35 @@
+{
+  "id": "pattern_20260326_233153_7125",
+  "type": "pattern",
+  "data": {
+    "age_income_correlation": 0.8787179602790619,
+    "source_performance": {
+      "internal_db": {
+        "avg_score": 87.0,
+        "count": 4
+      },
+      "file_import": {
+        "avg_score": 90.8,
+        "count": 1
+      },
+      "manual_entry": {
+        "avg_score": 79.0,
+        "count": 1
+      }
+    },
+    "age_group_performance": {
+      "mature": {
+        "avg_score": 87.95,
+        "count": 4
+      },
+      "adult": {
+        "avg_score": 83.0,
+        "count": 2
+      }
+    }
+  },
+  "timestamp": "2026-03-26T23:31:53.711944",
+  "confidence": 1.0,
+  "access_count": 0,
+  "last_accessed": "2026-03-26T23:31:53.711944"
+}

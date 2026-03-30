@@ -1,0 +1,439 @@
+{
+  "id": "pattern_20260326_235755_555",
+  "type": "pattern",
+  "data": {
+    "correlation_patterns": {
+      "correlations": {
+        "age_vs_income": {
+          "correlation": 0.6831287438554434,
+          "strength": "strong",
+          "significance": 0.22912796265410046,
+          "sample_size": 8
+        },
+        "age_vs_intelligence_score": {
+          "correlation": 0.43467139459520654,
+          "strength": "moderate",
+          "significance": 0.11822518045348825,
+          "sample_size": 8
+        },
+        "age_vs_raw_score": {
+          "correlation": -0.42907854140613566,
+          "strength": "moderate",
+          "significance": 0.1163579840925167,
+          "sample_size": 8
+        },
+        "income_vs_intelligence_score": {
+          "correlation": 0.6640030414253495,
+          "strength": "strong",
+          "significance": 0.21752088565484334,
+          "sample_size": 8
+        },
+        "income_vs_raw_score": {
+          "correlation": -0.6323218556986011,
+          "strength": "strong",
+          "significance": 0.19992956127190725,
+          "sample_size": 8
+        }
+      },
+      "strongest_correlation": {
+        "pair": "age_vs_income",
+        "correlation": 0.6831287438554434,
+        "strength": "strong"
+      },
+      "total_correlations": 5
+    },
+    "temporal_patterns": {
+      "trend_analysis": {
+        "age": {
+          "direction": "increasing",
+          "strength": 0.25630132932022354,
+          "start_value": 36,
+          "end_value": 35,
+          "change_percentage": -2.7777777777777777
+        },
+        "income": {
+          "direction": "stable",
+          "strength": 0.07695501839082461,
+          "start_value": 2589.0,
+          "end_value": 3204.0,
+          "change_percentage": 23.754345307068366
+        },
+        "raw_score": {
+          "direction": "stable",
+          "strength": 0.05551728401584637,
+          "start_value": 0.8409285229071304,
+          "end_value": 0.8782013428718562,
+          "change_percentage": 4.432341031300964
+        }
+      },
+      "seasonal_patterns": {
+        "hourly_patterns": {
+          "hour_23": {
+            "avg_score": 88.2625,
+            "count": 8,
+            "variance": 23.896964285714287
+          }
+        },
+        "best_hour": [
+          "hour_23",
+          {
+            "avg_score": 88.2625,
+            "count": 8,
+            "variance": 23.896964285714287
+          }
+        ],
+        "worst_hour": [
+          "hour_23",
+          {
+            "avg_score": 88.2625,
+            "count": 8,
+            "variance": 23.896964285714287
+          }
+        ]
+      },
+      "time_based_performance": {
+        "performance_series": [
+          {
+            "index": 0,
+            "timestamp": "2026-03-26T23:57:55.308627",
+            "score": 87.0,
+            "quality": 1.0
+          },
+          {
+            "index": 1,
+            "timestamp": "2026-03-26T23:57:55.308627",
+            "score": 93.0,
+            "quality": 1.0
+          },
+          {
+            "index": 2,
+            "timestamp": "2026-03-26T23:57:55.308627",
+            "score": 88.5,
+            "quality": 0.9500000000000001
+          },
+          {
+            "index": 3,
+            "timestamp": "2026-03-26T23:57:55.308627",
+            "score": 94.5,
+            "quality": 0.9500000000000001
+          },
+          {
+            "index": 4,
+            "timestamp": "2026-03-26T23:57:55.308627",
+            "score": 88.5,
+            "quality": 0.9500000000000001
+          },
+          {
+            "index": 5,
+            "timestamp": "2026-03-26T23:57:55.309144",
+            "score": 90.8,
+            "quality": 0.98
+          },
+          {
+            "index": 6,
+            "timestamp": "2026-03-26T23:57:55.309144",
+            "score": 84.8,
+            "quality": 0.98
+          },
+          {
+            "index": 7,
+            "timestamp": "2026-03-26T23:57:55.309144",
+            "score": 79.0,
+            "quality": 0.9
+          }
+        ],
+        "avg_performance": 88.2625,
+        "performance_variance": 23.896964285714287
+      },
+      "data_velocity": {
+        "records_per_second": 15473.887814313346,
+        "records_per_minute": 928433.2688588008,
+        "total_time_span_seconds": 0.000517,
+        "total_records": 8
+      }
+    },
+    "segmentation_patterns": {
+      "by_source": {
+        "segments": {
+          "external_api": {
+            "size": 3,
+            "avg_income": 6703.0,
+            "avg_age": 50,
+            "avg_score": 90.5,
+            "variance": 12.0
+          }
+        },
+        "total_segments": 1,
+        "largest_segment": [
+          "external_api",
+          {
+            "size": 3,
+            "avg_income": 6703.0,
+            "avg_age": 50,
+            "avg_score": 90.5,
+            "variance": 12.0
+          }
+        ],
+        "highest_performing": [
+          "external_api",
+          {
+            "size": 3,
+            "avg_income": 6703.0,
+            "avg_age": 50,
+            "avg_score": 90.5,
+            "variance": 12.0
+          }
+        ]
+      },
+      "by_age_group": {
+        "segments": {
+          "adult": {
+            "size": 5,
+            "avg_income": 4291.0,
+            "avg_age": 41.2,
+            "avg_score": 87.2,
+            "variance": 26.075
+          },
+          "mature": {
+            "size": 3,
+            "avg_income": 6361.666666666667,
+            "avg_age": 54.333333333333336,
+            "avg_score": 90.03333333333333,
+            "variance": 23.963333333333345
+          }
+        },
+        "total_segments": 2,
+        "largest_segment": [
+          "adult",
+          {
+            "size": 5,
+            "avg_income": 4291.0,
+            "avg_age": 41.2,
+            "avg_score": 87.2,
+            "variance": 26.075
+          }
+        ],
+        "highest_performing": [
+          "mature",
+          {
+            "size": 3,
+            "avg_income": 6361.666666666667,
+            "avg_age": 54.333333333333336,
+            "avg_score": 90.03333333333333,
+            "variance": 23.963333333333345
+          }
+        ]
+      },
+      "by_income_category": {
+        "segments": {
+          "high": {
+            "size": 5,
+            "avg_income": 5165.6,
+            "avg_age": 48.6,
+            "avg_score": 89.12,
+            "variance": 9.327000000000004
+          }
+        },
+        "total_segments": 1,
+        "largest_segment": [
+          "high",
+          {
+            "size": 5,
+            "avg_income": 5165.6,
+            "avg_age": 48.6,
+            "avg_score": 89.12,
+            "variance": 9.327000000000004
+          }
+        ],
+        "highest_performing": [
+          "high",
+          {
+            "size": 5,
+            "avg_income": 5165.6,
+            "avg_age": 48.6,
+            "avg_score": 89.12,
+            "variance": 9.327000000000004
+          }
+        ]
+      }
+    },
+    "behavioral_patterns": {
+      "source_behavior": {
+        "internal_db": {
+          "record_count": 2,
+          "avg_score": 90.0,
+          "score_consistency": 0.9528595479208969,
+          "avg_quality": 1.0,
+          "avg_income": 3530.5,
+          "reliability_score": 0.9764297739604484
+        },
+        "external_api": {
+          "record_count": 3,
+          "avg_score": 90.5,
+          "score_consistency": 0.9617226340868756,
+          "avg_quality": 0.9500000000000001,
+          "avg_income": 6703.0,
+          "reliability_score": 0.9558613170434378
+        },
+        "file_import": {
+          "record_count": 2,
+          "avg_score": 87.8,
+          "score_consistency": 0.9516783520829238,
+          "avg_quality": 0.98,
+          "avg_income": 5083.0,
+          "reliability_score": 0.965839176041462
+        },
+        "manual_entry": {
+          "record_count": 1,
+          "avg_score": 79.0,
+          "score_consistency": 1,
+          "avg_quality": 0.9,
+          "avg_income": 3204.0,
+          "reliability_score": 0.95
+        }
+      },
+      "quality_behavior": {
+        "avg_quality": 0.96375,
+        "quality_variance": 0.0011124999999999987,
+        "quality_trend": "declining",
+        "high_quality_percentage": 1.0,
+        "low_quality_percentage": 0.0
+      },
+      "performance_clusters": {
+        "clusters": {
+          "low_performance": {
+            "size": 2,
+            "min_score": 79.0,
+            "max_score": 84.8,
+            "avg_score": 81.9,
+            "score_range": 5.799999999999997
+          },
+          "medium_performance": {
+            "size": 2,
+            "min_score": 87.0,
+            "max_score": 88.5,
+            "avg_score": 87.75,
+            "score_range": 1.5
+          },
+          "high_performance": {
+            "size": 4,
+            "min_score": 88.5,
+            "max_score": 94.5,
+            "avg_score": 91.7,
+            "score_range": 6.0
+          }
+        },
+        "cluster_separation": 9.799999999999997
+      },
+      "outlier_patterns": {
+        "outlier_count": 1,
+        "outlier_percentage": 0.125,
+        "outlier_values": [
+          79.0
+        ],
+        "bounds": {
+          "lower_bound": 79.10000000000002,
+          "upper_bound": 98.69999999999999,
+          "iqr": 4.8999999999999915
+        },
+        "data_cleanliness": "moderate"
+      }
+    },
+    "performance_patterns": {
+      "high_performance_indicators": {
+        "common_sources": [
+          [
+            "external_api",
+            3
+          ],
+          [
+            "internal_db",
+            2
+          ],
+          [
+            "file_import",
+            2
+          ]
+        ],
+        "avg_age": 47.714285714285715,
+        "avg_income": 5333.714285714285,
+        "common_age_groups": [
+          [
+            "adult",
+            4
+          ],
+          [
+            "mature",
+            3
+          ]
+        ],
+        "common_income_categories": [
+          [
+            "high",
+            5
+          ],
+          [
+            "medium",
+            1
+          ],
+          [
+            "very_high",
+            1
+          ]
+        ]
+      },
+      "performance_distributions": {
+        "distribution_stats": {
+          "mean": 88.2625,
+          "median": 88.5,
+          "std_dev": 4.888452135974565,
+          "min": 79.0,
+          "max": 94.5,
+          "skewness": -0.505929093777462,
+          "kurtosis": -0.9061548045601526
+        },
+        "percentiles": {
+          "25th": 86.45,
+          "50th": 88.5,
+          "75th": 91.35,
+          "90th": 93.45,
+          "95th": 93.975
+        }
+      },
+      "performance_trends": {
+        "trend_direction": "declining",
+        "trend_strength": 0.5732556707449031,
+        "recent_performance": 84.86666666666666,
+        "early_performance": 89.5
+      },
+      "bottleneck_patterns": {
+        "bottlenecks": [],
+        "total_bottlenecks": 0,
+        "system_health": "healthy"
+      }
+    },
+    "pattern_summary": {
+      "total_pattern_types": 7,
+      "significant_patterns": 12,
+      "pattern_confidence": 0.0,
+      "key_insights": []
+    },
+    "confidence_scores": {
+      "correlation_patterns": 1.0,
+      "temporal_patterns": 0.7,
+      "segmentation_patterns": 0.7,
+      "behavioral_patterns": 0.7,
+      "performance_patterns": 0.7,
+      "pattern_summary": 0.7,
+      "confidence_scores": 0.7
+    },
+    "recommendations": [
+      "Highest reliability source: internal_db (score: 0.98). Consider increasing reliance on this source."
+    ],
+    "detection_timestamp": "2026-03-26T23:57:55.348705"
+  },
+  "timestamp": "2026-03-26T23:57:55.377089",
+  "confidence": 0.2,
+  "access_count": 0,
+  "last_accessed": "2026-03-26T23:57:55.377089"
+}

@@ -1,0 +1,14 @@
+{
+  "leads": [
+    {
+      "company_name": "Session 1 Corp",
+      "industry": "Tech",
+      "pain_points": [
+        "scaling"
+      ],
+      "running_ads": true,
+      "revenue_range": "$5M+",
+      "team_size": 50
+    }
+  ]
+}

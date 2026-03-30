@@ -1,0 +1,996 @@
+{
+  "session_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+  "created_at": "2026-03-27T06:20:17.004234",
+  "steps": {
+    "input": {
+      "timestamp": "2026-03-27T06:20:17.005115",
+      "data": {
+        "leads": [
+          {
+            "company_name": "TechScale Solutions",
+            "industry": "B2B SaaS",
+            "services": [
+              "lead generation"
+            ],
+            "target_audience": "enterprise",
+            "pain_points": [
+              "low conversion",
+              "high cost"
+            ],
+            "intent_signals": [
+              "hiring"
+            ],
+            "running_ads": true,
+            "revenue_range": "$5M+",
+            "team_size": 30,
+            "hiring": true,
+            "decision_maker": true
+          },
+          {
+            "company_name": "GrowthRocket Agency",
+            "industry": "Marketing",
+            "services": [
+              "ppc"
+            ],
+            "target_audience": "ecommerce",
+            "pain_points": [
+              "ROAS dropped"
+            ],
+            "intent_signals": [
+              "urgent"
+            ],
+            "running_ads": true,
+            "revenue_range": "$1M+",
+            "team_size": 12,
+            "hiring": true,
+            "decision_maker": true
+          },
+          {
+            "company_name": "Enterprise Co",
+            "industry": "Enterprise Software",
+            "services": [
+              "solutions"
+            ],
+            "target_audience": "fortune 500",
+            "pain_points": [
+              "scaling issues"
+            ],
+            "intent_signals": [
+              "series b"
+            ],
+            "running_ads": true,
+            "revenue_range": "$10M+",
+            "team_size": 150,
+            "hiring": true,
+            "decision_maker": true
+          }
+        ]
+      }
+    },
+    "processing": {
+      "timestamp": "2026-03-27T06:20:17.007633",
+      "data": {
+        "processed_count": 3
+      }
+    },
+    "scoring": {
+      "timestamp": "2026-03-27T06:20:17.009629",
+      "data": {
+        "scored_leads": [
+          {
+            "company_name": "TechScale Solutions",
+            "score": 88,
+            "color": "\ud83d\udd34 RED",
+            "priority": "Close immediately",
+            "action": "Contact immediately. Highly personalized outreach. Push for call within 24\u201348 hours",
+            "deal_value": "$5,000\u2013$15,000/month",
+            "decision_maker": true,
+            "competition_status": "Competing in paid search - opportunity to outperform",
+            "risk_flags": [],
+            "reason": [
+              "High alignment with lead generation/ads (+25)",
+              "Actively running paid ads (+15)",
+              "Moderate inefficiency (+12)",
+              "Perfect target industry (+10)",
+              "Hiring/scaling/new funding (+15)"
+            ]
+          },
+          {
+            "company_name": "GrowthRocket Agency",
+            "score": 75,
+            "color": "\ud83d\udfe0 ORANGE",
+            "priority": "High priority",
+            "action": "Send personalized proposal within 2\u20133 days. Focus on specific pain points",
+            "deal_value": "$3,000\u2013$8,000/month",
+            "decision_maker": true,
+            "competition_status": "Competing in paid search - opportunity to outperform",
+            "risk_flags": [],
+            "reason": [
+              "High alignment with lead generation/ads (+25)",
+              "Actively running paid ads (+15)",
+              "No visible pain (+3)",
+              "Somewhat relevant (+6)",
+              "Hiring/scaling/new funding (+15)"
+            ]
+          },
+          {
+            "company_name": "Enterprise Co",
+            "score": 60,
+            "color": "\ud83d\udfe1 YELLOW",
+            "priority": "Nurture",
+            "action": "Add to nurture sequence. Follow up later with value content",
+            "deal_value": "$1,000\u2013$3,000/month",
+            "decision_maker": true,
+            "competition_status": "Competing in paid search - opportunity to outperform",
+            "risk_flags": [],
+            "reason": [
+              "Weak relevance (+5)",
+              "Actively running paid ads (+15)",
+              "Moderate inefficiency (+12)",
+              "Not ideal (+2)",
+              "Hiring/scaling/new funding (+15)"
+            ]
+          }
+        ]
+      }
+    },
+    "strategy": {
+      "timestamp": "2026-03-27T06:20:17.013618",
+      "data": {
+        "strategies": [
+          {
+            "company": "TechScale Solutions",
+            "score": 88,
+            "color": "RED",
+            "priority": "IMMEDIATE",
+            "channel": [
+              "linkedin",
+              "email",
+              "phone"
+            ],
+            "angle": "Growth Enablement",
+            "hook": "Ready to scale but conversion is the bottleneck?",
+            "offer": {
+              "name": "Emergency Revenue Recovery",
+              "description": "14-day intensive audit + immediate fixes",
+              "price": "$2,500 setup + $3,000/month",
+              "guarantee": "20% ROAS improvement or money back"
+            },
+            "cta": "Worth a 10-minute conversation? I'm free Tuesday or Wednesday.",
+            "message": "Hey TechScale,\n\nReady to scale but conversion is the bottleneck?\n\nI work with agencies dealing with scaling problems. In the last 30 days, we:\n\u2022 Cut CAC by 40% for a SaaS company\n\u2022 3x'd ROAS for a marketing agency  \n\u2022 Generated 200+ qualified leads for a B2B firm\n\nOur Emergency Revenue Recovery is designed for exactly this:\n14-day intensive audit + immediate fixes\nInvestment: $2,500 setup + $3,000/month\nGuarantee: 20% ROAS improvement or money back\n\nWorth a 10-minute conversation? I'm free Tuesday or Wednesday.\n\nBest,\n[Your Name]",
+            "execution_plan": [
+              "1. Send LinkedIn connection request with hook within 2 hours",
+              "2. Follow up with InMail/email same day if no response",
+              "3. Call directly if contact number available (Day 2)",
+              "4. Send case study specific to TechScale industry (Day 3)",
+              "5. Final follow-up with calendar link (Day 5)",
+              "6. Move to CRM if no response after 5 days",
+              "7. Escalate to sales team for direct outreach"
+            ],
+            "pain_identified": "scaling problems",
+            "generated_at": "2026-03-27T06:20:17.013618"
+          },
+          {
+            "company": "GrowthRocket Agency",
+            "score": 75,
+            "color": "ORANGE",
+            "priority": "HIGH",
+            "channel": [
+              "email",
+              "linkedin"
+            ],
+            "angle": "Growth Enablement",
+            "hook": "You're hiring but leads aren't flowing. Let's solve both.",
+            "offer": {
+              "name": "Growth Acceleration System",
+              "description": "Full funnel rebuild + ongoing optimization",
+              "price": "$1,500 setup + $2,500/month",
+              "guarantee": "2x leads in 60 days"
+            },
+            "cta": "Does this resonate? Happy to share our process - just reply.",
+            "message": "Hi GrowthRocket,\n\nYou're hiring but leads aren't flowing. Let's solve both.\n\nI help GrowthRocket like yours solve scaling problems without the usual agency headaches.\n\nRecently helped a similar company:\n\u2192 From 50 leads/month to 300+ in 60 days\n\u2192 Reduced cost per acquisition by 35%\n\u2192 Built automated follow-up that converts 24% better\n\nOur approach: Full funnel rebuild + ongoing optimization\n\nDoes this resonate? Happy to share our process - just reply.\n\nTalk soon,\n[Your Name]\n\nP.S. Here's a case study from a GrowthRocket client: [link]",
+            "execution_plan": [
+              "1. Send personalized email with value-first message (Day 1)",
+              "2. LinkedIn connection request with note (Day 2)",
+              "3. Share relevant case study or content (Day 4)",
+              "4. Soft follow-up asking if they saw the value piece (Day 7)",
+              "5. Send framework/guide related to their pain (Day 10)",
+              "6. Nurture with monthly value content",
+              "7. Re-score in 30 days"
+            ],
+            "pain_identified": "scaling problems",
+            "generated_at": "2026-03-27T06:20:17.013618"
+          },
+          {
+            "company": "Enterprise Co",
+            "score": 60,
+            "color": "YELLOW",
+            "priority": "MEDIUM",
+            "channel": [
+              "email"
+            ],
+            "angle": "Growth Enablement",
+            "hook": "You're hiring but leads aren't flowing. Let's solve both.",
+            "offer": {
+              "name": "Lead Generation Starter",
+              "description": "Basic funnel + monthly optimization",
+              "price": "$1,000/month",
+              "guarantee": "50% more qualified leads"
+            },
+            "cta": "Follow for more. I'll DM you the case study.",
+            "message": "Hey Enterprise,\n\nCame across Enterprise Co and noticed you're working on growth. \n\nQuick thought: Most companies struggle with scaling problems because they focus on traffic instead of conversion.\n\nI wrote a short guide on fixing this - want me to send it over?\n\nFollow for more. I'll DM you the case study.\n\n[Your Name]",
+            "execution_plan": [
+              "1. Add to email nurture sequence (Day 1)",
+              "2. Connect on LinkedIn with soft message (Day 3)",
+              "3. Send weekly newsletter with valuable content",
+              "4. Engage with their content on social (ongoing)",
+              "5. Re-evaluate in 60 days for score upgrade"
+            ],
+            "pain_identified": "scaling problems",
+            "generated_at": "2026-03-27T06:20:17.013618"
+          }
+        ]
+      }
+    },
+    "market": {
+      "timestamp": "2026-03-27T06:20:17.017608",
+      "data": {
+        "top_problems": [
+          {
+            "problem": "low conversion",
+            "mentions": 1,
+            "severity": "LOW"
+          },
+          {
+            "problem": "high cost",
+            "mentions": 1,
+            "severity": "LOW"
+          },
+          {
+            "problem": "ROAS",
+            "mentions": 1,
+            "severity": "LOW"
+          },
+          {
+            "problem": "scaling issues",
+            "mentions": 1,
+            "severity": "LOW"
+          }
+        ],
+        "demand_signals": [
+          {
+            "signal": "hiring",
+            "mentions": 1,
+            "strength": "WEAK"
+          },
+          {
+            "signal": "series b",
+            "mentions": 1,
+            "strength": "WEAK"
+          },
+          {
+            "signal": "B2B SaaS growth",
+            "mentions": 1,
+            "strength": "MODERATE",
+            "type": "industry_trend"
+          },
+          {
+            "signal": "Marketing growth",
+            "mentions": 1,
+            "strength": "MODERATE",
+            "type": "industry_trend"
+          },
+          {
+            "signal": "Enterprise Software growth",
+            "mentions": 1,
+            "strength": "MODERATE",
+            "type": "industry_trend"
+          }
+        ],
+        "urgency_level": "LOW",
+        "hot_markets": [
+          {
+            "market": "B2B SaaS",
+            "lead_count": 1,
+            "avg_score": 0.0,
+            "heat_level": "COOL"
+          },
+          {
+            "market": "Marketing",
+            "lead_count": 1,
+            "avg_score": 0.0,
+            "heat_level": "COOL"
+          },
+          {
+            "market": "Enterprise Software",
+            "lead_count": 1,
+            "avg_score": 0.0,
+            "heat_level": "COOL"
+          }
+        ],
+        "market_sentiment": "EXPLORATORY - Early stage market",
+        "total_leads_analyzed": 3,
+        "pain_point_count": 4,
+        "analyzed_at": "2026-03-27T06:20:17.017608"
+      }
+    },
+    "competitor": {
+      "timestamp": "2026-03-27T06:20:17.020099",
+      "data": {
+        "competition_level": "LOW",
+        "competitor_activity": {
+          "leads_running_ads": 3,
+          "total_leads": 3,
+          "ads_penetration": "100.0%",
+          "competitor_presence": "HIGH",
+          "intensity": "Aggressive"
+        },
+        "market_gap": [
+          {
+            "type": "underserved_segment",
+            "description": "Many leads with low scores indicate underserved needs",
+            "opportunity": "High - potential to capture unoptimized market"
+          }
+        ],
+        "opportunity_score": 65,
+        "recommendations": [
+          "Low saturation - aggressive market entry recommended",
+          "MODERATE OPPORTUNITY - Test with limited budget before scaling"
+        ],
+        "analyzed_at": "2026-03-27T06:20:17.020099"
+      }
+    },
+    "positioning": {
+      "timestamp": "2026-03-27T06:20:17.023090",
+      "data": {
+        "positioning": [
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          },
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          },
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          }
+        ]
+      }
+    },
+    "prediction": {
+      "timestamp": "2026-03-27T06:20:17.026082",
+      "data": {
+        "predictions": [
+          {
+            "success_probability": 73,
+            "campaign_strength": "STRONG",
+            "score_contribution": 30.8,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "GOOD PROBABILITY: Strong positioning with favorable conditions",
+              "Strongest factor: Lead quality (30.8/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Good chance of success with consistent execution",
+            "generated_at": "2026-03-27T06:20:17.025084"
+          },
+          {
+            "success_probability": 68,
+            "campaign_strength": "STRONG",
+            "score_contribution": 26.2,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "GOOD PROBABILITY: Strong positioning with favorable conditions",
+              "Strongest factor: Lead quality (26.2/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Moderate success expected - optimize based on early results",
+            "generated_at": "2026-03-27T06:20:17.025084"
+          },
+          {
+            "success_probability": 63,
+            "campaign_strength": "STRONG",
+            "score_contribution": 21.0,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "MODERATE PROBABILITY: Viable but requires careful execution",
+              "Strongest factor: Lead quality (21.0/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Moderate success expected - optimize based on early results",
+            "generated_at": "2026-03-27T06:20:17.026082"
+          }
+        ]
+      }
+    },
+    "feedback": {
+      "timestamp": "2026-03-27T06:20:17.040551",
+      "data": {
+        "total_analyzed": 3,
+        "predicted_wins": 3,
+        "predicted_losses": 0,
+        "win_rate": 1.0,
+        "avg_strategy_quality": 6.666666666666667,
+        "success_signals": {
+          "ads": 5,
+          "scaling": 3,
+          "hiring": 3,
+          "scaling problems": 3,
+          "Growth Enablement": 3
+        },
+        "failure_signals": {},
+        "results": [
+          {
+            "lead": "TechScale Solutions",
+            "score": 88,
+            "color": "\ud83d\udd34 RED",
+            "strategy_quality": 8,
+            "predicted_success": true,
+            "confidence": 0.8749580537666584,
+            "reasons": [
+              "High alignment with lead generation/ads (+25)",
+              "Actively running paid ads (+15)",
+              "Moderate inefficiency (+12)",
+              "Perfect target industry (+10)",
+              "Hiring/scaling/new funding (+15)"
+            ],
+            "pain": "scaling problems",
+            "angle": "Growth Enablement",
+            "channels": [
+              "linkedin",
+              "email",
+              "phone"
+            ],
+            "evaluated_at": "2026-03-27T06:20:17.032428"
+          },
+          {
+            "lead": "GrowthRocket Agency",
+            "score": 75,
+            "color": "\ud83d\udfe0 ORANGE",
+            "strategy_quality": 5,
+            "predicted_success": true,
+            "confidence": 0.5901192233621451,
+            "reasons": [
+              "High alignment with lead generation/ads (+25)",
+              "Actively running paid ads (+15)",
+              "No visible pain (+3)",
+              "Somewhat relevant (+6)",
+              "Hiring/scaling/new funding (+15)"
+            ],
+            "pain": "scaling problems",
+            "angle": "Growth Enablement",
+            "channels": [
+              "email",
+              "linkedin"
+            ],
+            "evaluated_at": "2026-03-27T06:20:17.032428"
+          },
+          {
+            "lead": "Enterprise Co",
+            "score": 60,
+            "color": "\ud83d\udfe1 YELLOW",
+            "strategy_quality": 7,
+            "predicted_success": true,
+            "confidence": 0.6730034673259583,
+            "reasons": [
+              "Weak relevance (+5)",
+              "Actively running paid ads (+15)",
+              "Moderate inefficiency (+12)",
+              "Not ideal (+2)",
+              "Hiring/scaling/new funding (+15)"
+            ],
+            "pain": "scaling problems",
+            "angle": "Growth Enablement",
+            "channels": [
+              "email"
+            ],
+            "evaluated_at": "2026-03-27T06:20:17.032428"
+          }
+        ]
+      }
+    },
+    "patterns": {
+      "timestamp": "2026-03-27T06:20:17.045741",
+      "data": {
+        "total_winners": 3,
+        "total_losers": 0,
+        "top_patterns": [
+          {
+            "type": "signal",
+            "pattern": "ads",
+            "winner_count": 5,
+            "loser_count": 0,
+            "ratio": 5.0,
+            "strength": "high"
+          },
+          {
+            "type": "pain",
+            "pattern": "scaling problems",
+            "winner_count": 3,
+            "loser_count": 0,
+            "ratio": 3.0,
+            "strength": "high"
+          },
+          {
+            "type": "angle",
+            "pattern": "Growth Enablement",
+            "winner_count": 3,
+            "loser_count": 0,
+            "ratio": 3.0,
+            "strength": "high"
+          },
+          {
+            "type": "signal",
+            "pattern": "scaling",
+            "winner_count": 3,
+            "loser_count": 0,
+            "ratio": 3.0,
+            "strength": "high"
+          },
+          {
+            "type": "signal",
+            "pattern": "hiring",
+            "winner_count": 3,
+            "loser_count": 0,
+            "ratio": 3.0,
+            "strength": "high"
+          }
+        ],
+        "weak_patterns": [],
+        "insights": [
+          "Overall win rate: 100.0% (3/3)",
+          "Strong signals in winning leads:",
+          "  \u2022 ads: 5x winners vs 0x losers",
+          "  \u2022 scaling problems: 3x winners vs 0x losers",
+          "  \u2022 Growth Enablement: 3x winners vs 0x losers",
+          "RECOMMENDATION: Increase weight for 'ads' in scoring"
+        ],
+        "winner_patterns": {
+          "colors": {
+            "\ud83d\udd34 RED": 1,
+            "\ud83d\udfe0 ORANGE": 1,
+            "\ud83d\udfe1 YELLOW": 1
+          },
+          "scores": [
+            88,
+            75,
+            60
+          ],
+          "pains": {
+            "scaling problems": 3
+          },
+          "angles": {
+            "Growth Enablement": 3
+          },
+          "channels": {
+            "linkedin": 2,
+            "email": 3,
+            "phone": 1
+          },
+          "signals": {
+            "ads": 5,
+            "scaling": 3,
+            "hiring": 3
+          },
+          "avg_quality": 6.666666666666667,
+          "avg_score": 74.33333333333333
+        },
+        "loser_patterns": {
+          "colors": {},
+          "scores": [],
+          "pains": {},
+          "angles": {},
+          "channels": {},
+          "signals": {},
+          "avg_quality": 0,
+          "avg_score": 0
+        }
+      }
+    },
+    "optimization": {
+      "timestamp": "2026-03-27T06:20:17.055575",
+      "data": {
+        "previous_weights": {
+          "service_fit": 35,
+          "ads_presence": 17,
+          "pain_clarity": 20,
+          "icp_match": 10,
+          "urgency_signals": 22,
+          "decision_maker": 10,
+          "business_size": 5
+        },
+        "current_weights": {
+          "service_fit": 35,
+          "ads_presence": 17,
+          "pain_clarity": 20,
+          "icp_match": 10,
+          "urgency_signals": 22,
+          "decision_maker": 10,
+          "business_size": 5
+        },
+        "updates_made": [
+          {
+            "weight_name": "ads_presence",
+            "previous_value": 16,
+            "new_value": 17,
+            "adjustment": 1,
+            "reason": "Pattern 'ads' appears increaseingly in results",
+            "pattern_type": "signal"
+          },
+          {
+            "weight_name": "urgency_signals",
+            "previous_value": 18,
+            "new_value": 19,
+            "adjustment": 1,
+            "reason": "Pattern 'scaling problems' appears increaseingly in results",
+            "pattern_type": "pain"
+          },
+          {
+            "weight_name": "service_fit",
+            "previous_value": 35,
+            "new_value": 35,
+            "adjustment": 0,
+            "reason": "Pattern 'growth enablement' appears increaseingly in results",
+            "pattern_type": "angle"
+          },
+          {
+            "weight_name": "urgency_signals",
+            "previous_value": 19,
+            "new_value": 20,
+            "adjustment": 1,
+            "reason": "Pattern 'scaling' appears increaseingly in results",
+            "pattern_type": "signal"
+          },
+          {
+            "weight_name": "urgency_signals",
+            "previous_value": 20,
+            "new_value": 22,
+            "adjustment": 2,
+            "reason": "Pattern 'hiring' appears increaseingly in results",
+            "pattern_type": "signal"
+          }
+        ],
+        "strategy_priority_shifts": [
+          {
+            "action": "prioritize",
+            "angle": "Growth Enablement",
+            "reason": "High success ratio (3.0x)",
+            "priority_boost": 15
+          },
+          {
+            "action": "prioritize",
+            "strategy_focus": "scaling problems",
+            "reason": "Strong correlation with success",
+            "apply_to_hooks": true,
+            "apply_to_offers": true
+          }
+        ],
+        "key_insights": [
+          "Overall win rate: 100.0% (3/3)",
+          "Strong signals in winning leads:",
+          "  \u2022 ads: 5x winners vs 0x losers",
+          "  \u2022 scaling problems: 3x winners vs 0x losers",
+          "  \u2022 Growth Enablement: 3x winners vs 0x losers"
+        ],
+        "learning_iteration": 1
+      }
+    },
+    "final_output": {
+      "timestamp": "2026-03-27T06:20:17.058371",
+      "data": {
+        "session_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+        "mode": "full_pipeline",
+        "summary": {
+          "total_leads": 3,
+          "red": 1,
+          "orange": 1,
+          "yellow": 1,
+          "black": 0,
+          "average_score": 74.3,
+          "predictions_generated": 3
+        },
+        "market_insights": {
+          "top_problems": [
+            {
+              "problem": "low conversion",
+              "mentions": 1,
+              "severity": "LOW"
+            },
+            {
+              "problem": "high cost",
+              "mentions": 1,
+              "severity": "LOW"
+            },
+            {
+              "problem": "ROAS",
+              "mentions": 1,
+              "severity": "LOW"
+            },
+            {
+              "problem": "scaling issues",
+              "mentions": 1,
+              "severity": "LOW"
+            }
+          ],
+          "demand_signals": [
+            {
+              "signal": "hiring",
+              "mentions": 1,
+              "strength": "WEAK"
+            },
+            {
+              "signal": "series b",
+              "mentions": 1,
+              "strength": "WEAK"
+            },
+            {
+              "signal": "B2B SaaS growth",
+              "mentions": 1,
+              "strength": "MODERATE",
+              "type": "industry_trend"
+            },
+            {
+              "signal": "Marketing growth",
+              "mentions": 1,
+              "strength": "MODERATE",
+              "type": "industry_trend"
+            },
+            {
+              "signal": "Enterprise Software growth",
+              "mentions": 1,
+              "strength": "MODERATE",
+              "type": "industry_trend"
+            }
+          ],
+          "urgency_level": "LOW",
+          "hot_markets": [
+            {
+              "market": "B2B SaaS",
+              "lead_count": 1,
+              "avg_score": 0.0,
+              "heat_level": "COOL"
+            },
+            {
+              "market": "Marketing",
+              "lead_count": 1,
+              "avg_score": 0.0,
+              "heat_level": "COOL"
+            },
+            {
+              "market": "Enterprise Software",
+              "lead_count": 1,
+              "avg_score": 0.0,
+              "heat_level": "COOL"
+            }
+          ],
+          "market_sentiment": "EXPLORATORY - Early stage market",
+          "total_leads_analyzed": 3,
+          "pain_point_count": 4,
+          "analyzed_at": "2026-03-27T06:20:17.017608"
+        },
+        "competitor_insights": {
+          "competition_level": "LOW",
+          "competitor_activity": {
+            "leads_running_ads": 3,
+            "total_leads": 3,
+            "ads_penetration": "100.0%",
+            "competitor_presence": "HIGH",
+            "intensity": "Aggressive"
+          },
+          "market_gap": [
+            {
+              "type": "underserved_segment",
+              "description": "Many leads with low scores indicate underserved needs",
+              "opportunity": "High - potential to capture unoptimized market"
+            }
+          ],
+          "opportunity_score": 65,
+          "recommendations": [
+            "Low saturation - aggressive market entry recommended",
+            "MODERATE OPPORTUNITY - Test with limited budget before scaling"
+          ],
+          "analyzed_at": "2026-03-27T06:20:17.020099"
+        },
+        "positioning": [
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          },
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          },
+          {
+            "angle": "Performance Leader",
+            "tagline": "We don't just run ads\u2014we optimize for profit",
+            "positioning": "ROI-first agency focused on measurable revenue growth",
+            "why_us": "Data-driven optimization that prioritizes your bottom line over vanity metrics \u2014 focused on the 90% of companies Big Agencies ignore",
+            "market_gap_used": "Capturing overlooked segment with specialized approach",
+            "messaging_direction": {
+              "headline_tone": "Results-focused, data-backed",
+              "key_message": "We fix broken funnels and recover lost revenue",
+              "proof_points": [
+                "ROI tracking",
+                "Case studies",
+                "Before/after metrics"
+              ],
+              "emotion": "Confidence, security, relief"
+            },
+            "key_differentiators": [
+              "Data-driven optimization that prioritizes your bottom line over vanity metrics"
+            ],
+            "generated_at": "2026-03-27T06:20:17.022092"
+          }
+        ],
+        "predictions": [
+          {
+            "success_probability": 73,
+            "campaign_strength": "STRONG",
+            "score_contribution": 30.8,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "GOOD PROBABILITY: Strong positioning with favorable conditions",
+              "Strongest factor: Lead quality (30.8/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Good chance of success with consistent execution",
+            "generated_at": "2026-03-27T06:20:17.025084"
+          },
+          {
+            "success_probability": 68,
+            "campaign_strength": "STRONG",
+            "score_contribution": 26.2,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "GOOD PROBABILITY: Strong positioning with favorable conditions",
+              "Strongest factor: Lead quality (26.2/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Moderate success expected - optimize based on early results",
+            "generated_at": "2026-03-27T06:20:17.025084"
+          },
+          {
+            "success_probability": 63,
+            "campaign_strength": "STRONG",
+            "score_contribution": 21.0,
+            "market_contribution": 12.5,
+            "competition_contribution": 14.8,
+            "positioning_contribution": 15,
+            "insights": [
+              "MODERATE PROBABILITY: Viable but requires careful execution",
+              "Strongest factor: Lead quality (21.0/35)"
+            ],
+            "risks": [
+              "LOW URGENCY: Longer sales cycle expected"
+            ],
+            "predicted_outcome": "Moderate success expected - optimize based on early results",
+            "generated_at": "2026-03-27T06:20:17.026082"
+          }
+        ],
+        "steps_completed": [
+          "processing",
+          "scoring",
+          "strategy",
+          "market_analysis",
+          "competitor_analysis",
+          "positioning",
+          "prediction",
+          "learning"
+        ],
+        "errors": null
+      }
+    }
+  },
+  "metadata": {
+    "mode": "full_pipeline",
+    "role": "admin",
+    "input_lead_count": 3
+  }
+}

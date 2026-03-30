@@ -1,0 +1,13 @@
+{
+  "agent": "scoring_agent",
+  "input": {
+    "company_name": "Test Corp",
+    "industry": "SaaS",
+    "pain_points": [
+      "low ROAS"
+    ],
+    "running_ads": true,
+    "revenue_range": "$2M+",
+    "team_size": 20
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "leads": [
+    {
+      "company_name": "Session 2 Corp",
+      "industry": "Agency",
+      "pain_points": [
+        "leads"
+      ],
+      "running_ads": false,
+      "revenue_range": "$500K",
+      "team_size": 10
+    }
+  ]
+}

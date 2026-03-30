@@ -1,0 +1,58 @@
+{
+  "scored_leads": [
+    {
+      "company_name": "TechScale Solutions",
+      "score": 88,
+      "color": "\ud83d\udd34 RED",
+      "priority": "Close immediately",
+      "action": "Contact immediately. Highly personalized outreach. Push for call within 24\u201348 hours",
+      "deal_value": "$5,000\u2013$15,000/month",
+      "decision_maker": true,
+      "competition_status": "Competing in paid search - opportunity to outperform",
+      "risk_flags": [],
+      "reason": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "Moderate inefficiency (+12)",
+        "Perfect target industry (+10)",
+        "Hiring/scaling/new funding (+15)"
+      ]
+    },
+    {
+      "company_name": "GrowthRocket Agency",
+      "score": 75,
+      "color": "\ud83d\udfe0 ORANGE",
+      "priority": "High priority",
+      "action": "Send personalized proposal within 2\u20133 days. Focus on specific pain points",
+      "deal_value": "$3,000\u2013$8,000/month",
+      "decision_maker": true,
+      "competition_status": "Competing in paid search - opportunity to outperform",
+      "risk_flags": [],
+      "reason": [
+        "High alignment with lead generation/ads (+25)",
+        "Actively running paid ads (+15)",
+        "No visible pain (+3)",
+        "Somewhat relevant (+6)",
+        "Hiring/scaling/new funding (+15)"
+      ]
+    },
+    {
+      "company_name": "Enterprise Co",
+      "score": 60,
+      "color": "\ud83d\udfe1 YELLOW",
+      "priority": "Nurture",
+      "action": "Add to nurture sequence. Follow up later with value content",
+      "deal_value": "$1,000\u2013$3,000/month",
+      "decision_maker": true,
+      "competition_status": "Competing in paid search - opportunity to outperform",
+      "risk_flags": [],
+      "reason": [
+        "Weak relevance (+5)",
+        "Actively running paid ads (+15)",
+        "Moderate inefficiency (+12)",
+        "Not ideal (+2)",
+        "Hiring/scaling/new funding (+15)"
+      ]
+    }
+  ]
+}

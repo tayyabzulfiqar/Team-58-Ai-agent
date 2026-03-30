@@ -1,0 +1,184 @@
+{
+  "session_id": "e874d232-4a41-4b75-8878-99bdb5d86a5c",
+  "mode": "full_pipeline",
+  "summary": {
+    "total_leads": 3,
+    "red": 1,
+    "orange": 1,
+    "yellow": 0,
+    "black": 1,
+    "average_score": 54.3,
+    "predictions_generated": 2
+  },
+  "market_insights": {
+    "top_problems": [
+      {
+        "problem": "low conversion",
+        "mentions": 1,
+        "severity": "LOW"
+      },
+      {
+        "problem": "high cost",
+        "mentions": 1,
+        "severity": "LOW"
+      },
+      {
+        "problem": "ROAS",
+        "mentions": 1,
+        "severity": "LOW"
+      }
+    ],
+    "demand_signals": [
+      {
+        "signal": "hiring",
+        "mentions": 1,
+        "strength": "WEAK"
+      },
+      {
+        "signal": "B2B SaaS growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      },
+      {
+        "signal": "Marketing growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      }
+    ],
+    "urgency_level": "MEDIUM",
+    "hot_markets": [
+      {
+        "market": "B2B SaaS",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      },
+      {
+        "market": "Marketing",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      }
+    ],
+    "market_sentiment": "EXPLORATORY - Early stage market",
+    "total_leads_analyzed": 3,
+    "pain_point_count": 3,
+    "analyzed_at": "2026-03-27T06:13:07.722623"
+  },
+  "competitor_insights": {
+    "competition_level": "LOW",
+    "competitor_activity": {
+      "leads_running_ads": 2,
+      "total_leads": 3,
+      "ads_penetration": "66.7%",
+      "competitor_presence": "HIGH",
+      "intensity": "Aggressive"
+    },
+    "market_gap": [
+      {
+        "type": "underserved_segment",
+        "description": "Many leads with low scores indicate underserved needs",
+        "opportunity": "High - potential to capture unoptimized market"
+      }
+    ],
+    "opportunity_score": 65,
+    "recommendations": [
+      "Low saturation - aggressive market entry recommended",
+      "MODERATE OPPORTUNITY - Test with limited budget before scaling"
+    ],
+    "analyzed_at": "2026-03-27T06:13:07.726242"
+  },
+  "positioning": [
+    {
+      "angle": "Niche Specialist",
+      "tagline": "Deep expertise in B2B SaaS",
+      "positioning": "Specialized agency for B2B SaaS companies only",
+      "why_us": "Industry-specific playbooks vs generic approaches \u2014 focused on the 90% of companies Big Agencies ignore",
+      "market_gap_used": "Capturing overlooked segment with specialized approach",
+      "messaging_direction": {
+        "headline_tone": "Expert, insider, authoritative",
+        "key_message": "Industry-specific strategies that generic agencies can't replicate",
+        "proof_points": [
+          "Industry expertise",
+          "Specialized tools",
+          "N case studies"
+        ],
+        "emotion": "Trust, expertise, belonging"
+      },
+      "key_differentiators": [
+        "Industry-specific playbooks vs generic approaches"
+      ],
+      "generated_at": "2026-03-27T06:13:07.728235"
+    },
+    {
+      "angle": "Niche Specialist",
+      "tagline": "Deep expertise in B2B SaaS",
+      "positioning": "Specialized agency for B2B SaaS companies only",
+      "why_us": "Industry-specific playbooks vs generic approaches \u2014 focused on the 90% of companies Big Agencies ignore",
+      "market_gap_used": "Capturing overlooked segment with specialized approach",
+      "messaging_direction": {
+        "headline_tone": "Expert, insider, authoritative",
+        "key_message": "Industry-specific strategies that generic agencies can't replicate",
+        "proof_points": [
+          "Industry expertise",
+          "Specialized tools",
+          "N case studies"
+        ],
+        "emotion": "Trust, expertise, belonging"
+      },
+      "key_differentiators": [
+        "Industry-specific playbooks vs generic approaches"
+      ],
+      "generated_at": "2026-03-27T06:13:07.728235"
+    }
+  ],
+  "predictions": [
+    {
+      "success_probability": 76,
+      "campaign_strength": "STRONG",
+      "score_contribution": 30.8,
+      "market_contribution": 15.5,
+      "competition_contribution": 14.8,
+      "positioning_contribution": 15,
+      "insights": [
+        "GOOD PROBABILITY: Strong positioning with favorable conditions",
+        "Strongest factor: Lead quality (30.8/35)"
+      ],
+      "risks": [
+        "LOW RISK: Favorable conditions for campaign success"
+      ],
+      "predicted_outcome": "Good chance of success with consistent execution",
+      "generated_at": "2026-03-27T06:13:07.730246"
+    },
+    {
+      "success_probability": 72,
+      "campaign_strength": "STRONG",
+      "score_contribution": 26.2,
+      "market_contribution": 15.5,
+      "competition_contribution": 14.8,
+      "positioning_contribution": 15,
+      "insights": [
+        "GOOD PROBABILITY: Strong positioning with favorable conditions",
+        "Strongest factor: Lead quality (26.2/35)"
+      ],
+      "risks": [
+        "LOW RISK: Favorable conditions for campaign success"
+      ],
+      "predicted_outcome": "Good chance of success with consistent execution",
+      "generated_at": "2026-03-27T06:13:07.730246"
+    }
+  ],
+  "steps_completed": [
+    "processing",
+    "scoring",
+    "strategy",
+    "market_analysis",
+    "competitor_analysis",
+    "positioning",
+    "prediction",
+    "learning"
+  ],
+  "errors": null
+}

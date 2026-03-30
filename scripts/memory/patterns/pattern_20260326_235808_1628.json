@@ -1,0 +1,382 @@
+{
+  "id": "pattern_20260326_235808_1628",
+  "type": "pattern",
+  "data": {
+    "correlation_patterns": {
+      "correlations": {
+        "income_vs_intelligence_score": {
+          "correlation": 0.768846339135325,
+          "strength": "strong",
+          "significance": 0.2404773098660308,
+          "sample_size": 6
+        },
+        "income_vs_raw_score": {
+          "correlation": 0.3532725296864553,
+          "strength": "weak",
+          "significance": 0.07552427703591272,
+          "sample_size": 6
+        },
+        "intelligence_score_vs_raw_score": {
+          "correlation": 0.6364348993486616,
+          "strength": "strong",
+          "significance": 0.16502263666445938,
+          "sample_size": 6
+        }
+      },
+      "strongest_correlation": {
+        "pair": "income_vs_intelligence_score",
+        "correlation": 0.768846339135325,
+        "strength": "strong"
+      },
+      "total_correlations": 3
+    },
+    "temporal_patterns": {
+      "trend_analysis": {
+        "age": {
+          "direction": "increasing",
+          "strength": 0.6008449768853287,
+          "start_value": 42,
+          "end_value": 52,
+          "change_percentage": 23.809523809523807
+        },
+        "income": {
+          "direction": "decreasing",
+          "strength": 0.20434070529665913,
+          "start_value": 7681.0,
+          "end_value": 3447.0,
+          "change_percentage": -55.12303085535738
+        },
+        "raw_score": {
+          "direction": "decreasing",
+          "strength": 0.15122918573445185,
+          "start_value": 0.786720253451188,
+          "end_value": 0.7657593160518026,
+          "change_percentage": -2.66434444866951
+        }
+      },
+      "seasonal_patterns": {
+        "hourly_patterns": {
+          "hour_23": {
+            "avg_score": 89.55,
+            "count": 6,
+            "variance": 73.135
+          }
+        },
+        "best_hour": [
+          "hour_23",
+          {
+            "avg_score": 89.55,
+            "count": 6,
+            "variance": 73.135
+          }
+        ],
+        "worst_hour": [
+          "hour_23",
+          {
+            "avg_score": 89.55,
+            "count": 6,
+            "variance": 73.135
+          }
+        ]
+      },
+      "time_based_performance": {
+        "performance_series": [
+          {
+            "index": 0,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 99.0,
+            "quality": 1.0
+          },
+          {
+            "index": 1,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 81.0,
+            "quality": 1.0
+          },
+          {
+            "index": 2,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 99.0,
+            "quality": 1.0
+          },
+          {
+            "index": 3,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 88.5,
+            "quality": 0.9500000000000001
+          },
+          {
+            "index": 4,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 90.8,
+            "quality": 0.98
+          },
+          {
+            "index": 5,
+            "timestamp": "2026-03-26T23:58:08.709064",
+            "score": 79.0,
+            "quality": 0.9
+          }
+        ],
+        "avg_performance": 89.55,
+        "performance_variance": 73.135
+      },
+      "data_velocity": {
+        "status": "no_time_span"
+      }
+    },
+    "segmentation_patterns": {
+      "by_source": {
+        "segments": {
+          "internal_db": {
+            "size": 3,
+            "avg_income": 5955.666666666667,
+            "avg_age": 37.333333333333336,
+            "avg_score": 93.0,
+            "variance": 108.0
+          }
+        },
+        "total_segments": 1,
+        "largest_segment": [
+          "internal_db",
+          {
+            "size": 3,
+            "avg_income": 5955.666666666667,
+            "avg_age": 37.333333333333336,
+            "avg_score": 93.0,
+            "variance": 108.0
+          }
+        ],
+        "highest_performing": [
+          "internal_db",
+          {
+            "size": 3,
+            "avg_income": 5955.666666666667,
+            "avg_age": 37.333333333333336,
+            "avg_score": 93.0,
+            "variance": 108.0
+          }
+        ]
+      },
+      "by_age_group": {
+        "segments": {},
+        "total_segments": 0,
+        "largest_segment": null,
+        "highest_performing": null
+      },
+      "by_income_category": {
+        "segments": {
+          "very_high": {
+            "size": 3,
+            "avg_income": 8183.0,
+            "avg_age": 38.333333333333336,
+            "avg_score": 95.5,
+            "variance": 36.75
+          }
+        },
+        "total_segments": 1,
+        "largest_segment": [
+          "very_high",
+          {
+            "size": 3,
+            "avg_income": 8183.0,
+            "avg_age": 38.333333333333336,
+            "avg_score": 95.5,
+            "variance": 36.75
+          }
+        ],
+        "highest_performing": [
+          "very_high",
+          {
+            "size": 3,
+            "avg_income": 8183.0,
+            "avg_age": 38.333333333333336,
+            "avg_score": 95.5,
+            "variance": 36.75
+          }
+        ]
+      }
+    },
+    "behavioral_patterns": {
+      "source_behavior": {
+        "internal_db": {
+          "record_count": 3,
+          "avg_score": 93.0,
+          "score_consistency": 0.8882547866084596,
+          "avg_quality": 1.0,
+          "avg_income": 5955.666666666667,
+          "reliability_score": 0.9441273933042298
+        },
+        "external_api": {
+          "record_count": 1,
+          "avg_score": 88.5,
+          "score_consistency": 1,
+          "avg_quality": 0.9500000000000001,
+          "avg_income": 9055.0,
+          "reliability_score": 0.9750000000000001
+        },
+        "file_import": {
+          "record_count": 1,
+          "avg_score": 90.8,
+          "score_consistency": 1,
+          "avg_quality": 0.98,
+          "avg_income": 5632.0,
+          "reliability_score": 0.99
+        },
+        "manual_entry": {
+          "record_count": 1,
+          "avg_score": 79.0,
+          "score_consistency": 1,
+          "avg_quality": 0.9,
+          "avg_income": 3447.0,
+          "reliability_score": 0.95
+        }
+      },
+      "quality_behavior": {
+        "avg_quality": 0.9716666666666667,
+        "quality_variance": 0.0016166666666666653,
+        "quality_trend": "declining",
+        "high_quality_percentage": 1.0,
+        "low_quality_percentage": 0.0
+      },
+      "performance_clusters": {
+        "clusters": {
+          "low_performance": {
+            "size": 2,
+            "min_score": 79.0,
+            "max_score": 81.0,
+            "avg_score": 80.0,
+            "score_range": 2.0
+          },
+          "medium_performance": {
+            "size": 2,
+            "min_score": 88.5,
+            "max_score": 90.8,
+            "avg_score": 89.65,
+            "score_range": 2.299999999999997
+          },
+          "high_performance": {
+            "size": 2,
+            "min_score": 99.0,
+            "max_score": 99.0,
+            "avg_score": 99.0,
+            "score_range": 0.0
+          }
+        },
+        "cluster_separation": 19.0
+      },
+      "outlier_patterns": {
+        "outlier_count": 0,
+        "outlier_percentage": 0.0,
+        "outlier_values": [],
+        "bounds": {
+          "lower_bound": 61.762499999999996,
+          "upper_bound": 118.0625,
+          "iqr": 14.075000000000003
+        },
+        "data_cleanliness": "clean"
+      }
+    },
+    "performance_patterns": {
+      "high_performance_indicators": {
+        "common_sources": [
+          [
+            "internal_db",
+            3
+          ],
+          [
+            "external_api",
+            1
+          ],
+          [
+            "file_import",
+            1
+          ]
+        ],
+        "avg_age": 38.8,
+        "avg_income": 6510.8,
+        "common_age_groups": [
+          [
+            "adult",
+            2
+          ],
+          [
+            "young_adult",
+            2
+          ],
+          [
+            "mature",
+            1
+          ]
+        ],
+        "common_income_categories": [
+          [
+            "very_high",
+            3
+          ],
+          [
+            "medium",
+            1
+          ],
+          [
+            "high",
+            1
+          ]
+        ]
+      },
+      "performance_distributions": {
+        "distribution_stats": {
+          "mean": 89.55,
+          "median": 89.65,
+          "std_dev": 8.55190037360118,
+          "min": 79.0,
+          "max": 99.0,
+          "skewness": -0.029487088520025864,
+          "kurtosis": -1.9503501106408652
+        },
+        "percentiles": {
+          "25th": 82.875,
+          "50th": 89.65,
+          "75th": 96.95,
+          "90th": 99.0,
+          "95th": 99.0
+        }
+      },
+      "performance_trends": {
+        "trend_direction": "declining",
+        "trend_strength": 0.5069022269250384,
+        "recent_performance": 86.1,
+        "early_performance": 93.0
+      },
+      "bottleneck_patterns": {
+        "bottlenecks": [],
+        "total_bottlenecks": 0,
+        "system_health": "healthy"
+      }
+    },
+    "pattern_summary": {
+      "total_pattern_types": 7,
+      "significant_patterns": 10,
+      "pattern_confidence": 0.0,
+      "key_insights": []
+    },
+    "confidence_scores": {
+      "correlation_patterns": 1.0,
+      "temporal_patterns": 0.7,
+      "segmentation_patterns": 0.7,
+      "behavioral_patterns": 0.7,
+      "performance_patterns": 0.7,
+      "pattern_summary": 0.7,
+      "confidence_scores": 0.7
+    },
+    "recommendations": [
+      "Strong correlations detected: income_vs_intelligence_score. Consider leveraging these relationships in decision making.",
+      "Highest reliability source: file_import (score: 0.99). Consider increasing reliance on this source."
+    ],
+    "detection_timestamp": "2026-03-26T23:58:08.727287"
+  },
+  "timestamp": "2026-03-26T23:58:08.744557",
+  "confidence": 0.2,
+  "access_count": 0,
+  "last_accessed": "2026-03-26T23:58:08.744557"
+}

@@ -1,0 +1,29 @@
+{
+  "previous_weights": {
+    "service_fit": 35,
+    "ads_presence": 16,
+    "pain_clarity": 20,
+    "icp_match": 10,
+    "urgency_signals": 18,
+    "decision_maker": 10,
+    "business_size": 5
+  },
+  "current_weights": {
+    "service_fit": 35,
+    "ads_presence": 16,
+    "pain_clarity": 20,
+    "icp_match": 10,
+    "urgency_signals": 18,
+    "decision_maker": 10,
+    "business_size": 5
+  },
+  "updates_made": [],
+  "strategy_priority_shifts": [],
+  "key_insights": [
+    "Overall win rate: 33.3% (1/3)",
+    "Average winner score: 88.0",
+    "Average loser score: 37.5",
+    "Score threshold is well-calibrated"
+  ],
+  "learning_iteration": 1
+}

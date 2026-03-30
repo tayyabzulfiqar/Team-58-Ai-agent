@@ -1,0 +1,44 @@
+[
+  {
+    "lead_id": "lead_1",
+    "campaign_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+    "conversion": true,
+    "revenue": 8500,
+    "response_rate": 0.35,
+    "meeting_booked": true,
+    "timestamp": "2026-03-27T06:20:17.083768",
+    "metadata": {
+      "color": "RED",
+      "industry": "SaaS",
+      "segment": "RED_SaaS"
+    }
+  },
+  {
+    "lead_id": "lead_2",
+    "campaign_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+    "conversion": false,
+    "revenue": 0,
+    "response_rate": 0.1,
+    "meeting_booked": false,
+    "timestamp": "2026-03-27T06:20:17.088670",
+    "metadata": {
+      "color": "RED",
+      "industry": "Marketing",
+      "segment": "RED_Marketing"
+    }
+  },
+  {
+    "lead_id": "lead_3",
+    "campaign_id": "a3f3b212-511b-489c-bb63-091024f203d9",
+    "conversion": true,
+    "revenue": 12000,
+    "response_rate": 0.45,
+    "meeting_booked": true,
+    "timestamp": "2026-03-27T06:20:17.149216",
+    "metadata": {
+      "color": "ORANGE",
+      "industry": "Enterprise",
+      "segment": "ORANGE_Enterprise"
+    }
+  }
+]

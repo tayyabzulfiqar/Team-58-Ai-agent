@@ -1,0 +1,56 @@
+{
+  "leads": [
+    {
+      "company_name": "TechScale Solutions",
+      "industry": "B2B SaaS",
+      "services": [
+        "lead generation"
+      ],
+      "target_audience": "enterprise",
+      "pain_points": [
+        "low conversion",
+        "high cost"
+      ],
+      "intent_signals": [
+        "hiring"
+      ],
+      "running_ads": true,
+      "revenue_range": "$5M+",
+      "team_size": 30,
+      "hiring": true,
+      "decision_maker": true
+    },
+    {
+      "company_name": "GrowthRocket Agency",
+      "industry": "Marketing",
+      "services": [
+        "ppc"
+      ],
+      "target_audience": "ecommerce",
+      "pain_points": [
+        "ROAS dropped"
+      ],
+      "intent_signals": [
+        "urgent"
+      ],
+      "running_ads": true,
+      "revenue_range": "$1M+",
+      "team_size": 12,
+      "hiring": true,
+      "decision_maker": true
+    },
+    {
+      "company_name": "Personal Blog",
+      "industry": "",
+      "services": [],
+      "target_audience": "",
+      "pain_points": [],
+      "intent_signals": [],
+      "running_ads": false,
+      "revenue_range": "",
+      "team_size": 1,
+      "hiring": false,
+      "decision_maker": false
+    }
+  ]
+}

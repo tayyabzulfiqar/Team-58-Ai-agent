@@ -1,0 +1,88 @@
+{
+  "strategies": [
+    {
+      "company": "TechScale Solutions",
+      "score": 88,
+      "color": "RED",
+      "priority": "IMMEDIATE",
+      "channel": [
+        "linkedin",
+        "email",
+        "phone"
+      ],
+      "angle": "Growth Enablement",
+      "hook": "Scaling is hard when your funnel leaks. We fix that.",
+      "offer": {
+        "name": "Emergency Revenue Recovery",
+        "description": "14-day intensive audit + immediate fixes",
+        "price": "$2,500 setup + $3,000/month",
+        "guarantee": "20% ROAS improvement or money back"
+      },
+      "cta": "Reply YES and I'll send over the audit details today.",
+      "message": "Hey TechScale,\n\nScaling is hard when your funnel leaks. We fix that.\n\nI work with agencies dealing with scaling problems. In the last 30 days, we:\n\u2022 Cut CAC by 40% for a SaaS company\n\u2022 3x'd ROAS for a marketing agency  \n\u2022 Generated 200+ qualified leads for a B2B firm\n\nOur Emergency Revenue Recovery is designed for exactly this:\n14-day intensive audit + immediate fixes\nInvestment: $2,500 setup + $3,000/month\nGuarantee: 20% ROAS improvement or money back\n\nReply YES and I'll send over the audit details today.\n\nBest,\n[Your Name]",
+      "execution_plan": [
+        "1. Send LinkedIn connection request with hook within 2 hours",
+        "2. Follow up with InMail/email same day if no response",
+        "3. Call directly if contact number available (Day 2)",
+        "4. Send case study specific to TechScale industry (Day 3)",
+        "5. Final follow-up with calendar link (Day 5)",
+        "6. Move to CRM if no response after 5 days",
+        "7. Escalate to sales team for direct outreach"
+      ],
+      "pain_identified": "scaling problems",
+      "generated_at": "2026-03-27T06:13:07.719263"
+    },
+    {
+      "company": "GrowthRocket Agency",
+      "score": 75,
+      "color": "ORANGE",
+      "priority": "HIGH",
+      "channel": [
+        "email",
+        "linkedin"
+      ],
+      "angle": "Growth Enablement",
+      "hook": "Scaling is hard when your funnel leaks. We fix that.",
+      "offer": {
+        "name": "Growth Acceleration System",
+        "description": "Full funnel rebuild + ongoing optimization",
+        "price": "$1,500 setup + $2,500/month",
+        "guarantee": "2x leads in 60 days"
+      },
+      "cta": "Does this resonate? Happy to share our process - just reply.",
+      "message": "Hi GrowthRocket,\n\nScaling is hard when your funnel leaks. We fix that.\n\nI help GrowthRocket like yours solve scaling problems without the usual agency headaches.\n\nRecently helped a similar company:\n\u2192 From 50 leads/month to 300+ in 60 days\n\u2192 Reduced cost per acquisition by 35%\n\u2192 Built automated follow-up that converts 24% better\n\nOur approach: Full funnel rebuild + ongoing optimization\n\nDoes this resonate? Happy to share our process - just reply.\n\nTalk soon,\n[Your Name]\n\nP.S. Here's a case study from a GrowthRocket client: [link]",
+      "execution_plan": [
+        "1. Send personalized email with value-first message (Day 1)",
+        "2. LinkedIn connection request with note (Day 2)",
+        "3. Share relevant case study or content (Day 4)",
+        "4. Soft follow-up asking if they saw the value piece (Day 7)",
+        "5. Send framework/guide related to their pain (Day 10)",
+        "6. Nurture with monthly value content",
+        "7. Re-score in 30 days"
+      ],
+      "pain_identified": "scaling problems",
+      "generated_at": "2026-03-27T06:13:07.719263"
+    },
+    {
+      "company": "Personal Blog",
+      "score": 0,
+      "color": "BLACK",
+      "priority": "IGNORE",
+      "channel": [],
+      "angle": "None",
+      "hook": "N/A",
+      "offer": {
+        "name": "None",
+        "description": "Lead does not meet criteria"
+      },
+      "cta": "None",
+      "message": "No outreach - lead disqualified",
+      "execution_plan": [
+        "Do not contact",
+        "Archive for future re-evaluation"
+      ],
+      "pain_identified": "N/A",
+      "reason": "Score 0 below threshold"
+    }
+  ]
+}

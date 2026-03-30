@@ -1,0 +1,34 @@
+{
+  "total_analyzed": 1,
+  "predicted_wins": 0,
+  "predicted_losses": 1,
+  "win_rate": 0.0,
+  "avg_strategy_quality": 1.0,
+  "success_signals": {},
+  "failure_signals": {
+    "ads": 1,
+    "N/A": 1,
+    "None": 1
+  },
+  "results": [
+    {
+      "lead": "Session 1 Corp",
+      "score": 34,
+      "color": "\u26ab BLACK",
+      "strategy_quality": 1,
+      "predicted_success": false,
+      "confidence": 0.46544364558929907,
+      "reasons": [
+        "Weak relevance (+5)",
+        "Actively running paid ads (+15)",
+        "No visible pain (+3)",
+        "Not ideal (+2)",
+        "No urgency (+2)"
+      ],
+      "pain": "N/A",
+      "angle": "None",
+      "channels": [],
+      "evaluated_at": "2026-03-27T06:13:07.843607"
+    }
+  ]
+}

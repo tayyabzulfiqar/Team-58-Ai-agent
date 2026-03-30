@@ -1,0 +1,14 @@
+{
+  "agent": "celebrity_intelligence_agent",
+  "input": {
+    "celebrity": {
+      "name": "Jacqueline Fernandez",
+      "platforms": [
+        "instagram",
+        "youtube"
+      ],
+      "target_market": "Dubai"
+    },
+    "target_market": "Dubai"
+  }
+}

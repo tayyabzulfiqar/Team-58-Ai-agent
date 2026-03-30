@@ -1,0 +1,24 @@
+{
+  "top_problems": [],
+  "demand_signals": [
+    {
+      "signal": "Agency growth",
+      "mentions": 1,
+      "strength": "MODERATE",
+      "type": "industry_trend"
+    }
+  ],
+  "urgency_level": "LOW",
+  "hot_markets": [
+    {
+      "market": "Agency",
+      "lead_count": 1,
+      "avg_score": 0.0,
+      "heat_level": "COOL"
+    }
+  ],
+  "market_sentiment": "EXPLORATORY - Early stage market",
+  "total_leads_analyzed": 1,
+  "pain_point_count": 1,
+  "analyzed_at": "2026-03-27T06:13:07.879816"
+}

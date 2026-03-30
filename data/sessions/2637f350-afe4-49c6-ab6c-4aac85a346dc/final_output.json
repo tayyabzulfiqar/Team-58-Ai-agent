@@ -1,0 +1,67 @@
+{
+  "session_id": "2637f350-afe4-49c6-ab6c-4aac85a346dc",
+  "mode": "full_pipeline",
+  "summary": {
+    "total_leads": 1,
+    "red": 0,
+    "orange": 0,
+    "yellow": 0,
+    "black": 1,
+    "average_score": 34.0,
+    "predictions_generated": 0
+  },
+  "market_insights": {
+    "top_problems": [],
+    "demand_signals": [
+      {
+        "signal": "Tech growth",
+        "mentions": 1,
+        "strength": "MODERATE",
+        "type": "industry_trend"
+      }
+    ],
+    "urgency_level": "LOW",
+    "hot_markets": [
+      {
+        "market": "Tech",
+        "lead_count": 1,
+        "avg_score": 0.0,
+        "heat_level": "COOL"
+      }
+    ],
+    "market_sentiment": "EXPLORATORY - Early stage market",
+    "total_leads_analyzed": 1,
+    "pain_point_count": 1,
+    "analyzed_at": "2026-03-27T06:13:07.830769"
+  },
+  "competitor_insights": {
+    "competition_level": "LOW",
+    "competitor_activity": {
+      "leads_running_ads": 1,
+      "total_leads": 1,
+      "ads_penetration": "100.0%",
+      "competitor_presence": "HIGH",
+      "intensity": "Aggressive"
+    },
+    "market_gap": [],
+    "opportunity_score": 65,
+    "recommendations": [
+      "Low saturation - aggressive market entry recommended",
+      "MODERATE OPPORTUNITY - Test with limited budget before scaling"
+    ],
+    "analyzed_at": "2026-03-27T06:13:07.836443"
+  },
+  "positioning": [],
+  "predictions": [],
+  "steps_completed": [
+    "processing",
+    "scoring",
+    "strategy",
+    "market_analysis",
+    "competitor_analysis",
+    "positioning",
+    "prediction",
+    "learning"
+  ],
+  "errors": null
+}
