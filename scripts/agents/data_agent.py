@@ -4,6 +4,16 @@ Multi-source data fetching with retries, validation, and error handling
 """
 
 import os
+
+# Load environment variables from .env file (for local development)
+# In Railway, env vars are already set in the environment
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+    print("SUCCESS: Loaded environment from .env file")
+except ImportError:
+    print("INFO: python-dotenv not installed, using system environment variables")
+
 import json
 import logging
 import time
@@ -18,6 +28,16 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Firecrawl API Key Detection
+FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
+if not FIRECRAWL_API_KEY:
+    print("WARNING: Firecrawl API key NOT found")
+    logger.warning("Firecrawl API key not found in environment variables")
+    logger.info("Please set FIRECRAWL_API_KEY in your .env file or Railway environment")
+else:
+    print("SUCCESS: Firecrawl API key loaded")
+    logger.info(f"Firecrawl API key found (length: {len(FIRECRAWL_API_KEY)} chars)")
 
 
 class FirecrawlClient:

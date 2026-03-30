@@ -1,17 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
+import { API_BASE_URL } from '../config';
 
 function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const [systemStatus, setSystemStatus] = useState(null);
+  const [agents, setAgents] = useState([]);
+
+  // Fetch system status on mount
+  useEffect(() => {
+    fetchSystemStatus();
+    fetchAgents();
+  }, []);
+
+  const fetchSystemStatus = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/health`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      setSystemStatus(data);
+    } catch (err) {
+      console.error('Error fetching system status:', err.message);
+    }
+  };
+
+  const fetchAgents = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/agents`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      setAgents(data.agents || []);
+    } catch (err) {
+      console.error('Error fetching agents:', err.message);
+    }
+  };
 
   const runFullPipeline = async () => {
     setLoading(true);
     setError(null);
     
     try {
-      const response = await fetch('http://127.0.0.1:8000/run-full', {
+      const response = await fetch(`${API_BASE_URL}/run-full`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,6 +96,27 @@ function Dashboard() {
           {loading ? 'RUNNING...' : 'EXECUTE NOW'}
         </button>
       </div>
+
+      {/* System Status Panel */}
+      {systemStatus && (
+        <div className="panel">
+          <h3>Backend Connection</h3>
+          <p>Status: {systemStatus.status === 'healthy' ? '✅ Connected' : '❌ Disconnected'}</p>
+          <p>API URL: {API_BASE_URL}</p>
+        </div>
+      )}
+
+      {/* Agents Panel */}
+      {agents.length > 0 && (
+        <div className="panel">
+          <h3>Available Agents ({agents.length})</h3>
+          <ul>
+            {agents.map((agent, idx) => (
+              <li key={idx}>{agent.name || agent}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {error && (
         <div className="error-panel">
