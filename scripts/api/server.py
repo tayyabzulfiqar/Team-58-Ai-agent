@@ -17,10 +17,35 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-from scripts.core.master_controller import MasterController
-from scripts.scheduler.auto_scheduler import start_scheduler, get_scheduler_status
-from scripts.scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
-from scripts.env_debug import print_env_status
+# Try to import optional components - fail gracefully if they don't work
+try:
+    from scripts.core.master_controller import MasterController
+    controller = MasterController()
+    CONTROLLER_AVAILABLE = True
+except Exception as e:
+    print(f"Warning: MasterController not available: {e}")
+    controller = None
+    CONTROLLER_AVAILABLE = False
+
+try:
+    from scripts.scheduler.auto_scheduler import start_scheduler, get_scheduler_status
+    from scripts.scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
+    SCHEDULER_AVAILABLE = True
+except Exception as e:
+    print(f"Warning: Scheduler not available: {e}")
+    start_scheduler = None
+    get_scheduler_status = None
+    get_priority_events = None
+    get_latest_priority_run = None
+    check_leads_batch = None
+    SCHEDULER_AVAILABLE = False
+
+try:
+    from scripts.env_debug import print_env_status
+except Exception as e:
+    print(f"Warning: env_debug not available: {e}")
+    def print_env_status():
+        print("Env debug not available")
 
 app = FastAPI(
     title="AI Engine API",
@@ -31,14 +56,11 @@ app = FastAPI(
 # Enable CORS for dashboard
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # allow all for now
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize controller
-controller = MasterController()
 
 # Start auto-scheduler on startup
 scheduler_started = False
@@ -82,21 +104,34 @@ async def startup_event():
     # Print environment variable status for debugging
     print_env_status()
     
-    if not scheduler_started:
-        start_scheduler()
-        scheduler_started = True
-        print("✓ Auto-scheduler started")
+    if not scheduler_started and SCHEDULER_AVAILABLE and start_scheduler:
+        try:
+            start_scheduler()
+            scheduler_started = True
+            print("✓ Auto-scheduler started")
+        except Exception as e:
+            print(f"✗ Auto-scheduler failed to start: {e}")
+    else:
+        print("ℹ Scheduler not available or already started")
 
 @app.get("/")
 async def root():
-    return {"status": "AI Engine API Running", "version": "1.0.0", "auto_run": True}
+    return {"status": "AI Engine API Running", "version": "1.0.0", "auto_run": SCHEDULER_AVAILABLE}
 
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
     try:
-        status = controller.get_system_status()
-        scheduler_status = get_scheduler_status()
+        if CONTROLLER_AVAILABLE and controller:
+            status = controller.get_system_status()
+        else:
+            status = {"system": "not_available"}
+        
+        if SCHEDULER_AVAILABLE and get_scheduler_status:
+            scheduler_status = get_scheduler_status()
+        else:
+            scheduler_status = {"running": False}
+            
         return {
             "status": "healthy",
             "system": status,
@@ -111,6 +146,8 @@ async def health_check():
 @app.get("/agents")
 async def list_agents():
     """List all available agents"""
+    if not CONTROLLER_AVAILABLE or not controller:
+        return {"agents": [], "error": "Controller not available"}
     try:
         agents = controller.agent_registry.list_agents()
         return {"agents": agents}
@@ -123,6 +160,8 @@ async def run_full_pipeline(request: PipelineRequest):
     Run full AI pipeline with leads
     Returns: strategies, predictions, market insights, etc.
     """
+    if not CONTROLLER_AVAILABLE or not controller:
+        return {"error": "Controller not available", "status": "failed"}
     try:
         # Convert leads to format expected by controller
         leads_data = [
@@ -149,6 +188,8 @@ async def run_single_agent(request: SingleAgentRequest):
     """
     Run a single agent with input data
     """
+    if not CONTROLLER_AVAILABLE or not controller:
+        return {"error": "Controller not available", "status": "failed"}
     try:
         result = controller.run_single_agent(
             request.agent_name,
@@ -162,6 +203,8 @@ async def run_single_agent(request: SingleAgentRequest):
 @app.get("/status")
 async def get_system_status():
     """Get current system status"""
+    if not CONTROLLER_AVAILABLE or not controller:
+        return {"error": "Controller not available"}
     try:
         return controller.get_system_status()
     except Exception as e:
@@ -177,10 +220,11 @@ async def get_live_data():
         live_data_path = Path("data/live/latest_run.json")
         
         if not live_data_path.exists():
+            scheduler_status = get_scheduler_status() if (SCHEDULER_AVAILABLE and get_scheduler_status) else {"running": False}
             return {
                 "status": "no_data",
                 "message": "No live data available yet. Scheduler is running...",
-                "scheduler": get_scheduler_status()
+                "scheduler": scheduler_status
             }
         
         with open(live_data_path, 'r') as f:
@@ -194,11 +238,15 @@ async def get_live_data():
 @app.get("/scheduler/status")
 async def scheduler_status():
     """Get auto-scheduler status"""
-    return get_scheduler_status()
+    if SCHEDULER_AVAILABLE and get_scheduler_status:
+        return get_scheduler_status()
+    return {"error": "Scheduler not available", "running": False}
 
 @app.post("/scheduler/trigger")
 async def trigger_run():
     """Manually trigger a pipeline run"""
+    if not CONTROLLER_AVAILABLE or not controller:
+        return {"error": "Controller not available", "status": "failed"}
     try:
         result = controller.run_full_pipeline(
             {"leads": [
@@ -232,6 +280,8 @@ async def priority_events(limit: int = 50):
     Get all high-priority events
     Returns: List of high-value lead triggers (score > 90 or revenue > $50K)
     """
+    if not SCHEDULER_AVAILABLE or not get_priority_events:
+        return {"error": "Priority events not available", "count": 0, "events": []}
     try:
         events = get_priority_events(limit)
         return {
@@ -247,6 +297,8 @@ async def latest_priority_event():
     """
     Get latest priority run
     """
+    if not SCHEDULER_AVAILABLE or not get_latest_priority_run:
+        return {"status": "no_data", "message": "Priority events not available"}
     try:
         event = get_latest_priority_run()
         if event is None:
