@@ -434,7 +434,7 @@ def chat_with_claude(message: str) -> str:
     # Check env vars at runtime, not import time
     api_key = os.getenv("API_KEY", "").strip()
     base_url = os.getenv("BASE_URL", "").rstrip("/")
-    model = os.getenv("MODEL", "claude-3-5-sonnet-20241022")
+    model = os.getenv("MODEL", "llama-3.3-70b-versatile")
     
     if not api_key:
         return "Error: API_KEY not configured. Please set API_KEY environment variable."
