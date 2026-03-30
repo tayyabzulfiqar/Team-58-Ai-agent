@@ -44,21 +44,22 @@ class ProcessingAgent:
             
             # Clean and validate name
             if self.processing_rules["name_cleaning"]:
-                processed["name"] = self._clean_name(processed["name"])
+                processed["name"] = self._clean_name(processed.get("name", ""))
                 
             # Validate age
             if self.processing_rules["age_validation"]:
-                if not self._validate_age(processed["age"]):
+                age = processed.get("age", None)
+                if age is None or not self._validate_age(age):
                     return None
-                processed["age"] = int(processed["age"])
+                processed["age"] = int(age)
                 
             # Normalize income
             if self.processing_rules["income_normalization"]:
-                processed["income"] = self._normalize_income(processed["income"])
+                processed["income"] = self._normalize_income(processed.get("income", 0))
                 
             # Add derived fields
             processed["age_group"] = self._categorize_age(processed["age"])
-            processed["income_category"] = self._categorize_income(processed["income"])
+            processed["income_category"] = self._categorize_income(processed.get("income", 0))
             
             return processed
             
@@ -126,7 +127,11 @@ class ProcessingAgent:
         
         for record in data:
             # Create unique key based on name and age
-            key = (record["name"].lower(), record["age"])
+            name = record.get("name", "").lower()
+            age = record.get("age")
+            if age is None:
+                continue
+            key = (name, age)
             if key not in seen:
                 seen.add(key)
                 unique_data.append(record)
@@ -138,15 +143,18 @@ class ProcessingAgent:
         score = 0.0
         
         # Name quality (30%)
-        if record["name"] and len(record["name"]) > 2:
+        name = record.get("name", "")
+        if name and len(name) > 2:
             score += 0.3
             
         # Age quality (25%)
-        if 18 <= record["age"] <= 100:
+        age = record.get("age")
+        if age is not None and 18 <= age <= 100:
             score += 0.25
             
         # Income quality (25%)
-        if record["income"] > 0:
+        income = record.get("income", 0)
+        if income > 0:
             score += 0.25
             
         # Source quality (20%)
@@ -156,7 +164,7 @@ class ProcessingAgent:
             "file_import": 0.18,
             "manual_entry": 0.1
         }
-        score += source_scores.get(record["source"], 0.1)
+        score += source_scores.get(record.get("source", ""), 0.1)
         
         return min(1.0, score)
     
