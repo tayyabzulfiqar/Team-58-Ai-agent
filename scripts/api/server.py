@@ -21,7 +21,6 @@ from scripts.core.master_controller import MasterController
 from scripts.scheduler.auto_scheduler import start_scheduler, get_scheduler_status
 from scripts.scheduler.event_trigger import get_priority_events, get_latest_priority_run, check_leads_batch
 from scripts.env_debug import print_env_status
-from scripts.intelligence_tools import chat_with_claude
 
 app = FastAPI(
     title="AI Engine API",
@@ -65,6 +64,7 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
     try:
+        from scripts.intelligence_tools import chat_with_claude
         response = chat_with_claude(request.message)
         return {"response": response}
     except Exception as e:
