@@ -18,12 +18,18 @@ from threading import Lock
 
 from scripts.core.master_controller import MasterController
 
+# Ensure log directory exists (safe for Railway)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+LOG_DIR = os.path.join(BASE_DIR, "data", "live")
+os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE = os.path.join(LOG_DIR, "priority_events.log")
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('data/live/priority_events.log'),
+        logging.FileHandler(LOG_FILE),
         logging.StreamHandler()
     ]
 )
@@ -32,8 +38,8 @@ logger = logging.getLogger('EventTrigger')
 # Constants
 PRIORITY_THRESHOLD_SCORE = 90
 PRIORITY_THRESHOLD_REVENUE = 50000
-PRIORITY_DATA_PATH = Path('data/live/priority_run.json')
-PRIORITY_HISTORY_PATH = Path('data/live/priority_history.json')
+PRIORITY_DATA_PATH = Path(os.path.join(LOG_DIR, 'priority_run.json'))
+PRIORITY_HISTORY_PATH = Path(os.path.join(LOG_DIR, 'priority_history.json'))
 
 class EventTrigger:
     """

@@ -19,12 +19,18 @@ from threading import Thread, Event
 
 from scripts.core.master_controller import MasterController
 
+# Ensure log directory exists (safe for Railway)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+LOG_DIR = os.path.join(BASE_DIR, "data", "live")
+os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE = os.path.join(LOG_DIR, "scheduler.log")
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('data/live/scheduler.log'),
+        logging.FileHandler(LOG_FILE),
         logging.StreamHandler()
     ]
 )
@@ -33,7 +39,7 @@ logger = logging.getLogger('AutoScheduler')
 # Constants
 INTERVAL_MINUTES = 10
 MAX_RETRIES = 3
-LIVE_DATA_PATH = Path('data/live/latest_run.json')
+LIVE_DATA_PATH = Path(os.path.join(LOG_DIR, 'latest_run.json'))
 SAMPLE_LEADS = [
     {
         "name": "Auto Lead 1",
