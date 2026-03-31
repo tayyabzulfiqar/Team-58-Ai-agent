@@ -16,7 +16,7 @@ SEARXNG_URL = os.getenv("SEARXNG_URL", "https://searx.be").rstrip("/")
 TELEGRAM_API_ID = os.getenv("TELEGRAM_API_ID", "").strip()
 TELEGRAM_API_HASH = os.getenv("TELEGRAM_API_HASH", "").strip()
 
-API_URL = f"{BASE_URL}/v1/chat/completions" if BASE_URL else "https://api.openai.com/v1/chat/completions"
+API_URL = f"{BASE_URL}/chat/completions" if BASE_URL else "https://api.openai.com/v1/chat/completions"
 
 print(f"INFO: API_URL configured: {API_URL}")
 
@@ -430,29 +430,29 @@ def estimate_roi(brand_alignment_score: int, engagement_potential: int, audience
 
 
 def chat_with_claude(message: str) -> str:
-    """Send message to GROQ API and return clean text response"""
-    # Load from env vars (set in Railway dashboard)
+    """Send message to Groq API and return clean text response"""
+    # Load from env vars
     api_key = os.getenv("API_KEY", "")
     base_url = os.getenv("BASE_URL", "https://api.groq.com/openai/v1")
-    model = os.getenv("MODEL", "llama-3.3-70b-versatile")
+    model = os.getenv("MODEL", "llama3-8b-8192")
     
     if not api_key:
-        return "Error: API_KEY not set in Railway environment variables"
+        return "Error: API_KEY not configured"
     
-    api_url = f"{base_url}/chat/completions"
+    # Construct URL - BASE_URL already includes /v1
+    url = f"{base_url}/chat/completions"
+    print("FINAL API URL:", url)
     
     try:
         response = requests.post(
-            api_url,
+            url,
             headers={
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
             },
             json={
                 "model": model,
-                "messages": [
-                    {"role": "user", "content": message}
-                ],
+                "messages": [{"role": "user", "content": message}],
                 "temperature": 0.7,
                 "max_tokens": 1000,
             },
