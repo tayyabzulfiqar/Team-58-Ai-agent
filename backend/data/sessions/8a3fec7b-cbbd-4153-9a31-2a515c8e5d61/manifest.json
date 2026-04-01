@@ -1,0 +1,151 @@
+{
+  "session_id": "8a3fec7b-cbbd-4153-9a31-2a515c8e5d61",
+  "created_at": "2026-04-01T17:16:51.574832",
+  "steps": {
+    "input": {
+      "timestamp": "2026-04-01T17:16:51.576847",
+      "data": {
+        "leads": [
+          {
+            "name": "Auto Lead 1",
+            "company": "TechCorp",
+            "industry": "Technology",
+            "budget": 50000,
+            "location": "Dubai"
+          },
+          {
+            "name": "Auto Lead 2",
+            "company": "FinanceInc",
+            "industry": "Finance",
+            "budget": 100000,
+            "location": "London"
+          }
+        ]
+      }
+    },
+    "processing": {
+      "timestamp": "2026-04-01T17:16:51.578822",
+      "data": {
+        "processed_count": 0
+      }
+    },
+    "scoring": {
+      "timestamp": "2026-04-01T17:16:51.581642",
+      "data": {
+        "scored_leads": []
+      }
+    },
+    "strategy": {
+      "timestamp": "2026-04-01T17:16:51.582646",
+      "data": {
+        "strategies": []
+      }
+    },
+    "market": {
+      "timestamp": "2026-04-01T17:16:51.583642",
+      "data": {
+        "top_problems": [],
+        "demand_signals": [],
+        "urgency_level": "LOW",
+        "hot_markets": [],
+        "market_sentiment": "EXPLORATORY - Early stage market",
+        "total_leads_analyzed": 0,
+        "pain_point_count": 0,
+        "analyzed_at": "2026-04-01T17:16:51.583642"
+      }
+    },
+    "competitor": {
+      "timestamp": "2026-04-01T17:16:51.584640",
+      "data": {
+        "competition_level": "LOW",
+        "competitor_activity": {
+          "leads_running_ads": 0,
+          "total_leads": 0,
+          "ads_penetration": "0.0%",
+          "competitor_presence": "LOW",
+          "intensity": "Low"
+        },
+        "market_gap": [],
+        "opportunity_score": 85,
+        "recommendations": [
+          "Low saturation - aggressive market entry recommended",
+          "STRONG OPPORTUNITY - Prioritize this market for immediate campaign launch"
+        ],
+        "analyzed_at": "2026-04-01T17:16:51.584640"
+      }
+    },
+    "positioning": {
+      "timestamp": "2026-04-01T17:16:51.586636",
+      "data": {
+        "positioning": []
+      }
+    },
+    "prediction": {
+      "timestamp": "2026-04-01T17:16:51.587763",
+      "data": {
+        "predictions": []
+      }
+    },
+    "final_output": {
+      "timestamp": "2026-04-01T17:16:51.589976",
+      "data": {
+        "session_id": "8a3fec7b-cbbd-4153-9a31-2a515c8e5d61",
+        "mode": "full_pipeline",
+        "summary": {
+          "total_leads": 0,
+          "red": 0,
+          "orange": 0,
+          "yellow": 0,
+          "black": 0,
+          "average_score": 0,
+          "predictions_generated": 0
+        },
+        "market_insights": {
+          "top_problems": [],
+          "demand_signals": [],
+          "urgency_level": "LOW",
+          "hot_markets": [],
+          "market_sentiment": "EXPLORATORY - Early stage market",
+          "total_leads_analyzed": 0,
+          "pain_point_count": 0,
+          "analyzed_at": "2026-04-01T17:16:51.583642"
+        },
+        "competitor_insights": {
+          "competition_level": "LOW",
+          "competitor_activity": {
+            "leads_running_ads": 0,
+            "total_leads": 0,
+            "ads_penetration": "0.0%",
+            "competitor_presence": "LOW",
+            "intensity": "Low"
+          },
+          "market_gap": [],
+          "opportunity_score": 85,
+          "recommendations": [
+            "Low saturation - aggressive market entry recommended",
+            "STRONG OPPORTUNITY - Prioritize this market for immediate campaign launch"
+          ],
+          "analyzed_at": "2026-04-01T17:16:51.584640"
+        },
+        "positioning": [],
+        "predictions": [],
+        "steps_completed": [
+          "processing",
+          "scoring",
+          "strategy",
+          "market_analysis",
+          "competitor_analysis",
+          "positioning",
+          "prediction",
+          "learning"
+        ],
+        "errors": null
+      }
+    }
+  },
+  "metadata": {
+    "mode": "full_pipeline",
+    "role": "admin",
+    "input_lead_count": 2
+  }
+}
