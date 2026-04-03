@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-04-03T18:50:04.287577",
+  "trends": [
+    {
+      "trend": "General",
+      "count": 36,
+      "score": 360
+    },
+    {
+      "trend": "AI",
+      "count": 12,
+      "score": 120
+    },
+    {
+      "trend": "Automation",
+      "count": 1,
+      "score": 10
+    },
+    {
+      "trend": "Startup",
+      "count": 1,
+      "score": 10
+    }
+  ],
+  "opportunities": [
+    {
+      "trend": "General",
+      "opportunity": "High demand detected",
+      "score": 360
+    },
+    {
+      "trend": "AI",
+      "opportunity": "High demand detected",
+      "score": 120
+    }
+  ]
+}

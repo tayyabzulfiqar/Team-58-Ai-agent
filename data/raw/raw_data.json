@@ -1,0 +1,502 @@
+[
+  {
+    "text": "Show HN: European alternatives to Google, Apple, Dropbox and 120 US apps",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:05.982326",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Show HN: Apfel \u2013 The free AI already on your Mac",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:06.951981",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "April 2026 TLDR Setup for Ollama and Gemma 4 26B on a Mac mini",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:07.632244",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Google releases Gemma 4 open models",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:08.337725",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "ESP32-S31: 320MHz 2C RV32IMAFCP+CLIC, 512KB SRAM, GbE, 802.11ax, 61 GPIO",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:09.008220",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Decisions that eroded trust in Azure \u2013 by a former Azure Core engineer",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:09.686952",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "What Category Theory Teaches Us About DataFrames",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:10.394926",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "NHS staff refusing to use FDP over Palantir ethical concerns",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:11.068505",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "The True Shape of Io's Steeple Mountain",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:11.767282",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Tailscale's new macOS home",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:12.443703",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Cursor 3",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:13.132455",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Artemis II's toilet is a moon mission milestone",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:13.838451",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Qwen3.6-Plus: Towards real world agents",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:14.521657",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "C89cc.sh \u2013 standalone C89/ELF64 compiler in pure portable shell",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:15.202787",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Proton Meet Isn't What They Told You It Was",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:15.896925",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Good ideas do not need lots of lies in order to gain public acceptance (2008)",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:16.598259",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "'Fatal decision': EU slammed for caving to US pressure on digital rules",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:17.358955",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Show HN: Home Maker: Declare Your Dev Tools in a Makefile",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:18.269784",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Switzerland hosts 'CERN of semiconductor research'",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:18.936054",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Vector Meson Dominance",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:19.621273",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "LinkedIn is searching your browser extensions",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:20.290561",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "New Rowhammer attacks give complete control of machines running Nvidia GPUs",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:20.958842",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Intel Assured Supply Chain Product Brief",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:21.628168",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Significant progress made on Xbox 360 recompilation",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:22.303804",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Maze Algorithms (1997)",
+    "source": "hackernews",
+    "collected_at": "2026-04-03 16:33:22.982272",
+    "trust_score": 0.9,
+    "status": "raw",
+    "tags": [
+      "hn"
+    ],
+    "processed": false
+  },
+  {
+    "text": "Iran Says It Hit Oracle Facilities in UAE",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "LinkedIn Is Illegally Searching Your Computer",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Here's the severance package Oracle offered laid-off US employees",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "AI tractor startup collapses after burning $240M, laying off entire staff",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "YouTube CEO responds to concerns as big creators leave for Netflix &amp; Amazon",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Reddit is moving on from r/all",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "The Feds Say Cutting Fuel With Ethanol Will Bring Down Gas Prices. We're Not Buying It",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Tesla's stock drops more than 4% on disappointing deliveries report",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Users say Adobe Creative Cloud rewrote hosts file to detect installed app",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Amazon to add 3.5% fuel and logistics surcharge for sellers as Iran war drives up energy prices",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Solar Balconies Take Europe By Storm",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Australia\u2019s teen social media ban is a flop. But there\u2019s no joy in \u2018I told you so\u2019",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Artemis 2 crew fixes toilet, can now pee in it",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Anthropic took down thousands of GitHub repos trying to yank its leaked source code \u2014 a move the company says was an accident",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Tech layoffs are at their worst since 2023, and AI is a big reason",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "SpaceX tries to convince FCC that Amazon put satellites into wrong altitude | Amazon denies violation, says SpaceX caused conflict by lowering Starlink satellites.",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Sweden goes back to basics, swapping screens for books in the classroom",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Why is TikTok penalising content designed to highlight misinformation?",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Journalist Rob Levine Sues FAA Over Drone No Fly Zone Designed to Prevent Filming ICE | A Minnesota photojournalist is challenging a 3,000 foot restriction on flying near DHS assets on First Amendment grounds.",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "The New York Times drops freelance journalist who used AI to write book review",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Prius Sales Are Tanking So Far in 2026. We Asked Toyota Why",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Influencer Lauren Blake blames AI after her face is edited on black Instagram model\u2019s body",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "Denuvo has been broken, company promises countermeasures against new DRM bypasses \u2014 zero-day game releases become norm as security concerns mount over hypervisor-based bypass",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "The Great AI Alibi: Why Every Tech CEO Now Blames Artificial Intelligence for Laying Off Thousands",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  },
+  {
+    "text": "FTC Fines OkCupid, Match Group for Sharing User Data Without Consent",
+    "source": "reddit",
+    "collected_at": "2026-04-03 16:33:24.749691",
+    "trust_score": 0.8,
+    "status": "raw",
+    "tags": [],
+    "processed": false
+  }
+]

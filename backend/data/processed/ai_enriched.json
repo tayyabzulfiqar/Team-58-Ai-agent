@@ -10,9 +10,9 @@
     ],
     "signal_strength": 82,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "visicalc reconstructed",
@@ -25,7 +25,7 @@
     ],
     "signal_strength": 22,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Historical Computing / Software Archaeology",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -55,9 +55,9 @@
     ],
     "signal_strength": 75,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI Tooling & Infrastructure",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "parallel perl  autoparallelizing interpreter with jit",
@@ -70,7 +70,7 @@
     ],
     "signal_strength": 53,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Programming Language Tool / Compiler Infrastructure",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -100,7 +100,7 @@
     ],
     "signal_strength": 44,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Information Retrieval / Document Classification",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -130,7 +130,7 @@
     ],
     "signal_strength": 35,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Cybersecurity / Adversarial AI",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -160,7 +160,7 @@
     ],
     "signal_strength": 65,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "AI-Enhanced Systems & Infrastructure",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -190,9 +190,9 @@
     ],
     "signal_strength": 76,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "show hn an opensource safety net for home hemodialysis",
@@ -205,7 +205,7 @@
     ],
     "signal_strength": 54,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Healthcare Technology",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -220,9 +220,9 @@
     ],
     "signal_strength": 63,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "Business Operations / Customer Experience Automation",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "java is fast code might not be",
@@ -235,7 +235,7 @@
     ],
     "signal_strength": 30,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Programming Language Misconception",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -265,7 +265,7 @@
     ],
     "signal_strength": 13,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Tool/Utility",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -340,7 +340,7 @@
     ],
     "signal_strength": 61,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Education Policy / EdTech Impact",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -355,9 +355,9 @@
     ],
     "signal_strength": 56,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI Hardware Integration",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "fsf statement on copyright infringement lawsuit bartz v anthropic",
@@ -370,7 +370,7 @@
     ],
     "signal_strength": 65,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Legal & Policy Analysis",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -415,7 +415,7 @@
     ],
     "signal_strength": 60,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Geopolitical & Regulatory Risk",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -430,9 +430,9 @@
     ],
     "signal_strength": 71,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "a rogue al agent triggered a major security alert at meta by taking action without approval that led to the exposure of sensitive company and user data",
@@ -445,7 +445,7 @@
     ],
     "signal_strength": 151,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "AI Safety & Security Incident",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -460,7 +460,7 @@
     ],
     "signal_strength": 72,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Predictive Analytics / Forecasting",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -490,9 +490,9 @@
     ],
     "signal_strength": 55,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI-Enhanced Image Processing",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "amazon prime video is about to get worse  again",
@@ -505,9 +505,9 @@
     ],
     "signal_strength": 52,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "Sentiment Analysis",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "russian troops at wits end as terminator style ai robots deployed in ukrain",
@@ -520,9 +520,9 @@
     ],
     "signal_strength": 80,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "Misinformation / Fabrication",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "youtube is asking users if videos feel like ai slop to flag lowquality content",
@@ -535,9 +535,9 @@
     ],
     "signal_strength": 83,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "jeff bezos is reportedly seeking 100 billion for a new fund the likes of which will be used to buy up companies in major industrial sectors and ultimately modernize and automate them with ai",
@@ -550,9 +550,9 @@
     ],
     "signal_strength": 195,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI Investment & Industrial Transformation",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "walmart secures two ai pricing patents raising dynamic pricing concerns",
@@ -565,9 +565,9 @@
     ],
     "signal_strength": 76,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI in Business Operations",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "figmas stock drops 12 in two days after google releases vibe design product",
@@ -625,7 +625,7 @@
     ],
     "signal_strength": 86,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Nostalgia & Cultural Artifact",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -640,7 +640,7 @@
     ],
     "signal_strength": 84,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "System Troubleshooting / Software Compatibility Issue",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -655,9 +655,9 @@
     ],
     "signal_strength": 106,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "all the wrong evs are getting canceled",
@@ -685,7 +685,7 @@
     ],
     "signal_strength": 91,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "News Analysis / Corporate Policy Impact",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -700,9 +700,9 @@
     ],
     "signal_strength": 217,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "General",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "google search is now using ai to replace headlines",
@@ -715,9 +715,9 @@
     ],
     "signal_strength": 55,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI Integration in Search Engines",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "us charges 3 tied to super micro computer with helping smuggle billions of dollars of ai chips to china",
@@ -730,9 +730,9 @@
     ],
     "signal_strength": 108,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "Geopolitical AI Regulation & Export Control",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   },
   {
     "text": "google told staff worried about pentagon ai deals that the company is leaning more into national security contracts",
@@ -745,8 +745,8 @@
     ],
     "signal_strength": 120,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI",
-    "ai_insight": "Growing AI trend",
-    "ai_score": 9
+    "ai_category": "AI Policy & Ethics",
+    "ai_insight": "No strong signal",
+    "ai_score": 5
   }
 ]

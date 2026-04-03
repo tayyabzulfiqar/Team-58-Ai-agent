@@ -1,0 +1,13 @@
+{
+  "weights": {
+    "service_fit": 25,
+    "ads_presence": 15,
+    "pain_clarity": 20,
+    "icp_match": 10,
+    "urgency_signals": 15,
+    "decision_maker": 10,
+    "business_size": 5
+  },
+  "update_count": 0,
+  "version": "2.0"
+}

@@ -1,0 +1,53 @@
+{
+  "session_id": "cb0b4cc2-0663-4c12-9000-588874a95422",
+  "mode": "full_pipeline",
+  "summary": {
+    "total_leads": 0,
+    "red": 0,
+    "orange": 0,
+    "yellow": 0,
+    "black": 0,
+    "average_score": 0,
+    "predictions_generated": 0
+  },
+  "market_insights": {
+    "top_problems": [],
+    "demand_signals": [],
+    "urgency_level": "LOW",
+    "hot_markets": [],
+    "market_sentiment": "EXPLORATORY - Early stage market",
+    "total_leads_analyzed": 0,
+    "pain_point_count": 0,
+    "analyzed_at": "2026-04-02T02:52:25.216031"
+  },
+  "competitor_insights": {
+    "competition_level": "LOW",
+    "competitor_activity": {
+      "leads_running_ads": 0,
+      "total_leads": 0,
+      "ads_penetration": "0.0%",
+      "competitor_presence": "LOW",
+      "intensity": "Low"
+    },
+    "market_gap": [],
+    "opportunity_score": 85,
+    "recommendations": [
+      "Low saturation - aggressive market entry recommended",
+      "STRONG OPPORTUNITY - Prioritize this market for immediate campaign launch"
+    ],
+    "analyzed_at": "2026-04-02T02:52:25.219021"
+  },
+  "positioning": [],
+  "predictions": [],
+  "steps_completed": [
+    "processing",
+    "scoring",
+    "strategy",
+    "market_analysis",
+    "competitor_analysis",
+    "positioning",
+    "prediction",
+    "learning"
+  ],
+  "errors": null
+}

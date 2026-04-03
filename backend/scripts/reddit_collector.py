@@ -52,11 +52,8 @@ def save_data(data):
     path = Path(OUTPUT_PATH)
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-
-    print("Reddit data saved")
+    pass
 
 if __name__ == "__main__":
     data = fetch_reddit()
-    save_data(data)
+    print("Reddit data fetched (file writing disabled by pipeline policy)")

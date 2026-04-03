@@ -54,3 +54,4 @@ htmlcov/
 __pycache__/
 *.pyc
 *.pyo
+.aider*

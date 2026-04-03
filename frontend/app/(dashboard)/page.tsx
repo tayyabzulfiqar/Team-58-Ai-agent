@@ -1,337 +1,220 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
-import { PipelineVisualization } from '@/components/pipeline-visualization'
-import { DashboardMetrics } from '@/components/dashboard-metrics'
-import { OpportunitiesTable } from '@/components/opportunities-table'
-import { CampaignsTable } from '@/components/campaigns-table'
-import { IntelligenceFeed } from '@/components/intelligence-feed'
-import { AgentControlPanel } from '@/components/agent-control-panel'
-import { 
-  Shield, 
-  Radio, 
-  Satellite, 
-  AlertTriangle, 
-  Loader2,
-  RefreshCw,
-  Activity,
-  Brain,
-  Cpu
-} from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
 
-interface DashboardData {
-  opportunities: Array<{
-    id: number
-    name: string
-    company: string
-    score: number
-    status: string
-    revenue_potential: number
-    industry: string
-    location: string
-  }>
-  scores: number[]
-  decisions: string[]
-  campaigns: Array<{
-    id: number
-    name: string
-    status: string
-    budget: number
-    roi: number
-    target: string
-  }>
+type ResearchLead = {
+  title: string
+  url: string
+  snippet: string
+  source: string
+  query: string
+}
+
+type ProcessedLead = {
+  name: string
+  company: string
+  website: string
+  summary: string
+  industry: string
+  source: string
+}
+
+type AnalysisLead = {
+  name: string
+  company: string
+  website: string
+  score: number
+  category: 'high' | 'medium' | 'low'
+  summary: string
+}
+
+type CampaignLead = {
+  name: string
+  company: string
+  website: string
+  message: string
+}
+
+type RunSystemResponse = {
   status: string
-  message?: string
+  research: ResearchLead[]
+  processed: ProcessedLead[]
+  analysis: AnalysisLead[]
+  campaigns: CampaignLead[]
+}
+
+const emptyState: RunSystemResponse = {
+  status: 'success',
+  research: [],
+  processed: [],
+  analysis: [],
+  campaigns: [],
 }
 
 export default function DashboardPage() {
-  const [systemTime, setSystemTime] = useState('')
-  const [threatLevel, setThreatLevel] = useState<'LOW' | 'MEDIUM' | 'HIGH'>('LOW')
-  const [data, setData] = useState<DashboardData | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
-  const [isPaused, setIsPaused] = useState(false)
+  const [data, setData] = useState<RunSystemResponse>(emptyState)
+  const [loading, setLoading] = useState(false)
 
-  // Clock update
-  useEffect(() => {
-    const updateTime = () => {
-      setSystemTime(new Date().toLocaleTimeString('en-US', { 
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
-      }))
-    }
-    updateTime()
-    const interval = setInterval(updateTime, 1000)
-    return () => clearInterval(interval)
-  }, [])
+  const runSystem = async () => {
+    setLoading(true)
 
-  // Threat level simulation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const rand = Math.random()
-      setThreatLevel(rand > 0.92 ? 'HIGH' : rand > 0.75 ? 'MEDIUM' : 'LOW')
-    }, 12000)
-    return () => clearInterval(interval)
-  }, [])
-
-  // Fetch data function
-  const fetchData = useCallback(async (showLoading = true) => {
-    if (isPaused) return
-    
     try {
-      if (showLoading) setLoading(true)
-      setError(null)
-      
       const response = await fetch('/api/run-system', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
       })
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      
-      const result = await response.json()
-      
-      if (result.status === 'error') {
-        throw new Error(result.message || 'Unknown error')
-      }
-      
-      setData(result)
-      setLastUpdated(new Date())
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'System temporarily unavailable')
-      console.error('Dashboard fetch error:', err)
+
+      const result = (await response.json()) as Partial<RunSystemResponse>
+
+      setData({
+        status: result.status ?? 'success',
+        research: Array.isArray(result.research) ? result.research : [],
+        processed: Array.isArray(result.processed) ? result.processed : [],
+        analysis: Array.isArray(result.analysis) ? result.analysis : [],
+        campaigns: Array.isArray(result.campaigns) ? result.campaigns : [],
+      })
+    } catch {
+      setData(emptyState)
     } finally {
-      if (showLoading) setLoading(false)
+      setLoading(false)
     }
-  }, [isPaused])
-
-  // Initial load
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
-
-  // Auto refresh every 45 seconds
-  useEffect(() => {
-    if (isPaused) return
-    
-    const interval = setInterval(() => {
-      fetchData(false)
-    }, 45000)
-    
-    return () => clearInterval(interval)
-  }, [fetchData, isPaused])
-
-  const handleRunSystem = () => {
-    fetchData(true)
   }
 
-  const handlePause = () => {
-    setIsPaused(!isPaused)
-  }
+  useEffect(() => {
+    void runSystem()
+  }, [])
 
   return (
-    <div className="p-8 space-y-6 min-h-screen transition-all duration-500">
-      {/* Header */}
-      <header className="flex items-center justify-between animate-fade-in">
-        <div>
-          <div className="flex items-center gap-3 mb-1">
-            <div className="relative">
-              <Shield className="w-6 h-6 text-primary" />
-              <div className="absolute inset-0 animate-ping opacity-30">
-                <Shield className="w-6 h-6 text-primary" />
-              </div>
-            </div>
-            <h1 className="text-xl font-semibold text-foreground tracking-wide uppercase">
-              AI Command Center
-            </h1>
-          </div>
-          <p className="text-muted-foreground font-mono text-xs uppercase tracking-[0.15em]">
-            Multi-Agent Intelligence System / v3.0.0
-          </p>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          {/* Threat Level */}
-          <div className={cn(
-            "glass-panel rounded-lg px-4 py-2.5 border transition-all duration-300 hover:scale-105",
-            threatLevel === 'LOW' && "border-neon-green/30",
-            threatLevel === 'MEDIUM' && "border-neon-orange/30",
-            threatLevel === 'HIGH' && "border-destructive/40"
-          )}>
-            <div className="flex items-center gap-3">
-              <AlertTriangle className={cn(
-                "w-4 h-4 transition-colors duration-300",
-                threatLevel === 'LOW' && "text-neon-green",
-                threatLevel === 'MEDIUM' && "text-neon-orange",
-                threatLevel === 'HIGH' && "text-destructive animate-pulse"
-              )} />
-              <div>
-                <p className="text-[9px] text-muted-foreground uppercase tracking-wide">Threat</p>
-                <p className={cn(
-                  "text-sm font-semibold font-mono transition-colors duration-300",
-                  threatLevel === 'LOW' && "text-neon-green",
-                  threatLevel === 'MEDIUM' && "text-neon-orange",
-                  threatLevel === 'HIGH' && "text-destructive"
-                )}>
-                  {threatLevel}
-                </p>
-              </div>
-            </div>
+    <main className="min-h-screen bg-background text-foreground p-6 md:p-10">
+      <div className="mx-auto max-w-7xl space-y-8">
+        <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="space-y-2">
+            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              4-Agent Pipeline
+            </p>
+            <h1 className="text-3xl font-semibold">AI Lead System</h1>
+            <p className="text-sm text-muted-foreground">
+              Research Agent, Processing Agent, Analysis Agent, Campaign Design Agent
+            </p>
           </div>
 
-          {/* System Status */}
-          <div className="glass-panel rounded-lg px-4 py-2.5 border border-neon-green/30 hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                <Radio className="w-4 h-4 text-neon-green" />
-                <div className="absolute inset-0 animate-ping opacity-40">
-                  <Radio className="w-4 h-4 text-neon-green" />
-                </div>
-              </div>
-              <div>
-                <p className="text-[9px] text-muted-foreground uppercase tracking-wide">Status</p>
-                <p className="text-sm font-semibold font-mono text-neon-green">OPERATIONAL</p>
-              </div>
+          <button
+            onClick={runSystem}
+            disabled={loading}
+            className="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? 'Running AI agents...' : 'Run AI System'}
+          </button>
+        </header>
+
+        {loading && (
+          <section className="rounded-xl border border-border bg-card p-6">
+            <p className="text-base font-medium">Running AI agents...</p>
+          </section>
+        )}
+
+        <section className="grid gap-4 md:grid-cols-4">
+          <div className="rounded-xl border border-border bg-card p-5">
+            <p className="text-sm text-muted-foreground">Research count</p>
+            <p className="mt-2 text-3xl font-semibold">{data.research.length}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-5">
+            <p className="text-sm text-muted-foreground">Processed leads</p>
+            <p className="mt-2 text-3xl font-semibold">{data.processed.length}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-5">
+            <p className="text-sm text-muted-foreground">Analysis results</p>
+            <p className="mt-2 text-3xl font-semibold">{data.analysis.length}</p>
+          </div>
+          <div className="rounded-xl border border-border bg-card p-5">
+            <p className="text-sm text-muted-foreground">Campaign messages</p>
+            <p className="mt-2 text-3xl font-semibold">{data.campaigns.length}</p>
+          </div>
+        </section>
+
+        <section className="grid gap-6 xl:grid-cols-2">
+          <div className="rounded-xl border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold">Research</h2>
+            <div className="mt-4 space-y-4">
+              {data.research.length === 0 && (
+                <p className="text-sm text-muted-foreground">No research results.</p>
+              )}
+              {data.research.map((item) => (
+                <article key={item.url} className="rounded-lg border border-border/70 p-4">
+                  <p className="font-medium">{item.title}</p>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 block text-sm text-primary underline underline-offset-4"
+                  >
+                    {item.url}
+                  </a>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.snippet || 'No snippet available.'}</p>
+                </article>
+              ))}
             </div>
           </div>
 
-          {/* Time */}
-          <div className="glass-panel rounded-lg px-4 py-2.5 border border-border/40 hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center gap-3">
-              <Satellite className="w-4 h-4 text-neon-cyan animate-pulse" />
-              <div>
-                <p className="text-[9px] text-muted-foreground uppercase tracking-wide">Sync</p>
-                <p className="text-sm font-semibold font-mono text-foreground" suppressHydrationWarning>
-                  {systemTime || '--:--:--'}
-                </p>
-              </div>
+          <div className="rounded-xl border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold">Processed leads</h2>
+            <div className="mt-4 space-y-4">
+              {data.processed.length === 0 && (
+                <p className="text-sm text-muted-foreground">No processed leads.</p>
+              )}
+              {data.processed.map((lead) => (
+                <article key={lead.website} className="rounded-lg border border-border/70 p-4">
+                  <p className="font-medium">{lead.name}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{lead.company}</p>
+                  <p className="mt-2 text-sm">{lead.summary || 'No summary available.'}</p>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      </header>
 
-      {/* Control Panel */}
-      <AgentControlPanel 
-        onRunSystem={handleRunSystem}
-        onPause={handlePause}
-        isPaused={isPaused}
-        isLoading={loading}
-        lastUpdated={lastUpdated}
-      />
-
-      {/* Loading State */}
-      {loading && (
-        <div className="flex flex-col items-center justify-center py-16 space-y-4 animate-fade-in">
-          <div className="relative">
-            <Loader2 className="w-12 h-12 animate-spin text-primary" />
-            <div className="absolute inset-0 animate-ping opacity-20">
-              <Loader2 className="w-12 h-12 text-primary" />
+          <div className="rounded-xl border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold">Analysis scores</h2>
+            <div className="mt-4 space-y-4">
+              {data.analysis.length === 0 && (
+                <p className="text-sm text-muted-foreground">No analysis results.</p>
+              )}
+              {data.analysis.map((lead) => (
+                <article key={lead.website} className="rounded-lg border border-border/70 p-4">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="font-medium">{lead.name}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{lead.company}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-semibold">{lead.score}</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                        {lead.category}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
-          <div className="text-center space-y-2">
-            <p className="text-lg font-medium text-foreground">Initializing AI system...</p>
-            <p className="text-sm text-muted-foreground">Executing data → processing → intelligence → decision pipeline</p>
-          </div>
-          <div className="flex items-center gap-4 mt-4">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Brain className="w-4 h-4 text-neon-cyan animate-pulse" />
-              <span>Intelligence Agent</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Cpu className="w-4 h-4 text-neon-green animate-pulse" />
-              <span>Processing Agent</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Activity className="w-4 h-4 text-neon-orange animate-pulse" />
-              <span>Decision Agent</span>
+
+          <div className="rounded-xl border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold">Campaign messages</h2>
+            <div className="mt-4 space-y-4">
+              {data.campaigns.length === 0 && (
+                <p className="text-sm text-muted-foreground">No campaign messages.</p>
+              )}
+              {data.campaigns.map((campaign) => (
+                <article key={campaign.website} className="rounded-lg border border-border/70 p-4">
+                  <p className="font-medium">{campaign.company}</p>
+                  <p className="mt-2 text-sm">{campaign.message}</p>
+                </article>
+              ))}
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Error State - Graceful */}
-      {error && (
-        <div className="glass-panel rounded-xl p-8 border border-destructive/30 bg-destructive/5 animate-fade-in">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center flex-shrink-0">
-              <AlertTriangle className="w-6 h-6 text-destructive" />
-            </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold text-destructive mb-1">System temporarily unavailable</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                The AI pipeline is experiencing connectivity issues. Your data is safe and will resume shortly.
-              </p>
-              <div className="flex items-center gap-3">
-                <button 
-                  onClick={() => fetchData(true)}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                >
-                  <RefreshCw className="w-4 h-4" />
-                  Retry Connection
-                </button>
-                <span className="text-xs text-muted-foreground">
-                  Auto-retry in 45 seconds
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Data Display */}
-      {!loading && !error && data && (
-        <div className="space-y-6 animate-fade-in">
-          {/* Main Grid with Intelligence Feed */}
-          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-            <div className="xl:col-span-3 space-y-6">
-              {/* Metrics */}
-              <DashboardMetrics scores={data.scores} opportunities={data.opportunities} />
-
-              {/* Pipeline */}
-              <section className="glass-panel-elevated rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-                <PipelineVisualization decisions={data.decisions} />
-              </section>
-
-              {/* Tables */}
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-                <OpportunitiesTable opportunities={data.opportunities} />
-                <CampaignsTable campaigns={data.campaigns} />
-              </div>
-            </div>
-
-            {/* Intelligence Feed Panel */}
-            <div className="xl:col-span-1">
-              <IntelligenceFeed 
-                opportunities={data.opportunities}
-                isPaused={isPaused}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Footer */}
-      <footer className="flex items-center justify-between text-xs text-muted-foreground pt-4 border-t border-border/20">
-        <div className="flex items-center gap-4">
-          <span>AI Agents: 4 active</span>
-          <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-          <span>Data Sources: Live</span>
-          <span className="w-1 h-1 rounded-full bg-muted-foreground/30" />
-          <span>Version: 3.0.0</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-          <span>System Operational</span>
-        </div>
-      </footer>
-    </div>
+        </section>
+      </div>
+    </main>
   )
 }

@@ -9,7 +9,7 @@ load_dotenv(dotenv_path=".env")
 API_KEY = os.getenv("API_KEY", "").strip()
 BASE_URL = os.getenv("BASE_URL", "").rstrip("/")
 MODEL = os.getenv("MODEL", "gpt-3.5-turbo")
-API_URL = f"{BASE_URL}/v1/chat/completions" if BASE_URL else "https://api.openai.com/v1/chat/completions"
+
 
 
 def fallback_strategy(trend):

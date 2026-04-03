@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("FIRECRAWL_API_KEY")
+API_KEY = "fc-8aa09a49b43248aab44dc22fc3d2b2e3"
 
 OUTPUT_PATH = "data/raw/firecrawl_data.json"
 

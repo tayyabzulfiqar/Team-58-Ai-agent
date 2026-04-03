@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-04-01T18:17:20.360973",
-  "run_id": 51,
+  "timestamp": "2026-04-02T02:52:25.236849",
+  "run_id": 25,
   "status": "success",
   "data": {
-    "session_id": "a3c574d2-d59b-4687-b9f1-9cfd40020c82",
+    "session_id": "cb0b4cc2-0663-4c12-9000-588874a95422",
     "mode": "full_pipeline",
     "summary": {
       "total_leads": 0,
@@ -22,7 +22,7 @@
       "market_sentiment": "EXPLORATORY - Early stage market",
       "total_leads_analyzed": 0,
       "pain_point_count": 0,
-      "analyzed_at": "2026-04-01T18:17:20.323145"
+      "analyzed_at": "2026-04-02T02:52:25.216031"
     },
     "competitor_insights": {
       "competition_level": "LOW",
@@ -39,7 +39,7 @@
         "Low saturation - aggressive market entry recommended",
         "STRONG OPPORTUNITY - Prioritize this market for immediate campaign launch"
       ],
-      "analyzed_at": "2026-04-01T18:17:20.324144"
+      "analyzed_at": "2026-04-02T02:52:25.219021"
     },
     "positioning": [],
     "predictions": [],

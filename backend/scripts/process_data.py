@@ -3,6 +3,10 @@ import os
 import re
 from datetime import datetime
 
+# SYSTEM GUARD: SSOT - raw_data.json is READ ONLY
+RAW_PATH = os.path.abspath("backend/data/raw/raw_data.json")
+PROCESSED_PATH = os.path.abspath("backend/data/processed/processed_data.json")
+
 # Paths
 RAW_PATH = "data/raw/raw_data.json"
 PROCESSED_PATH = "data/processed/processed_data.json"
@@ -95,7 +99,6 @@ def process_data():
     if not os.path.exists(RAW_PATH):
         print("❌ Raw data file not found")
         return
-
     with open(RAW_PATH, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
 

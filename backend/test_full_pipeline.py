@@ -6,11 +6,11 @@ import json
 import sys
 sys.path.append('c:\\Users\\HP\\team58-ai-engine\\scripts')
 
-from agents.lead_qualification_agent import LeadQualificationAgent
-from controllers.lead_strategy_engine import LeadStrategyEngine
-from intelligence.feedback_analyzer import FeedbackAnalyzer
-from intelligence.pattern_learner import PatternLearner
-from intelligence.learning_optimizer import LearningOptimizer
+from scripts.agents.lead_qualification_agent import LeadQualificationAgent
+from scripts.controllers.lead_strategy_engine import LeadStrategyEngine
+from scripts.intelligence.feedback_analyzer import FeedbackAnalyzer
+from scripts.intelligence.pattern_learner import PatternLearner
+from scripts.intelligence.learning_optimizer import LearningOptimizer
 
 print("=" * 70)
 print("🔥 END-TO-END INTEGRATION TEST")

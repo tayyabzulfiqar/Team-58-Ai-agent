@@ -3,6 +3,9 @@ import os
 import requests
 from dotenv import load_dotenv
 
+# === GLOBAL DEBUG MODE ===
+DEBUG_MODE = True
+
 load_dotenv()
 
 API_KEY = os.getenv("API_KEY")
@@ -14,8 +17,19 @@ OUTPUT_PATH = "data/processed/execution.json"
 
 
 def load_decisions():
+    if not os.path.exists(INPUT_PATH):
+        print("No decisions file found → skipping execution safely")
+        return []
     with open(INPUT_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        try:
+            data = json.load(f)
+        except Exception as e:
+            print(f"Error loading decisions.json: {e}")
+            return []
+    if not data:
+        print("Empty decisions → skipping execution safely")
+        return []
+    return data
 
 
 def call_ai(decision):
@@ -79,28 +93,36 @@ Only respond in STRICT JSON:
 
 
 def run():
-    decisions = load_decisions()
-    executions = []
-
-    for d in decisions:
-        if d.get("decision") != "BUILD":
-            continue
-
-        ai_output = call_ai(d)
-
-        executions.append({
-            "pattern": d.get("pattern"),
-            **ai_output
-        })
-
-        print(f"Execution plan created for: {d.get('pattern')}")
-
-    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
-
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(executions, f, indent=2)
-
-    print("Execution engine complete")
+    try:
+        decisions = load_decisions()
+        executions = []
+        if DEBUG_MODE:
+            print(f"DEBUG: Loaded {len(decisions)} decisions.")
+        if not decisions:
+            print("No valid decisions to execute. Skipping execution step.")
+            return "skipped"
+        for d in decisions:
+            if d.get("decision", d.get("action")) != "BUILD":
+                continue
+            try:
+                ai_output = call_ai(d)
+            except Exception as e:
+                print(f"ERROR in call_ai: {e}")
+                ai_output = {"error": str(e)}
+            executions.append({
+                "pattern": d.get("pattern", "unknown"),
+                **ai_output
+            })
+            if DEBUG_MODE:
+                print(f"Execution plan created for: {d.get('pattern', 'unknown')}")
+        os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+        with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+            json.dump(executions, f, indent=2)
+        print("Execution engine complete")
+        return "success"
+    except Exception as e:
+        print(f"ERROR in execution engine: {e}")
+        return "fallback"
 
 
 if __name__ == "__main__":

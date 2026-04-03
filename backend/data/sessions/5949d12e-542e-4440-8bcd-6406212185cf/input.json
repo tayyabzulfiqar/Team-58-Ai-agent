@@ -1,0 +1,32 @@
+{
+  "leads": [
+    {
+      "name": "Acme Corp",
+      "company": "Acme",
+      "industry": "Technology",
+      "budget": 75000,
+      "location": "San Francisco"
+    },
+    {
+      "name": "Global Finance",
+      "company": "GF Inc",
+      "industry": "Finance",
+      "budget": 120000,
+      "location": "New York"
+    },
+    {
+      "name": "Health Plus",
+      "company": "HealthPlus",
+      "industry": "Healthcare",
+      "budget": 45000,
+      "location": "Boston"
+    },
+    {
+      "name": "Retail Giant",
+      "company": "RetailGiant",
+      "industry": "Retail",
+      "budget": 90000,
+      "location": "Chicago"
+    }
+  ]
+}

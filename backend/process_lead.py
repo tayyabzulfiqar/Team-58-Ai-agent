@@ -5,7 +5,7 @@ import json
 import sys
 sys.path.append('c:\\Users\\HP\\team58-ai-engine\\scripts')
 
-from agents.lead_qualification_agent import LeadQualificationAgent
+from scripts.agents.lead_qualification_agent import LeadQualificationAgent
 
 # Initialize agent
 agent = LeadQualificationAgent()
