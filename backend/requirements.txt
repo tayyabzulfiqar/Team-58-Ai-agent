@@ -6,7 +6,6 @@ Jinja2
 numpy
 pydub
 networkx
-torch
 tqdm
 regex
 llvmlite
@@ -21,6 +20,9 @@ idna
 certifi
 charset-normalizer
 urllib3
-openai-whisper
 setuptools
 tiktoken
+# --- Optimized for Railway ---
+faster-whisper
+torch==2.2.0+cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
