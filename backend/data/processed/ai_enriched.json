@@ -55,7 +55,7 @@
     ],
     "signal_strength": 75,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Tooling & Infrastructure",
+    "ai_category": "AI Tooling / Developer Productivity",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -250,7 +250,7 @@
     ],
     "signal_strength": 20,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "Instructional/Command",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -445,7 +445,7 @@
     ],
     "signal_strength": 151,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Safety & Security Incident",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -520,7 +520,7 @@
     ],
     "signal_strength": 80,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Misinformation / Fabrication",
+    "ai_category": "Misinformation / Hoax",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -625,7 +625,7 @@
     ],
     "signal_strength": 86,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Nostalgia & Cultural Artifact",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -640,7 +640,7 @@
     ],
     "signal_strength": 84,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "System Troubleshooting / Software Compatibility Issue",
+    "ai_category": "System & Software Troubleshooting",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -685,7 +685,7 @@
     ],
     "signal_strength": 91,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "News Analysis / Corporate Policy Impact",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -700,7 +700,7 @@
     ],
     "signal_strength": 217,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "General",
+    "ai_category": "News Analysis / Media Monitoring",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -745,7 +745,7 @@
     ],
     "signal_strength": 120,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Policy & Ethics",
+    "ai_category": "AI Policy & Governance",
     "ai_insight": "No strong signal",
     "ai_score": 5
   }
