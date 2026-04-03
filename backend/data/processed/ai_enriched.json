@@ -25,7 +25,7 @@
     ],
     "signal_strength": 22,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Historical Computing / Software Archaeology",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -55,7 +55,7 @@
     ],
     "signal_strength": 75,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Tooling / Developer Productivity",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -70,7 +70,7 @@
     ],
     "signal_strength": 53,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Programming Language Tool / Compiler Infrastructure",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -100,7 +100,7 @@
     ],
     "signal_strength": 44,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Information Retrieval / Document Classification",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -130,7 +130,7 @@
     ],
     "signal_strength": 35,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Cybersecurity / Adversarial AI",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -160,7 +160,7 @@
     ],
     "signal_strength": 65,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI-Enhanced Systems & Infrastructure",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -205,7 +205,7 @@
     ],
     "signal_strength": 54,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Healthcare Technology",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -220,7 +220,7 @@
     ],
     "signal_strength": 63,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Business Operations / Customer Experience Automation",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -235,7 +235,7 @@
     ],
     "signal_strength": 30,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Programming Language Misconception",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -250,7 +250,7 @@
     ],
     "signal_strength": 20,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Instructional/Command",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -265,7 +265,7 @@
     ],
     "signal_strength": 13,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Tool/Utility",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -340,7 +340,7 @@
     ],
     "signal_strength": 61,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Education Policy / EdTech Impact",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -355,7 +355,7 @@
     ],
     "signal_strength": 56,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Hardware Integration",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -370,7 +370,7 @@
     ],
     "signal_strength": 65,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Legal & Policy Analysis",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -415,7 +415,7 @@
     ],
     "signal_strength": 60,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Geopolitical & Regulatory Risk",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -460,7 +460,7 @@
     ],
     "signal_strength": 72,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Predictive Analytics / Forecasting",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -490,7 +490,7 @@
     ],
     "signal_strength": 55,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI-Enhanced Image Processing",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -505,7 +505,7 @@
     ],
     "signal_strength": 52,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Sentiment Analysis",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -520,7 +520,7 @@
     ],
     "signal_strength": 80,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Misinformation / Hoax",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -550,7 +550,7 @@
     ],
     "signal_strength": 195,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Investment & Industrial Transformation",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -565,7 +565,7 @@
     ],
     "signal_strength": 76,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI in Business Operations",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -640,7 +640,7 @@
     ],
     "signal_strength": 84,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "System & Software Troubleshooting",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -700,7 +700,7 @@
     ],
     "signal_strength": 217,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "News Analysis / Media Monitoring",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -715,7 +715,7 @@
     ],
     "signal_strength": 55,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Integration in Search Engines",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -730,7 +730,7 @@
     ],
     "signal_strength": 108,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "Geopolitical AI Regulation & Export Control",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   },
@@ -745,7 +745,7 @@
     ],
     "signal_strength": 120,
     "processed_at": "2026-03-20T18:40:02.804132",
-    "ai_category": "AI Policy & Governance",
+    "ai_category": "General",
     "ai_insight": "No strong signal",
     "ai_score": 5
   }

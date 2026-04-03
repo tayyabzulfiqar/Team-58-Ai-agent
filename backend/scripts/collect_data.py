@@ -23,7 +23,7 @@ def retry(max_attempts=1, backoff=1):
     return decorator
 
 # === API KEYS (SYSTEM INJECTION) ===
-SERPER_API_KEY = "d19745e642d83ff377b1f3647b958824d055b59b"
+SERPER_API_KEY = os.getenv("SERPER_API_KEY", "")
 
 
 # === HEALTH CHECK FLAGS ===

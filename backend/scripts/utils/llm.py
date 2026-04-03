@@ -1,8 +1,9 @@
 import requests
 import time
+import os
 
-API_KEY = "sk-36f731a2000b49f4b76b2b6bb3b6a1ca"
-BASE_URL = "https://ws-7cdqxbw1m3iabksm.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
+API_KEY = os.getenv("QWEN_API_KEY", "")
+BASE_URL = os.getenv("QWEN_BASE_URL", "https://ws-7cdqxbw1m3iabksm.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1")
 
 def llm_call(prompt):
     print("[QWEN REQUEST]")

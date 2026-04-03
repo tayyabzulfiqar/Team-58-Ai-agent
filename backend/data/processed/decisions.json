@@ -1,32 +1,32 @@
 [
   {
-    "decision": "TEST",
-    "reason": "The 'social agent' concept is emerging but not yet mature or well-defined\u2014lacking standardized use cases, proven monetization, and broad market consensus. While demand signals exist (e.g., rising interest in AI-powered social media assistants, automated community engagement, or personalized influencer-style agents), the target audience ('general market') is too vague, and the pain point ('identify and align product to current demand') suggests uncertainty about real user needs\u2014not a validated problem. A pilot MVP is appropriate, but launching a full offering risks misalignment; instead, low-cost, rapid validation (e.g., concierge-style manual-first service, landing page + waitlist with value proposition testing, or lightweight prototype for early adopters) would de-risk assumptions around willingness-to-pay, core functionality, and differentiation. 'BUILD' is premature without evidence of traction; 'IGNORE' is unwarranted given macro trends in AI agents and social tooling.",
-    "priority": 7,
-    "pattern": "social agent"
+    "pattern": "social agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
   },
   {
-    "decision": "TEST",
-    "reason": "The 'super agent' trend is emerging but not yet mature or well-defined\u2014lacking standardized use cases, proven product-market fit, or clear monetization paths. While demand signals exist (e.g., rising interest in autonomous AI agents, LLM-powered workflows), the target audience is broad ('general market') and the pain point ('identify and align product to current demand') is strategic rather than acute or well-quantified. A pilot MVP is appropriate to validate assumptions about user needs, willingness to pay, and differentiation\u2014but launching a full-scale build carries premature scaling risk. Testing allows rapid iteration with low resource commitment (e.g., concierge MVP, waitlist + problem interviews, lightweight prototype for early adopters in dev/ops/automation roles).",
-    "priority": 6,
-    "pattern": "super agent"
+    "pattern": "super agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
   },
   {
-    "decision": "TEST",
-    "reason": "The 'micro agent' trend is emerging but not yet mature or widely defined\u2014indicating high uncertainty around market size, user expectations, and technical feasibility. While the pain point (aligning product to current demand) is real and broadly relevant, targeting the 'general market' with a vague micro agent offering lacks sufficient segmentation and validation. A pilot MVP is appropriate, but jumping straight to BUILD carries unnecessary risk without evidence of traction, clear use cases, or early adopter feedback. TESTING\u2014via a lean, no-code or low-fidelity prototype (e.g., concierge service, waitlist + survey, or targeted landing page test)\u2014allows rapid validation of demand, willingness to pay, and core value proposition before significant investment.",
-    "priority": 7,
-    "pattern": "micro agent"
+    "pattern": "micro agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
   },
   {
-    "decision": "TEST",
-    "reason": "The 'cofounder agent' concept is an emerging, ambiguous trend\u2014not yet a proven market with clear demand signals. While identifying product-market fit for nascent AI-agent use cases is valid, targeting the 'general market' is too broad and lacks segmentation; cofounder agents imply B2B/SaaS founders or technical solopreneurs, not consumers. There\u2019s no evidence of validated pain (e.g., churn, unmet workflows) or willingness to pay. A focused MVP pilot is appropriate\u2014but only as a learning experiment (e.g., concierge-style interviews + lightweight prototype with 10\u201320 early adopters), not a full launch. Jumping to BUILD carries high risk of building for a phantom market; IGNORE would miss a potentially timely signal. TEST balances speed, cost, and de-risking.",
-    "priority": 6,
-    "pattern": "cofounder agent"
+    "pattern": "cofounder agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
   },
   {
-    "decision": "IGNORE",
-    "reason": "The term 'smuggling agent' refers to illegal activity involving the unlawful transportation of goods, people, or contraband across borders\u2014violating international laws, customs regulations, and ethical standards. Building a product or business around facilitating, supporting, or monetizing smuggling is unlawful, high-risk, and fundamentally incompatible with legitimate, sustainable, and responsible business practices. No reputable company should engage in, endorse, or market solutions tied to criminal conduct\u2014even as a hypothetical 'trend'. Doing so would expose the business to severe legal liability, reputational destruction, financial penalties, and potential criminal prosecution. The 'pain point' described mischaracterizes illegality as a market opportunity; real demand alignment must occur within legal, ethical, and compliant frameworks.",
-    "priority": 1,
-    "pattern": "smuggling agent"
+    "pattern": "smuggling agent",
+    "decision": "MONITOR",
+    "reason": "Fallback due to API unavailability",
+    "priority": 5
   }
 ]
