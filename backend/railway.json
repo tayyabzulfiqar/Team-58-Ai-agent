@@ -3,6 +3,6 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "cd backend && bash start.sh"
+    "startCommand": "bash start.sh"
   }
 }
