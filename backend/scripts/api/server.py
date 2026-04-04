@@ -6,11 +6,30 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 from urllib.parse import quote, unquote, urlparse
 
+
+
 import requests
+import os
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Body
+from pydantic import BaseModel
+
+
+# --- Pydantic Models ---
+class CampaignRequest(BaseModel):
+    business: str
+    goal: str
+
+class ResearchRequest(BaseModel):
+    topic: str
+    depth: Optional[int] = 1
+
+class DataRequest(BaseModel):
+    dataset: str
+    filters: Optional[dict] = None
 
 # Add project root to Python path for absolute imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -19,6 +38,7 @@ ROOT_DIR = Path(__file__).resolve().parents[3]
 ENV_PATH = ROOT_DIR / ".env"
 load_dotenv(dotenv_path=ENV_PATH, override=False)
 
+# --- FastAPI App Initialization ---
 app = FastAPI(title="AI Multi-Agent API", version="2.1.0")
 
 app.add_middleware(
@@ -28,6 +48,177 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# --- Agent Endpoints ---
+
+
+# --- LLM Tools ---
+def call_llm(prompt: str) -> str:
+    QWEN_API_KEY = os.getenv("QWEN_API_KEY")
+    try:
+        response = requests.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {QWEN_API_KEY}",
+                "Content-Type": "application/json"
+            },
+            json={
+                "model": "qwen/qwen-2.5-7b-instruct",
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ]
+            },
+            timeout=30
+        )
+        response.raise_for_status()
+        return response.json()["choices"][0]["message"]["content"]
+    except Exception:
+        return "LLM error"
+
+# --- Agent Logic ---
+def run_campaign_agent(data: dict) -> dict:
+    business = data.get("business") or data.get("input", {}).get("business", "")
+    goal = data.get("goal") or data.get("input", {}).get("goal", "")
+    prompt = (
+        f"Create a detailed marketing strategy for {business} to achieve {goal}. "
+        "Include channels, budget suggestion, and targeting."
+    )
+    result = call_llm(prompt)
+    return {
+        "agent": "campaign",
+        "input": {"business": business, "goal": goal},
+        "strategy": result
+    }
+
+def run_research_agent(data: dict) -> dict:
+    SERPER_API_KEY = os.getenv("SERPER_API_KEY")
+    topic = data.get("topic") or data.get("input", {}).get("topic", "") or data.get("query", "")
+    summary = []
+    try:
+        response = requests.post(
+            "https://google.serper.dev/search",
+            headers={
+                "X-API-KEY": SERPER_API_KEY,
+                "Content-Type": "application/json"
+            },
+            json={"q": topic},
+            timeout=20
+        )
+        response.raise_for_status()
+        data_json = response.json()
+        organic = data_json.get("organic", [])
+        for r in organic[:3]:
+            summary.append({
+                "title": r.get("title", ""),
+                "link": r.get("link", ""),
+                "snippet": r.get("snippet", "")
+            })
+    except Exception:
+        summary = []
+    return {
+        "agent": "research",
+        "topic": topic,
+        "results": summary
+    }
+
+def run_data_agent(data: dict) -> dict:
+    dataset = data.get("dataset") or data.get("input", {}).get("dataset", "")
+    filters = data.get("filters") or data.get("input", {}).get("filters", {})
+    query = f"Dataset: {dataset}, Filters: {filters}"
+    prompt = f"Analyze the following query and provide insights: {query}. Include trends, risks, and opportunities."
+    result = call_llm(prompt)
+    return {
+        "agent": "data",
+        "query": query,
+        "analysis": result
+    }
+
+@app.post("/campaign-agent")
+async def campaign_agent(request: CampaignRequest):
+    return run_campaign_agent(request.dict())
+
+@app.post("/research-agent")
+async def research_agent(request: ResearchRequest):
+    return run_research_agent(request.dict())
+
+@app.post("/data-agent")
+async def data_agent(request: DataRequest):
+    return run_data_agent(request.dict())
+
+# --- Master Agent Orchestration ---
+def is_complex_query(query: str) -> bool:
+    # Heuristic: if query contains multiple agent keywords, treat as complex
+    keywords = ["marketing", "ads", "growth", "research", "trend", "news", "data", "analysis", "numbers"]
+    count = sum(1 for k in keywords if k in query.lower())
+    return count > 1 or any(x in query.lower() for x in [" and ", " then ", ","])
+
+def master_agent_logic(query: str) -> dict:
+    decision = []
+    output = None
+    partials = {}
+    try:
+        q = query.lower()
+        # Chaining for complex queries
+        if is_complex_query(query):
+            # Step 1: Research
+            research_result = run_research_agent({"query": query})
+            decision.append("research-agent")
+            partials["research"] = research_result
+            # Step 2: Campaign (use research summary as input)
+            research_summary = "; ".join([r.get("title", "") for r in research_result.get("results", [])])
+            campaign_input = {
+                "business": research_summary or query,
+                "goal": query
+            }
+            campaign_result = run_campaign_agent(campaign_input)
+            decision.append("campaign-agent")
+            partials["campaign"] = campaign_result
+            # Step 3: Data (summarize previous outputs)
+            data_input = {
+                "dataset": research_summary or query,
+                "filters": {"context": campaign_result.get("strategy", "")}
+            }
+            data_result = run_data_agent(data_input)
+            decision.append("data-agent")
+            partials["data"] = data_result
+            output = {
+                "research": research_result,
+                "campaign": campaign_result,
+                "data": data_result
+            }
+        else:
+            # Simple decision
+            if any(x in q for x in ["marketing", "ads", "growth"]):
+                result = run_campaign_agent({"business": query, "goal": query})
+                decision.append("campaign-agent")
+                output = result
+            elif any(x in q for x in ["research", "trend", "news"]):
+                result = run_research_agent({"query": query})
+                decision.append("research-agent")
+                output = result
+            elif any(x in q for x in ["data", "analysis", "numbers"]):
+                result = run_data_agent({"dataset": query, "filters": {}})
+                decision.append("data-agent")
+                output = result
+            else:
+                result = run_research_agent({"query": query})
+                decision.append("research-agent")
+                output = result
+    except Exception as exc:
+        output = {"error": str(exc), **partials}
+    return {
+        "agent": "master",
+        "input": query,
+        "decision": decision,
+        "output": output
+    }
+
+@app.post("/master-agent")
+async def master_agent(request: dict = Body(...)):
+    query = request.get("query", "")
+    return master_agent_logic(query)
+
+
 
 FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY", "").strip()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "").strip()
@@ -518,8 +709,8 @@ def _build_safe_response(query: str) -> Dict[str, Any]:
 
 
 @app.get("/")
-async def root():
-    return {"status": "AI Multi-Agent API running"}
+async def health_check():
+    return {"status": "ok"}
 
 
 @app.get("/health")
