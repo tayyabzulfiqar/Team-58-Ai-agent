@@ -12,34 +12,28 @@ import requests
 import os
 import uvicorn
 from dotenv import load_dotenv
-from fastapi import FastAPI
+import os
+import logging
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import Body
-from pydantic import BaseModel
+from fastapi.responses import JSONResponse
+from scripts.core.orchestrator import run_campaign_workflow, run_data_analysis, fetch_campaign_history
+@app.get("/campaign-history")
+async def campaign_history():
+    try:
+        history = fetch_campaign_history()
+        return {"status": "success", "data": history}
+    except Exception as e:
+        logger.error(f"/campaign-history error: {e}")
+        return {"status": "error", "message": str(e)}
 
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+logger = logging.getLogger("server")
 
-# --- Pydantic Models ---
-class CampaignRequest(BaseModel):
-    business: str
-    goal: str
-
-class ResearchRequest(BaseModel):
-    topic: str
-    depth: Optional[int] = 1
-
-class DataRequest(BaseModel):
-    dataset: str
-    filters: Optional[dict] = None
-
-# Add project root to Python path for absolute imports
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-
-ROOT_DIR = Path(__file__).resolve().parents[3]
-ENV_PATH = ROOT_DIR / ".env"
-load_dotenv(dotenv_path=ENV_PATH, override=False)
-
-# --- FastAPI App Initialization ---
-app = FastAPI(title="AI Multi-Agent API", version="2.1.0")
+app = FastAPI(title="TEAM 58 AI SYSTEM", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,12 +43,82 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Agent Endpoints ---
+@app.get("/")
+async def root():
+    return {"status": "success", "data": "ok"}
 
+@app.get("/health")
+async def health():
+    return {"status": "success", "data": "ok"}
 
-# --- LLM Tools ---
-def call_llm(prompt: str) -> str:
-    QWEN_API_KEY = os.getenv("QWEN_API_KEY")
+@app.get("/version")
+async def version():
+    return {"status": "success", "data": {"version": "1.0.0", "system": "TEAM 58 AI"}}
+
+@app.post("/run-campaign")
+async def run_campaign(request: Request):
+    try:
+        data = await request.json()
+        product = data.get("product")
+        audience = data.get("audience")
+        if not isinstance(product, str) or not isinstance(audience, str) or len(product) < 3 or len(audience) < 3:
+            return {"status": "error", "message": "Invalid input: product and audience must be strings of min length 3."}
+        result = run_campaign_workflow(product, audience)
+        return result
+    except Exception as e:
+        logger.error(f"/run-campaign error: {e}")
+        return {"status": "error", "message": str(e)}
+
+@app.post("/analyze")
+async def analyze(request: Request):
+    try:
+        data = await request.json()
+        if not isinstance(data, dict):
+            return {"status": "error", "message": "Invalid input: data must be a dict."}
+        result = run_data_analysis(data)
+        return result
+    except Exception as e:
+        logger.error(f"/analyze error: {e}")
+        return {"status": "error", "message": str(e)}
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled error: {exc}")
+    return JSONResponse(status_code=500, content={"status": "error", "message": str(exc)})
+    return {"status": "ok"}
+
+@app.post("/run-campaign")
+async def run_campaign(request: Request):
+    try:
+        data = await request.json()
+        product = data.get("product")
+        audience = data.get("audience")
+        if not product or not audience:
+            raise HTTPException(status_code=400, detail="Missing product or audience.")
+        result = run_campaign_workflow(product, audience)
+        return result
+    except Exception as e:
+        logger.error(f"/run-campaign error: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/analyze")
+async def analyze(request: Request):
+    try:
+        data = await request.json()
+        if not isinstance(data, dict):
+            raise HTTPException(status_code=400, detail="Invalid data format.")
+        result = run_data_analysis(data)
+        return result
+    except Exception as e:
+        logger.error(f"/analyze error: {e}")
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled error: {exc}")
+    return JSONResponse(status_code=500, content={"error": str(exc)})
+    if not QWEN_API_KEY:
+        return "LLM error: QWEN_API_KEY missing"
     try:
         response = requests.post(
             "https://openrouter.ai/api/v1/chat/completions",
@@ -72,8 +136,8 @@ def call_llm(prompt: str) -> str:
         )
         response.raise_for_status()
         return response.json()["choices"][0]["message"]["content"]
-    except Exception:
-        return "LLM error"
+    except Exception as exc:
+        return f"LLM error: {exc}"
 
 # --- Agent Logic ---
 def run_campaign_agent(data: dict) -> dict:
@@ -94,6 +158,8 @@ def run_research_agent(data: dict) -> dict:
     SERPER_API_KEY = os.getenv("SERPER_API_KEY")
     topic = data.get("topic") or data.get("input", {}).get("topic", "") or data.get("query", "")
     summary = []
+    if not SERPER_API_KEY:
+        return {"agent": "research", "topic": topic, "results": [], "error": "SERPER_API_KEY missing"}
     try:
         response = requests.post(
             "https://google.serper.dev/search",
@@ -113,8 +179,8 @@ def run_research_agent(data: dict) -> dict:
                 "link": r.get("link", ""),
                 "snippet": r.get("snippet", "")
             })
-    except Exception:
-        summary = []
+    except Exception as exc:
+        return {"agent": "research", "topic": topic, "results": [], "error": str(exc)}
     return {
         "agent": "research",
         "topic": topic,

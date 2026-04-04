@@ -1,28 +1,4 @@
-requests
 fastapi
-uvicorn
+uvicorn[standard]
+openai
 python-dotenv
-Jinja2
-numpy
-pydub
-networkx
-tqdm
-regex
-llvmlite
-numba
-sympy
-filelock
-fsspec
-colorama
-more-itertools
-markupsafe
-idna
-certifi
-charset-normalizer
-urllib3
-setuptools
-tiktoken
-# --- Optimized for Railway ---
-faster-whisper
-torch==2.2.0+cpu
---extra-index-url https://download.pytorch.org/whl/cpu

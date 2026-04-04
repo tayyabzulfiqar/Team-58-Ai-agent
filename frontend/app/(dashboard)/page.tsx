@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { API_BASE_URL } from '@/src/config/api'
 
 type ResearchLead = {
   title: string
@@ -40,24 +41,20 @@ type RunSystemResponse = {
   research: ResearchLead[]
   processed: ProcessedLead[]
   analysis: AnalysisLead[]
-  campaigns: CampaignLead[]
-}
-
-const emptyState: RunSystemResponse = {
-  status: 'success',
-  research: [],
-  processed: [],
-  analysis: [],
-  campaigns: [],
-}
-
 export default function DashboardPage() {
   const [data, setData] = useState<RunSystemResponse>(emptyState)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [product, setProduct] = useState('')
+  const [audience, setAudience] = useState('')
+  const [campaignResult, setCampaignResult] = useState<any>(null)
+  const [analyzing, setAnalyzing] = useState(false)
+  const [analysisResult, setAnalysisResult] = useState<any>(null)
 
+  // Optionally keep the original pipeline button
   const runSystem = async () => {
     setLoading(true)
-
+    setError(null)
     try {
       const response = await fetch('/api/run-system', {
         method: 'POST',
@@ -65,9 +62,7 @@ export default function DashboardPage() {
           'Content-Type': 'application/json',
         },
       })
-
       const result = (await response.json()) as Partial<RunSystemResponse>
-
       setData({
         status: result.status ?? 'success',
         research: Array.isArray(result.research) ? result.research : [],
@@ -77,134 +72,142 @@ export default function DashboardPage() {
       })
     } catch {
       setData(emptyState)
+      setError('Something went wrong')
     } finally {
       setLoading(false)
     }
   }
 
-  useEffect(() => {
-    void runSystem()
-  }, [])
+  // Campaign form submit handler
+  const handleCampaignSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+    setCampaignResult(null)
+    setAnalysisResult(null)
+    try {
+      const res = await fetch(`${API_BASE_URL}/run-campaign`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product, audience })
+      })
+      if (!res.ok) throw new Error('API error')
+      const data = await res.json()
+      if (data.status !== 'success') throw new Error(data.message || 'API error')
+      setCampaignResult(data.data)
+    } catch (err) {
+      setError('Something went wrong')
+    } finally {
+      setLoading(false)
+    }
+  }
 
+  // Analyze button handler
+  const handleAnalyze = async () => {
+    if (!campaignResult) return
+    setAnalyzing(true)
+    setError(null)
+    setAnalysisResult(null)
+    try {
+      const res = await fetch(`${API_BASE_URL}/analyze`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ campaign_data: campaignResult })
+      })
+      if (!res.ok) throw new Error('API error')
+      const data = await res.json()
+      if (data.status !== 'success') throw new Error(data.message || 'API error')
+      setAnalysisResult(data.data)
+    } catch (err) {
+      setError('Something went wrong')
+    } finally {
+      setAnalyzing(false)
+    }
+  }
+        campaigns: Array.isArray(result.campaigns) ? result.campaigns : [],
   return (
     <main className="min-h-screen bg-background text-foreground p-6 md:p-10">
-      <div className="mx-auto max-w-7xl space-y-8">
+      <div className="mx-auto max-w-3xl space-y-8">
         <header className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2">
             <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              4-Agent Pipeline
+              Campaign Generator
             </p>
-            <h1 className="text-3xl font-semibold">AI Lead System</h1>
+            <h1 className="text-3xl font-semibold">AI Campaign System</h1>
             <p className="text-sm text-muted-foreground">
-              Research Agent, Processing Agent, Analysis Agent, Campaign Design Agent
+              Instantly generate and analyze campaign ideas
             </p>
           </div>
-
-          <button
-            onClick={runSystem}
-            disabled={loading}
-            className="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {loading ? 'Running AI agents...' : 'Run AI System'}
-          </button>
         </header>
 
-        {loading && (
-          <section className="rounded-xl border border-border bg-card p-6">
-            <p className="text-base font-medium">Running AI agents...</p>
+        <form onSubmit={handleCampaignSubmit} className="rounded-xl border border-border bg-card p-6 flex flex-col gap-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Product/Service</label>
+            <input
+              className="w-full rounded border px-3 py-2 text-base"
+              value={product}
+              onChange={e => setProduct(e.target.value)}
+              required
+              minLength={3}
+              placeholder="e.g. AI Marketing Platform"
+              disabled={loading}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Target Audience</label>
+            <input
+              className="w-full rounded border px-3 py-2 text-base"
+              value={audience}
+              onChange={e => setAudience(e.target.value)}
+              required
+              minLength={3}
+              placeholder="e.g. Small Business Owners"
+              disabled={loading}
+            />
+          </div>
+          <button
+            type="submit"
+            className="rounded-lg bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+            disabled={loading}
+          >
+            {loading ? 'Generating...' : 'Generate Campaign'}
+          </button>
+        </form>
+
+        {error && (
+          <div className="rounded-xl border border-red-500 bg-red-100 p-4 text-red-700">
+            {error}
+          </div>
+        )}
+
+        {campaignResult && (
+          <section className="rounded-xl border border-border bg-card p-6 mt-4">
+            <h2 className="text-lg font-semibold mb-2">Campaign Result</h2>
+            <div className="space-y-2">
+              <div><span className="font-medium">Idea:</span> {campaignResult.campaign_idea}</div>
+              <div><span className="font-medium">Headline:</span> {campaignResult.headline}</div>
+              <div><span className="font-medium">Ad Copy:</span> {campaignResult.ad_copy}</div>
+              <div><span className="font-medium">CTA:</span> {campaignResult.cta}</div>
+            </div>
+            <button
+              onClick={handleAnalyze}
+              className="mt-4 rounded-lg bg-secondary px-5 py-2 text-sm font-medium text-secondary-foreground transition hover:bg-secondary/90 disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={analyzing}
+            >
+              {analyzing ? 'Analyzing...' : 'Analyze Campaign'}
+            </button>
           </section>
         )}
 
-        <section className="grid gap-4 md:grid-cols-4">
-          <div className="rounded-xl border border-border bg-card p-5">
-            <p className="text-sm text-muted-foreground">Research count</p>
-            <p className="mt-2 text-3xl font-semibold">{data.research.length}</p>
-          </div>
-          <div className="rounded-xl border border-border bg-card p-5">
-            <p className="text-sm text-muted-foreground">Processed leads</p>
-            <p className="mt-2 text-3xl font-semibold">{data.processed.length}</p>
-          </div>
-          <div className="rounded-xl border border-border bg-card p-5">
-            <p className="text-sm text-muted-foreground">Analysis results</p>
-            <p className="mt-2 text-3xl font-semibold">{data.analysis.length}</p>
-          </div>
-          <div className="rounded-xl border border-border bg-card p-5">
-            <p className="text-sm text-muted-foreground">Campaign messages</p>
-            <p className="mt-2 text-3xl font-semibold">{data.campaigns.length}</p>
-          </div>
-        </section>
-
-        <section className="grid gap-6 xl:grid-cols-2">
-          <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold">Research</h2>
-            <div className="mt-4 space-y-4">
-              {data.research.length === 0 && (
-                <p className="text-sm text-muted-foreground">No research results.</p>
-              )}
-              {data.research.map((item) => (
-                <article key={item.url} className="rounded-lg border border-border/70 p-4">
-                  <p className="font-medium">{item.title}</p>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-1 block text-sm text-primary underline underline-offset-4"
-                  >
-                    {item.url}
-                  </a>
-                  <p className="mt-2 text-sm text-muted-foreground">{item.snippet || 'No snippet available.'}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold">Processed leads</h2>
-            <div className="mt-4 space-y-4">
-              {data.processed.length === 0 && (
-                <p className="text-sm text-muted-foreground">No processed leads.</p>
-              )}
-              {data.processed.map((lead) => (
-                <article key={lead.website} className="rounded-lg border border-border/70 p-4">
-                  <p className="font-medium">{lead.name}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{lead.company}</p>
-                  <p className="mt-2 text-sm">{lead.summary || 'No summary available.'}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold">Analysis scores</h2>
-            <div className="mt-4 space-y-4">
-              {data.analysis.length === 0 && (
-                <p className="text-sm text-muted-foreground">No analysis results.</p>
-              )}
-              {data.analysis.map((lead) => (
-                <article key={lead.website} className="rounded-lg border border-border/70 p-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="font-medium">{lead.name}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{lead.company}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-2xl font-semibold">{lead.score}</p>
-                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        {lead.category}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold">Campaign messages</h2>
-            <div className="mt-4 space-y-4">
-              {data.campaigns.length === 0 && (
-                <p className="text-sm text-muted-foreground">No campaign messages.</p>
-              )}
+        {analysisResult && (
+          <section className="rounded-xl border border-border bg-card p-6 mt-4">
+            <h2 className="text-lg font-semibold mb-2">Analysis & Recommendations</h2>
+            <pre className="whitespace-pre-wrap text-sm">{JSON.stringify(analysisResult, null, 2)}</pre>
+          </section>
+        )}
+      </div>
+    </main>
+  )
               {data.campaigns.map((campaign) => (
                 <article key={campaign.website} className="rounded-lg border border-border/70 p-4">
                   <p className="font-medium">{campaign.company}</p>
