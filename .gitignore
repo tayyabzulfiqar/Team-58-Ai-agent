@@ -41,6 +41,9 @@ Thumbs.db
 # Logs
 *.log
 logs/
+*.pid
+*.out.log
+*.err.log
 
 # Local data
 data/live/*.json
@@ -55,3 +58,7 @@ __pycache__/
 *.pyc
 *.pyo
 .aider*
+node_modules/
+.next/
+.cache/
+backend/memory/data.json
