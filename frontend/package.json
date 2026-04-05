@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "npm run build && next start -p $PORT -H 0.0.0.0",
+    "start": "next start",
     "lint": "eslint ."
   },
   "dependencies": {
