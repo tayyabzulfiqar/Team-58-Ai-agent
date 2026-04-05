@@ -1,15 +1,17 @@
 import json
 import os
+from pathlib import Path
 
 
-MEMORY_FILE = "backend/memory/data.json"
+MEMORY_DIR = Path(__file__).resolve().parent
+MEMORY_FILE = MEMORY_DIR / "data.json"
 
 
 def save_run(data):
-    if not os.path.exists("backend/memory"):
-        os.makedirs("backend/memory")
+    if not MEMORY_DIR.exists():
+        MEMORY_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not os.path.exists(MEMORY_FILE):
+    if not MEMORY_FILE.exists():
         with open(MEMORY_FILE, "w") as f:
             json.dump([], f)
 
@@ -29,10 +31,10 @@ def store_outcome(input_data, strategy, confidence):
         "confidence": confidence
     }
 
-    if not os.path.exists("backend/memory"):
-        os.makedirs("backend/memory")
+    if not MEMORY_DIR.exists():
+        MEMORY_DIR.mkdir(parents=True, exist_ok=True)
 
-    if os.path.exists(MEMORY_FILE):
+    if MEMORY_FILE.exists():
         with open(MEMORY_FILE, "r") as f:
             data = json.load(f)
     else:
