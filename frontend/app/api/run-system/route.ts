@@ -1,33 +1,36 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
 
 const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:8000";
+  process.env.NEXT_PUBLIC_API_URL ||
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  'http://127.0.0.1:8000'
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json().catch(() => ({}));
+    const body = await request.json().catch(() => ({}))
     const response = await fetch(`${BACKEND_URL}/run-system`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-      cache: "no-store",
-    });
+      cache: 'no-store',
+    })
 
     if (!response.ok) {
-      throw new Error(`Backend error: ${response.status}`);
+      throw new Error(`Backend error: ${response.status}`)
     }
 
-    const data = await response.json();
-    return NextResponse.json(data);
+    const data = await response.json()
+    return NextResponse.json(data)
   } catch (error) {
-    console.error("API Error:", error);
+    console.error('API Error:', error)
     return NextResponse.json(
       {
-        error: "Backend request failed",
+        error: 'Backend request failed',
+        backendUrl: BACKEND_URL,
       },
       { status: 500 }
-    );
+    )
   }
 }

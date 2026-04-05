@@ -26,7 +26,7 @@ type RunSystemResponse = {
 
 const initialResponse: RunSystemResponse | null = null
 
-export default function DashboardPage() {
+export function DashboardHome() {
   const [input, setInput] = useState('lead generation funnel optimization')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -61,7 +61,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background p-6 text-foreground md:p-10">
+    <div className="p-6 md:p-10">
       <div className="mx-auto max-w-4xl space-y-8">
         <header className="space-y-2">
           <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
@@ -69,7 +69,8 @@ export default function DashboardPage() {
           </p>
           <h1 className="text-3xl font-semibold">Campaign Intelligence Dashboard</h1>
           <p className="text-sm text-muted-foreground">
-            Run the full multi-agent pipeline and inspect the selected campaign strategy.
+            Run the full multi-agent pipeline and inspect the selected campaign
+            strategy.
           </p>
         </header>
 
@@ -107,30 +108,65 @@ export default function DashboardPage() {
           <section className="grid gap-6 md:grid-cols-2">
             <article className="space-y-3 rounded-xl border border-border bg-card p-6">
               <h2 className="text-lg font-semibold">Best Campaign</h2>
-              <p><span className="font-medium">Strategy:</span> {result.best_campaign?.strategy ?? 'N/A'}</p>
-              <p><span className="font-medium">Headline:</span> {result.best_campaign?.headline ?? 'N/A'}</p>
-              <p><span className="font-medium">Hook:</span> {result.best_campaign?.hook ?? 'N/A'}</p>
-              <p><span className="font-medium">CTA:</span> {result.best_campaign?.cta ?? 'N/A'}</p>
-              <p><span className="font-medium">Optimization Score:</span> {result.optimization_score ?? 'N/A'}</p>
+              <p>
+                <span className="font-medium">Strategy:</span>{' '}
+                {result.best_campaign?.strategy ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Headline:</span>{' '}
+                {result.best_campaign?.headline ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Hook:</span>{' '}
+                {result.best_campaign?.hook ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">CTA:</span>{' '}
+                {result.best_campaign?.cta ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Optimization Score:</span>{' '}
+                {result.optimization_score ?? 'N/A'}
+              </p>
             </article>
 
             <article className="space-y-3 rounded-xl border border-border bg-card p-6">
               <h2 className="text-lg font-semibold">Decision Meta</h2>
-              <p><span className="font-medium">Selected Strategy:</span> {result.decision_meta?.selected_strategy ?? 'N/A'}</p>
-              <p><span className="font-medium">Reason:</span> {result.decision_meta?.reason ?? 'N/A'}</p>
-              <p><span className="font-medium">Confidence:</span> {result.decision_meta?.confidence ?? 'N/A'}</p>
-              <p><span className="font-medium">Alternatives:</span> {result.decision_meta?.alternatives?.join(', ') ?? 'N/A'}</p>
-              <p><span className="font-medium">Status:</span> {result.decision_meta?.status ?? 'N/A'}</p>
+              <p>
+                <span className="font-medium">Selected Strategy:</span>{' '}
+                {result.decision_meta?.selected_strategy ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Reason:</span>{' '}
+                {result.decision_meta?.reason ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Confidence:</span>{' '}
+                {result.decision_meta?.confidence ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Alternatives:</span>{' '}
+                {result.decision_meta?.alternatives?.join(', ') ?? 'N/A'}
+              </p>
+              <p>
+                <span className="font-medium">Status:</span>{' '}
+                {result.decision_meta?.status ?? 'N/A'}
+              </p>
             </article>
 
             <article className="rounded-xl border border-border bg-card p-6 md:col-span-2">
               <h2 className="mb-4 text-lg font-semibold">All Campaign Options</h2>
               <div className="grid gap-4 md:grid-cols-3">
-                {(result.all_campaigns ?? []).map((campaign) => (
-                  <div key={campaign.strategy} className="rounded-lg border border-border p-4">
+                {(result.all_campaigns ?? []).map((campaign, index) => (
+                  <div
+                    key={`${campaign.strategy ?? 'campaign'}-${index}`}
+                    className="rounded-lg border border-border p-4"
+                  >
                     <p className="font-medium">{campaign.strategy}</p>
                     <p className="mt-2 text-sm">{campaign.headline}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">{campaign.hook}</p>
+                    <p className="mt-2 text-sm text-muted-foreground">
+                      {campaign.hook}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -138,6 +174,6 @@ export default function DashboardPage() {
           </section>
         )}
       </div>
-    </main>
+    </div>
   )
 }
