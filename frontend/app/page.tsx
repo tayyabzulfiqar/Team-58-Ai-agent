@@ -1,10 +1,5 @@
-import { DashboardHome } from '@/components/dashboard-home'
-import { DashboardShell } from '@/components/dashboard-shell'
+import { redirect } from 'next/navigation'
 
-export default function HomePage() {
-  return (
-    <DashboardShell>
-      <DashboardHome />
-    </DashboardShell>
-  )
+export default function Home() {
+  redirect('/dashboard')
 }

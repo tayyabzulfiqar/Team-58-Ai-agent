@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { 
   LayoutDashboard, 
+  Activity,
   Search, 
   Cpu, 
   Brain, 
@@ -20,7 +21,8 @@ import {
 import { agents } from '@/lib/mock-data'
 
 const navItems = [
-  { name: 'Command Center', href: '/', icon: LayoutDashboard },
+  { name: 'Command Center', href: '/dashboard', icon: LayoutDashboard },
+  { name: 'Agent Network', href: '/agent', icon: Activity },
   { name: 'Research Agent', href: '/agent/research', icon: Search, agentId: 'research' },
   { name: 'Processing Agent', href: '/agent/processing', icon: Cpu, agentId: 'processing' },
   { name: 'Intelligence Agent', href: '/agent/intelligence', icon: Brain, agentId: 'intelligence' },
@@ -107,7 +109,9 @@ export function CommandSidebar() {
         </p>
         
         {navItems.map((item) => {
-          const isActive = pathname === item.href
+          const isActive =
+            pathname === item.href ||
+            (item.href === '/agent' && pathname.startsWith('/agent/'))
           const agent = item.agentId ? agents.find(a => a.id === item.agentId) : null
           
           return (
