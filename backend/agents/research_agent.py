@@ -1,8 +1,8 @@
-from backend.tools.extractor_tool import extractor_tool
-from backend.tools.query_rewriter import rewrite_query
-from backend.tools.reddit_tool import reddit_tool
-from backend.tools.scraper_tool import scraper_tool
-from backend.tools.search_tool import search_tool
+from tools.extractor_tool import extractor_tool
+from tools.query_rewriter import rewrite_query
+from tools.reddit_tool import reddit_tool
+from tools.scraper_tool import scraper_tool
+from tools.search_tool import search_tool
 
 
 class ResearchAgent:

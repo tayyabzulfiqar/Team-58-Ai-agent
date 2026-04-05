@@ -1,6 +1,6 @@
 import re
 
-from backend.services.qwen_service import qwen_generate
+from services.qwen_service import qwen_generate
 
 
 def clean_text(text):

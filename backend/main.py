@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi import Body
 
-from backend.core.orchestrator import run_system
+from core.orchestrator import run_system
 
 app = FastAPI()
 

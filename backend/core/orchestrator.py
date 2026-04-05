@@ -1,9 +1,9 @@
-from backend.agents.campaign_agent import CampaignAgent
-from backend.agents.data_agent import DataAgent
-from backend.agents.research_agent import ResearchAgent
-from backend.memory.store import save_run
-from backend.memory.store import store_outcome
-from backend.tools.objective_detector import detect_objective
+from agents.campaign_agent import CampaignAgent
+from agents.data_agent import DataAgent
+from agents.research_agent import ResearchAgent
+from memory.store import save_run
+from memory.store import store_outcome
+from tools.objective_detector import detect_objective
 
 
 def run_system(input_data):

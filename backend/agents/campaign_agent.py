@@ -1,5 +1,5 @@
-from backend.tools.decision_tool import decision_tool
-from backend.tools.optimizer_tool import optimizer_tool
+from tools.decision_tool import decision_tool
+from tools.optimizer_tool import optimizer_tool
 
 
 class CampaignAgent:
