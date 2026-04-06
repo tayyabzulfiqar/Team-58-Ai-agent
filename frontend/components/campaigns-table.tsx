@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '../lib/utils'
+import { cn } from '@/lib/utils'
 import { Rocket, TrendingUp, AlertTriangle, CheckCircle2, Target, Zap } from 'lucide-react'
 
 interface Campaign {

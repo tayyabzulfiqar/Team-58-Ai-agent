@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '../lib/utils'
+import { cn } from '@/lib/utils'
 import { Target, TrendingUp, AlertTriangle, CheckCircle2, Info, Shield } from 'lucide-react'
 
 interface Opportunity {

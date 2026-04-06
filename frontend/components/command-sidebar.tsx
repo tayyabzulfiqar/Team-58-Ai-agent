@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { cn } from '../lib/utils'
+import { cn } from '@/lib/utils'
 import { 
   LayoutDashboard, 
   Activity,
@@ -18,7 +18,7 @@ import {
   Radio,
   Zap
 } from 'lucide-react'
-import { agents } from '../lib/mock-data'
+import { agents } from '@/lib/mock-data'
 
 const navItems = [
   { name: 'Command Center', href: '/dashboard', icon: LayoutDashboard },
