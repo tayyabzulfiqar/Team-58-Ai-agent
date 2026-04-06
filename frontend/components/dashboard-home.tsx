@@ -1,36 +1,16 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
-
-type DecisionMeta = {
-  selected_strategy?: string
-  alternatives?: string[]
-  reason?: string
-  confidence?: number
-  status?: string
-}
-
-type Campaign = {
-  strategy?: string
-  headline?: string
-  hook?: string
-  cta?: string
-}
-
-type RunSystemResponse = {
-  best_campaign?: Campaign
-  all_campaigns?: Campaign[]
-  optimization_score?: number
-  decision_meta?: DecisionMeta
-}
-
-const initialResponse: RunSystemResponse | null = null
+import { type RunSystemResponse } from '@/lib/system-run'
+import { useSystemRun } from './system-run-provider'
 
 export function DashboardHome() {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL
   const [input, setInput] = useState('lead generation funnel optimization')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [result, setResult] = useState<RunSystemResponse | null>(initialResponse)
+  const [result, setResult] = useState<RunSystemResponse | null>(null)
+  const { setLatestRunFromResponse } = useSystemRun()
 
   const runSystem = async (event: FormEvent) => {
     event.preventDefault()
@@ -38,7 +18,8 @@ export function DashboardHome() {
     setError(null)
 
     try {
-      const response = await fetch('/api/run-system', {
+      const endpoint = API_URL ? `${API_URL}/api/run-system` : '/api/run-system'
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,26 +27,38 @@ export function DashboardHome() {
         body: JSON.stringify({ input }),
       })
 
-      if (!response.ok) {
-        throw new Error(`Request failed with status ${response.status}`)
+      const payload = (await response.json()) as RunSystemResponse & {
+        error?: string
       }
 
-      const data = (await response.json()) as RunSystemResponse
-      setResult(data)
+      if (!response.ok) {
+        console.error('Run system request failed', {
+          status: response.status,
+          endpoint,
+          payload,
+        })
+        throw new Error(payload.error || `Request failed with status ${response.status}`)
+      }
+
+      setResult(payload)
+      setLatestRunFromResponse(payload)
     } catch (err) {
       setResult(null)
+      setLatestRunFromResponse({ data: null })
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
       setLoading(false)
     }
   }
 
+  const runData = result?.data
+
   return (
     <div className="p-6 md:p-10">
       <div className="mx-auto max-w-4xl space-y-8">
         <header className="space-y-2">
           <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-            Team58 AI System
+            Team 58 AI System
           </p>
           <h1 className="text-3xl font-semibold">Campaign Intelligence Dashboard</h1>
           <p className="text-sm text-muted-foreground">
@@ -104,60 +97,73 @@ export function DashboardHome() {
           </section>
         )}
 
-        {result && (
+        {runData && (
           <section className="grid gap-6 md:grid-cols-2">
             <article className="space-y-3 rounded-xl border border-border bg-card p-6">
               <h2 className="text-lg font-semibold">Best Campaign</h2>
               <p>
+                <span className="font-medium">Insight:</span>{' '}
+                {runData.insight ?? 'N/A'}
+              </p>
+              <p>
                 <span className="font-medium">Strategy:</span>{' '}
-                {result.best_campaign?.strategy ?? 'N/A'}
+                {runData.best_campaign?.strategy ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Headline:</span>{' '}
-                {result.best_campaign?.headline ?? 'N/A'}
+                {runData.best_campaign?.headline ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Hook:</span>{' '}
-                {result.best_campaign?.hook ?? 'N/A'}
+                {runData.best_campaign?.hook ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">CTA:</span>{' '}
-                {result.best_campaign?.cta ?? 'N/A'}
+                {runData.best_campaign?.cta ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Optimization Score:</span>{' '}
-                {result.optimization_score ?? 'N/A'}
+                {runData.optimization_score ?? 'N/A'}
               </p>
             </article>
 
             <article className="space-y-3 rounded-xl border border-border bg-card p-6">
               <h2 className="text-lg font-semibold">Decision Meta</h2>
               <p>
+                <span className="font-medium">Summary:</span>{' '}
+                {runData.summary ?? result?.message ?? 'N/A'}
+              </p>
+              <p>
                 <span className="font-medium">Selected Strategy:</span>{' '}
-                {result.decision_meta?.selected_strategy ?? 'N/A'}
+                {runData.decision_meta?.selected_strategy ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Reason:</span>{' '}
-                {result.decision_meta?.reason ?? 'N/A'}
+                {runData.decision_meta?.reason ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Confidence:</span>{' '}
-                {result.decision_meta?.confidence ?? 'N/A'}
+                {runData.decision_meta?.confidence ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Alternatives:</span>{' '}
-                {result.decision_meta?.alternatives?.join(', ') ?? 'N/A'}
+                {runData.decision_meta?.alternatives?.join(', ') ?? 'N/A'}
               </p>
               <p>
                 <span className="font-medium">Status:</span>{' '}
-                {result.decision_meta?.status ?? 'N/A'}
+                {runData.decision_meta?.status ?? 'N/A'}
               </p>
+              {runData.simulated && (
+                <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
+                  Backend simulation mode is active. {runData.error ?? 'A live fallback was used.'}
+                </p>
+              )}
             </article>
 
             <article className="rounded-xl border border-border bg-card p-6 md:col-span-2">
               <h2 className="mb-4 text-lg font-semibold">All Campaign Options</h2>
               <div className="grid gap-4 md:grid-cols-3">
-                {(result.all_campaigns ?? []).map((campaign, index) => (
+                {(runData.all_campaigns ?? []).map((campaign, index) => (
                   <div
                     key={`${campaign.strategy ?? 'campaign'}-${index}`}
                     className="rounded-lg border border-border p-4"

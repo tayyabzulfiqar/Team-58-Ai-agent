@@ -3,8 +3,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'NEXUS - AI Command Center',
-  description: 'Multi-Agent AI Pipeline Control System',
+  title: 'Team 58 AI System - AI Command Center',
+  description: 'Multi-agent campaign intelligence and execution system',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { useSystemRun } from './system-run-provider'
 import { 
   LayoutDashboard, 
   Activity,
@@ -18,7 +19,6 @@ import {
   Radio,
   Zap
 } from 'lucide-react'
-import { agents } from '@/lib/mock-data'
 
 const navItems = [
   { name: 'Command Center', href: '/dashboard', icon: LayoutDashboard },
@@ -30,20 +30,22 @@ const navItems = [
   { name: 'Campaign Agent', href: '/agent/campaign', icon: Megaphone, agentId: 'campaign' },
 ]
 
-function StatusDot({ status }: { status: 'active' | 'processing' | 'idle' }) {
+function StatusDot({ status }: { status: 'active' | 'processing' | 'idle' | 'error' }) {
   return (
     <div className="relative">
       <span className={cn(
         "w-2 h-2 rounded-full block",
         status === 'active' && "bg-neon-green",
         status === 'processing' && "bg-neon-cyan",
+        status === 'error' && "bg-destructive",
         status === 'idle' && "bg-muted-foreground/40"
       )} />
       {status !== 'idle' && (
         <span className={cn(
           "absolute inset-0 w-2 h-2 rounded-full animate-ping opacity-60",
           status === 'active' && "bg-neon-green",
-          status === 'processing' && "bg-neon-cyan"
+          status === 'processing' && "bg-neon-cyan",
+          status === 'error' && "bg-destructive"
         )} />
       )}
     </div>
@@ -52,6 +54,7 @@ function StatusDot({ status }: { status: 'active' | 'processing' | 'idle' }) {
 
 export function CommandSidebar() {
   const pathname = usePathname()
+  const { agentStates } = useSystemRun()
   const [systemTime, setSystemTime] = useState('')
   const [cpuLoad, setCpuLoad] = useState(47)
   const [memoryUsage, setMemoryUsage] = useState(62)
@@ -85,7 +88,7 @@ export function CommandSidebar() {
             </div>
           </div>
           <div>
-            <h1 className="font-semibold text-foreground text-lg tracking-[0.1em]">NEXUS</h1>
+            <h1 className="font-semibold text-foreground text-lg tracking-[0.08em]">Team 58 AI System</h1>
             <p className="text-[9px] text-muted-foreground font-mono uppercase tracking-wide">AI COMMAND</p>
           </div>
         </div>
@@ -112,7 +115,7 @@ export function CommandSidebar() {
           const isActive =
             pathname === item.href ||
             (item.href === '/agent' && pathname.startsWith('/agent/'))
-          const agent = item.agentId ? agents.find(a => a.id === item.agentId) : null
+          const agent = item.agentId ? agentStates.find(a => a.id === item.agentId) : null
           
           return (
             <Link
@@ -214,7 +217,9 @@ export function CommandSidebar() {
           {/* Uptime */}
           <div className="flex justify-between items-center pt-1">
             <span className="text-[10px] text-muted-foreground">Uptime</span>
-            <span className="text-xs font-mono text-neon-green">99.97%</span>
+            <span className="text-xs font-mono text-neon-green">
+              {agentStates.some((agent) => agent.status !== 'idle') ? 'Pipeline Active' : 'Ready'}
+            </span>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export default function AgentIndexPage() {
         <div className="mx-auto max-w-6xl space-y-8">
           <header className="space-y-2">
             <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              Team58 AI System
+              Team 58 AI System
             </p>
             <h1 className="text-3xl font-semibold">Agent Network</h1>
             <p className="text-sm text-muted-foreground">
