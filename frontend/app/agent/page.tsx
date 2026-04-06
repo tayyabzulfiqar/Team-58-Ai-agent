@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Activity, ArrowRight, Brain, Cpu, Megaphone, Search, Target } from 'lucide-react'
-import { DashboardShell } from '@/components/dashboard-shell'
+import { DashboardShell } from '../../components/dashboard-shell'
 import { agents } from '../../lib/mock-data'
 import { cn } from '../../lib/utils'
 

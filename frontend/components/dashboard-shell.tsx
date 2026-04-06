@@ -1,8 +1,8 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { CommandSidebar } from '@/components/command-sidebar'
-import { IntelligenceFeed } from '@/components/intelligence-feed'
+import { CommandSidebar } from '../components/command-sidebar'
+import { IntelligenceFeed } from '../components/intelligence-feed'
 
 export function DashboardShell({ children }: { children: ReactNode }) {
   return (

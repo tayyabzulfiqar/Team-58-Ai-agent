@@ -17,10 +17,10 @@ import {
   RefreshCw,
   Settings,
 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Progress } from '@/components/ui/progress'
-import { Badge } from '@/components/ui/badge'
-import { DashboardShell } from '@/components/dashboard-shell'
+import { Button } from '../../../components/ui/button'
+import { Progress } from '../../../components/ui/progress'
+import { Badge } from '../../../components/ui/badge'
+import { DashboardShell } from '../../../components/dashboard-shell'
 
 const statusConfig = {
   active: {

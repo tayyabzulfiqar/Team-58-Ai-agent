@@ -11,7 +11,7 @@ import {
   Terminal,
   ChevronDown
 } from 'lucide-react'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import { ScrollArea } from '../components/ui/scroll-area'
 
 const typeConfig = {
   info: {
