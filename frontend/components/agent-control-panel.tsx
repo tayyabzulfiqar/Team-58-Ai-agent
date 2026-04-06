@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/utils'
+import { cn } from '../lib/utils'
 import { 
   Play, 
   Pause, 
@@ -114,3 +114,4 @@ export function AgentControlPanel({
     </div>
   )
 }
+

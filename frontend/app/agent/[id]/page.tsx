@@ -2,8 +2,8 @@
 
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
-import { agents } from '@/lib/mock-data'
+import { cn } from '../../../lib/utils'
+import { agents } from '../../../lib/mock-data'
 import {
   ArrowLeft,
   Activity,
@@ -301,3 +301,4 @@ export default function AgentDetailPage() {
     </DashboardShell>
   )
 }
+
