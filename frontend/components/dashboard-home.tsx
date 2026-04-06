@@ -1,43 +1,31 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { runSystem } from '@/lib/api'
 import { type RunSystemResponse } from '@/lib/system-run'
 import { useSystemRun } from './system-run-provider'
 
 export function DashboardHome() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL
   const [input, setInput] = useState('lead generation funnel optimization')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [result, setResult] = useState<RunSystemResponse | null>(null)
   const { setLatestRunFromResponse } = useSystemRun()
 
-  const runSystem = async (event: FormEvent) => {
+  const handleRun = async (event: FormEvent) => {
     event.preventDefault()
     setLoading(true)
     setError(null)
 
     try {
-      const endpoint = API_URL ? `${API_URL}/api/run-system` : '/api/run-system'
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ input }),
-      })
-
-      const payload = (await response.json()) as RunSystemResponse & {
+      const payload = (await runSystem({ query: input })) as RunSystemResponse & {
         error?: string
       }
 
-      if (!response.ok) {
-        console.error('Run system request failed', {
-          status: response.status,
-          endpoint,
-          payload,
-        })
-        throw new Error(payload.error || `Request failed with status ${response.status}`)
+      console.log('API RESPONSE:', payload)
+
+      if (payload?.error) {
+        throw new Error(payload.error)
       }
 
       setResult(payload)
@@ -68,7 +56,7 @@ export function DashboardHome() {
         </header>
 
         <form
-          onSubmit={runSystem}
+          onSubmit={handleRun}
           className="space-y-4 rounded-xl border border-border bg-card p-6"
         >
           <label className="block space-y-2">
