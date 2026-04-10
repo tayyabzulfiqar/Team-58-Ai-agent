@@ -64,3 +64,4 @@ node_modules/
 .next/
 .cache/
 backend/memory/data.json
+backend/memory/*.json

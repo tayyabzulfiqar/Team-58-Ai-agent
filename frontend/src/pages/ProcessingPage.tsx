@@ -13,16 +13,22 @@ export default function ProcessingPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // ✅ SAFE QUERY HANDLING
-  const state = location.state as any;
-  const query = state?.query || "Business analysis";
+  const state = location.state as { query?: string } | null;
+  const query = typeof state?.query === "string" ? state.query.trim() : "";
 
   const [activeStep, setActiveStep] = useState(0);
+  const [error, setError] = useState<string | null>(null);
 
-  // ✅ FIXED STEP FLOW + SAFE NAVIGATION
   useEffect(() => {
-    let step = 0;
+    if (!query) {
+      setError("Missing query. Please go back and enter your business problem.");
+      return;
+    }
 
+    const base =
+      (import.meta.env.VITE_API_BASE_URL as string | undefined) || "http://127.0.0.1:8000";
+
+    let step = 0;
     const interval = setInterval(() => {
       step++;
       setActiveStep(step);
@@ -30,14 +36,26 @@ export default function ProcessingPage() {
       if (step >= agentSteps.length) {
         clearInterval(interval);
 
-        setTimeout(() => {
-          navigate("/report");
-        }, 1500);
+        fetch(`${base}/api/analyze`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        })
+          .then(async (res) => {
+            if (!res.ok) throw new Error(`Request failed (${res.status})`);
+            return res.json();
+          })
+          .then((data) => {
+            const reportId = data?.report_id as string | undefined;
+            if (!reportId) throw new Error("Backend did not return report_id");
+            navigate("/report", { state: { reportId } });
+          })
+          .catch(() => setError("Failed to generate report. Please try again."));
       }
     }, 1200);
 
     return () => clearInterval(interval);
-  }, [navigate]);
+  }, [navigate, query]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
@@ -49,12 +67,19 @@ export default function ProcessingPage() {
             58
           </div>
 
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">
-            Processing Your Analysis
-          </h1>
-
-          <p className="text-sm text-muted-foreground">"{query}"</p>
+          <h1 className="text-2xl font-bold text-foreground tracking-tight">Processing Your Analysis</h1>
+          <p className="text-sm text-muted-foreground">{query ? `"${query}"` : ""}</p>
         </div>
+
+        {error ? (
+          <div className="bg-card rounded-2xl border border-border p-5">
+            <p className="text-sm font-semibold text-foreground">Something went wrong</p>
+            <p className="text-xs text-muted-foreground mt-2">{error}</p>
+            <button onClick={() => navigate("/")} className="mt-4 text-sm font-medium text-primary hover:underline">
+              Back to home
+            </button>
+          </div>
+        ) : null}
 
         <div className="space-y-4">
           {agentSteps.map((step, i) => {
@@ -68,8 +93,8 @@ export default function ProcessingPage() {
                   done
                     ? "bg-card border-primary/20 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                     : current
-                    ? "bg-card border-primary/30 shadow-[0_10px_30px_rgba(59,130,246,0.1)] animate-pulse-glow"
-                    : "bg-card/50 border-border opacity-40"
+                      ? "bg-card border-primary/30 shadow-[0_10px_30px_rgba(59,130,246,0.1)] animate-pulse-glow"
+                      : "bg-card/50 border-border opacity-40"
                 }`}
               >
                 <div
@@ -87,13 +112,8 @@ export default function ProcessingPage() {
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    {step.title}
-                  </p>
-
-                  <p className="text-xs text-muted-foreground">
-                    {done ? "Complete" : current ? step.status : "Waiting..."}
-                  </p>
+                  <p className="text-sm font-semibold text-foreground">{step.title}</p>
+                  <p className="text-xs text-muted-foreground">{done ? "Complete" : current ? step.status : "Waiting..."}</p>
                 </div>
               </div>
             );
@@ -103,3 +123,4 @@ export default function ProcessingPage() {
     </div>
   );
 }
+

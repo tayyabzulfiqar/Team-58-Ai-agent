@@ -57,7 +57,7 @@ describe("ReportPage premium controls", () => {
     );
 
     expect(await screen.findByRole("heading", { name: /conversion optimization/i })).toBeInTheDocument();
-    expect(screen.getByText(/Main Problem:/)).toBeInTheDocument();
+    expect(screen.getByText("Main Problem")).toBeInTheDocument();
     expect(screen.getByText("⚡ Fast")).toBeInTheDocument();
 
     fireEvent.click(screen.getByText("🤖 AI"));

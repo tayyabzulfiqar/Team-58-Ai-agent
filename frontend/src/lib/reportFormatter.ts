@@ -9,88 +9,45 @@ export type ReportData = {
   confidence_score?: number;
 };
 
-function toCleanSentence(value: unknown, fallback: string): string {
-  const raw = typeof value === "string" ? value.trim() : "";
-  const text = raw.length > 0 ? raw : fallback;
-  const withCapital = text.length > 0 ? text[0].toUpperCase() + text.slice(1) : fallback;
-  return /[.!?]$/.test(withCapital) ? withCapital : `${withCapital}.`;
+function asNonEmptyString(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
 }
 
-function uniqueNonEmpty(items: unknown): string[] {
-  if (!Array.isArray(items)) return [];
-  const seen = new Set<string>();
-  const out: string[] = [];
-  for (const item of items) {
-    if (typeof item !== "string") continue;
-    const trimmed = item.trim();
-    if (!trimmed) continue;
-    const key = trimmed.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(trimmed);
-  }
-  return out;
+function asStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.map((v) => (typeof v === "string" ? v.trim() : "")).filter((v) => v.length > 0);
 }
 
-function stripWeekPrefix(text: string): string {
-  return text.replace(/^\s*weeks?\s*\d+(?:\s*-\s*\d+)?\s*:\s*/i, "").trim();
-}
-
-function toTitleCase(word: string): string {
-  if (!word) return word;
-  return word[0].toUpperCase() + word.slice(1).toLowerCase();
-}
-
-function capitalizeFirst(text: string): string {
-  const t = text.trim();
-  if (!t) return t;
-  return t[0].toUpperCase() + t.slice(1);
-}
-
+// Note: This formatter must not invent, rewrite, or replace values.
 export function formatReport(data: ReportData): string {
-  const mainProblem = toCleanSentence(data?.main_problem, "No main problem provided");
-  const keyInsight = toCleanSentence(data?.key_insight, "No key insight provided");
+  const mainProblem = asNonEmptyString(data?.main_problem);
+  const keyInsight = asNonEmptyString(data?.key_insight);
 
-  const strategyPoints = uniqueNonEmpty(data?.strategy?.points);
-  const strategyBlock =
-    strategyPoints.length > 0
-      ? strategyPoints.map((p) => `• ${capitalizeFirst(stripWeekPrefix(p) || p)}`).join("\n")
-      : "• No strategy points provided";
+  const strategyPoints = asStringList(data?.strategy?.points);
+  const strategyBlock = strategyPoints.map((p) => `• ${p}`).join("\n");
 
-  const planItems = Array.isArray(data?.action_plan) ? data.action_plan : [];
-  const steps = planItems
-    .map((item) => {
-      const title = typeof item?.title === "string" ? capitalizeFirst(stripWeekPrefix(item.title.trim())) : "";
-      const timeline = typeof item?.timeline === "string" ? item.timeline.trim() : "";
-      const combined =
-        title || timeline
-          ? `${title}${title && timeline ? ` (${timeline})` : timeline ? `(${timeline})` : ""}`
-          : "";
-      return combined.trim();
+  const actionPlan = Array.isArray(data?.action_plan) ? data.action_plan : [];
+  const steps = actionPlan
+    .map((s) => {
+      const title = asNonEmptyString(s?.title);
+      const timeline = asNonEmptyString(s?.timeline);
+      if (title && timeline) return `${title} (${timeline})`;
+      return title || timeline;
     })
-    .filter((s) => s.length > 0);
+    .filter((v) => v.length > 0);
+  const executionBlock = steps.map((s, i) => `${i + 1}. ${s}`).join("\n");
 
-  const executionBlock =
-    steps.length > 0 ? steps.map((s, i) => `${i + 1}. ${s}`).join("\n") : "1. No execution steps provided";
+  const campaign = data?.campaign_plan || {};
+  const message = asNonEmptyString(campaign?.message);
+  const goal = asNonEmptyString(campaign?.goal);
+  const channels = asStringList(campaign?.channels);
+  const channelsText = channels.join(", ");
 
-  const message = typeof data?.campaign_plan?.message === "string" ? data.campaign_plan.message.trim() : "";
-  const goal = typeof data?.campaign_plan?.goal === "string" ? data.campaign_plan.goal.trim() : "";
-  const channels = Array.isArray(data?.campaign_plan?.channels)
-    ? data.campaign_plan.channels
-        .filter((c): c is string => typeof c === "string" && c.trim().length > 0)
-        .map((c) => c.trim())
-    : [];
-
-  const channelsText = channels.length > 0 ? channels.map((c) => toTitleCase(c)).join(", ") : "";
   const campaignParts = [
-    message ? `Message: ${toCleanSentence(message, "").replace(/\.$/, "")}.` : "",
-    goal ? `Goal: ${toCleanSentence(goal, "").replace(/\.$/, "")}.` : "",
-    channelsText ? `Channels: ${toCleanSentence(channelsText, "").replace(/\.$/, "")}.` : "",
-  ].filter((p) => p.length > 0);
-  const campaignBlock =
-    campaignParts.length > 0
-      ? campaignParts.join(" ")
-      : "Message: Not provided. Goal: Not provided. Channels: Not provided.";
+    message ? `Message: ${message}` : "",
+    goal ? `Goal: ${goal}` : "",
+    channelsText ? `Channels: ${channelsText}` : "",
+  ].filter(Boolean);
 
   return [
     "Main Problem:",
@@ -106,7 +63,7 @@ export function formatReport(data: ReportData): string {
     executionBlock,
     "",
     "Campaign Plan:",
-    campaignBlock,
+    campaignParts.join("\n"),
     "",
   ].join("\n");
 }

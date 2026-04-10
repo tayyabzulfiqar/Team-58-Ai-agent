@@ -31,8 +31,8 @@ describe("formatReport", () => {
     expect(output).toContain("Execution Plan:");
     expect(output.trim().length).toBeGreaterThan(0);
 
-    expect(output).toContain("Conversion optimization.");
-    expect(output).toContain("Users drop at checkout.");
+    expect(output).toContain("conversion optimization");
+    expect(output).toContain("Users drop at checkout");
     expect(output).toContain("• Improve checkout UX");
     expect(output).toContain("1. Fix checkout (3 days)");
     expect(output).toContain("Channels:");
