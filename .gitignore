@@ -47,6 +47,9 @@ logs/
 # Local data
 data/live/*.json
 data/live/*.log
+backend/data/share_links.json
+pytest-cache-files-*/
+pytest-cache-files*/
 
 # Testing
 .pytest_cache/

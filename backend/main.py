@@ -1,5 +1,7 @@
 from fastapi import Body
 from fastapi import FastAPI
+from fastapi import HTTPException
+from fastapi import Response
 from fastapi.middleware.cors import CORSMiddleware
 
 from core.guarded_pipeline import validate_input_payload
@@ -8,12 +10,17 @@ from core.logging_utils import configure_logging
 from core.logging_utils import get_logger
 from core.orchestrator import run_system
 from tools.output_validator import validate_output
+from tools.dashscope_client import generate_consulting_report
+from tools.pdf_generator import generate_report_pdf
+from tools.report_formatter import format_report
 from tools.report_generator import report_generator
 from tools.report_store import create_report
 from tools.report_store import get_all_reports
 from tools.report_store import get_report
 from tools.report_store import get_saved_reports
 from tools.report_store import toggle_save
+from tools.share_store import create_share_link
+from tools.share_store import get_report_id_for_share
 
 configure_logging()
 logger = get_logger("team58.api")
@@ -221,4 +228,65 @@ def fetch_report(report_id: str):
     report = get_report(report_id)
     if not report:
         return {"error": "Report not found"}
+    return report
+
+
+@app.post("/api/format-report")
+def format_report_endpoint(payload: dict = Body(default={})):
+    """
+    Premium formatting endpoint. Attempts AI enhancement via DashScope/Qwen (max ~5s),
+    but always returns a readable formatted report using the local formatter as fallback.
+    """
+    try:
+        data = payload.get("data") if isinstance(payload, dict) else None
+        if not isinstance(data, dict):
+            raise HTTPException(status_code=400, detail="Body must be { data: ReportData }")
+
+        ai_text = generate_consulting_report(data, timeout_s=5.0)
+        text = ai_text.strip() if isinstance(ai_text, str) and ai_text.strip() else format_report(data)
+        return {"formatted_text": text}
+    except HTTPException:
+        raise
+    except Exception:
+        # Graceful fallback for any runtime errors
+        data = payload.get("data") if isinstance(payload, dict) else {}
+        return {"formatted_text": format_report(data if isinstance(data, dict) else {})}
+
+
+@app.get("/api/reports/{report_id}/pdf")
+def report_pdf(report_id: str):
+    report = get_report(report_id)
+    if not report:
+        raise HTTPException(status_code=404, detail="Report not found")
+
+    formatted_text = format_report(report.get("data") if isinstance(report, dict) else {})
+    try:
+        pdf_bytes = generate_report_pdf(report, formatted_text)
+    except Exception as exc:
+        logger.exception("api:pdf-generation-failure report_id=%s", report_id)
+        raise HTTPException(status_code=500, detail="Failed to generate PDF") from exc
+
+    headers = {"Content-Disposition": 'attachment; filename="report.pdf"'}
+    return Response(content=pdf_bytes, media_type="application/pdf", headers=headers)
+
+
+@app.post("/api/reports/{report_id}/share")
+def share_report(report_id: str):
+    report = get_report(report_id)
+    if not report:
+        raise HTTPException(status_code=404, detail="Report not found")
+
+    share_id = create_share_link(report_id)
+    return {"share_url": f"/share/{share_id}"}
+
+
+@app.get("/api/share/{share_id}")
+def fetch_shared_report(share_id: str):
+    report_id = get_report_id_for_share(share_id)
+    if not report_id:
+        raise HTTPException(status_code=404, detail="Share link not found")
+
+    report = get_report(report_id)
+    if not report:
+        raise HTTPException(status_code=404, detail="Report not found")
     return report

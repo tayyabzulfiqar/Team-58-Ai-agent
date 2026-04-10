@@ -1,4 +1,5 @@
 import { DashboardLayout } from "@/components/DashboardLayout";
+import { formatReport, type ReportData } from "@/lib/reportFormatter";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -12,21 +13,15 @@ type StoredReport = {
   error?: string;
 };
 
-type ReportData = {
-  main_problem?: string;
-  key_insight?: string;
-  strategy?: { title?: string; points?: string[] };
-  whats_happening?: string[];
-  root_causes?: string[];
-  action_plan?: { step?: number; title?: string; description?: string; timeline?: string }[];
-  campaign_plan?: { offer?: string; message?: string; channels?: string[]; goal?: string };
-  confidence_score?: number;
-};
+// ReportData type lives in `src/lib/reportFormatter.ts`
 
 export default function ReportPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams();
+
+  const API_BASE =
+    (import.meta.env.VITE_API_BASE_URL as string | undefined) || "http://127.0.0.1:8000";
 
   const reportId = useMemo(() => {
     if (id) return id;
@@ -37,14 +32,19 @@ export default function ReportPage() {
   const [report, setReport] = useState<StoredReport | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const base = (import.meta.env.VITE_API_BASE_URL as string | undefined) || "http://127.0.0.1:8000";
-    const controller = new AbortController();
+  const [mode, setMode] = useState<"fast" | "ai">("fast");
+  const [aiLoading, setAiLoading] = useState(false);
+  const [formattedReport, setFormattedReport] = useState<string>("");
 
+  useEffect(() => {
+    const controller = new AbortController();
     setLoading(true);
+    setReport(null);
+    setFormattedReport("");
+    setAiLoading(false);
 
     if (!reportId) {
-      fetch(`${base}/api/reports`, { signal: controller.signal })
+      fetch(`${API_BASE}/api/reports`, { signal: controller.signal })
         .then(async (res) => {
           if (!res.ok) throw new Error(`Request failed (${res.status})`);
           const data = await res.json();
@@ -56,16 +56,83 @@ export default function ReportPage() {
       return () => controller.abort();
     }
 
-    fetch(`${base}/api/reports/${reportId}`, { signal: controller.signal })
-      .then((res) => res.json())
+    fetch(`${API_BASE}/api/reports/${reportId}`, { signal: controller.signal })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`Request failed (${res.status})`);
+        return res.json();
+      })
       .then((data) => {
-        setReport(data as StoredReport);
+        const stored = data as StoredReport;
+        setReport(stored);
         setLoading(false);
       })
       .catch(() => setLoading(false));
 
     return () => controller.abort();
-  }, [navigate, reportId]);
+  }, [API_BASE, navigate, reportId]);
+
+  useEffect(() => {
+    if (!report || report.error) return;
+    const data = report.data || {};
+
+    if (mode === "fast") {
+      setAiLoading(false);
+      setFormattedReport(formatReport(data));
+      return;
+    }
+
+    const controller = new AbortController();
+    let active = true;
+    setAiLoading(true);
+
+    fetch(`${API_BASE}/api/format-report`, {
+      method: "POST",
+      signal: controller.signal,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`Request failed (${res.status})`);
+        return res.json();
+      })
+      .then((payload) => {
+        const text = payload?.formatted_text;
+        if (typeof text === "string" && text.trim().length > 0) {
+          if (active) setFormattedReport(text);
+        } else {
+          if (active) setFormattedReport(formatReport(data));
+        }
+      })
+      .catch(() => {
+        if (active) setFormattedReport(formatReport(data));
+      })
+      .finally(() => {
+        if (active) setAiLoading(false);
+      });
+
+    return () => {
+      active = false;
+      controller.abort();
+    };
+  }, [API_BASE, mode, report]);
+
+  const handleDownload = () => {
+    if (!report?.report_id) return;
+    window.open(`${API_BASE}/api/reports/${report.report_id}/pdf`);
+  };
+
+  const handleShare = async () => {
+    if (!report?.report_id) return;
+    const res = await fetch(`${API_BASE}/api/reports/${report.report_id}/share`, {
+      method: "POST",
+    });
+
+    const data = await res.json();
+    const fullUrl = window.location.origin + data.share_url;
+
+    await navigator.clipboard.writeText(fullUrl);
+    alert("Link copied!");
+  };
 
   if (loading) {
     return (
@@ -80,10 +147,7 @@ export default function ReportPage() {
       <DashboardLayout showRight={false}>
         <div className="p-8 space-y-3">
           <div className="text-lg font-bold text-foreground">Report not found</div>
-          <button
-            onClick={() => navigate("/history")}
-            className="text-sm font-medium text-primary hover:underline"
-          >
+          <button onClick={() => navigate("/history")} className="text-sm font-medium text-primary hover:underline">
             Back to history
           </button>
         </div>
@@ -96,60 +160,52 @@ export default function ReportPage() {
   return (
     <DashboardLayout showRight={false}>
       <div className="p-8 space-y-7">
-        <div>
-          <h1 className="text-[26px] font-bold text-foreground tracking-tight">{data.main_problem || report.title}</h1>
-          <p className="text-sm text-muted-foreground mt-1">Confidence: {data.confidence_score ?? report.confidence_score}%</p>
+        <div className="flex items-start justify-between gap-6">
+          <div>
+            <h1 className="text-[26px] font-bold text-foreground tracking-tight">{data.main_problem || report.title}</h1>
+            <p className="text-sm text-muted-foreground mt-1">
+              Confidence: {data.confidence_score ?? report.confidence_score}%
+            </p>
+          </div>
         </div>
 
         <section className="bg-card rounded-2xl p-6 border border-border">
-          <h2 className="text-sm font-bold text-foreground">Key Insight</h2>
-          <p className="text-sm text-muted-foreground mt-2">{data.key_insight || "—"}</p>
-        </section>
+          <div className="flex gap-3 mb-4">
+            <button
+              onClick={() => setMode("fast")}
+              className="px-3 py-2 rounded-md border border-border hover:bg-accent text-sm"
+            >
+              ⚡ Fast
+            </button>
+            <button
+              onClick={() => setMode("ai")}
+              className="px-3 py-2 rounded-md border border-border hover:bg-accent text-sm"
+            >
+              🤖 AI
+            </button>
+            <button
+              onClick={handleDownload}
+              className="px-3 py-2 rounded-md border border-border hover:bg-accent text-sm"
+            >
+              📄 PDF
+            </button>
+            <button
+              onClick={handleShare}
+              className="px-3 py-2 rounded-md border border-border hover:bg-accent text-sm"
+            >
+              🔗 Share
+            </button>
+          </div>
 
-        <section className="grid grid-cols-2 gap-5">
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <h2 className="text-sm font-bold text-foreground">Strategy</h2>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc pl-5">
-              {(data.strategy?.points || []).map((p, i) => (
-                <li key={i}>{p}</li>
-              ))}
-            </ul>
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-sm font-bold text-foreground">Report</h2>
+            {mode === "ai" && aiLoading ? (
+              <span className="text-xs text-muted-foreground">Enhancing report with AI...</span>
+            ) : null}
           </div>
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <h2 className="text-sm font-bold text-foreground">What’s Happening</h2>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc pl-5">
-              {(data.whats_happening || []).map((w, i) => (
-                <li key={i}>{w}</li>
-              ))}
-            </ul>
+          <div className="mt-4 text-sm text-foreground whitespace-pre-wrap leading-relaxed">
+            {formattedReport || formatReport(data)}
           </div>
-        </section>
-
-        <section className="grid grid-cols-2 gap-5">
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <h2 className="text-sm font-bold text-foreground">Root Causes</h2>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc pl-5">
-              {(data.root_causes || []).map((r, i) => (
-                <li key={i}>{r}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <h2 className="text-sm font-bold text-foreground">Campaign Plan</h2>
-            <p className="text-sm text-muted-foreground mt-2">{data.campaign_plan?.message || "—"}</p>
-            <p className="text-xs text-muted-foreground mt-3">{data.campaign_plan?.goal || ""}</p>
-          </div>
-        </section>
-
-        <section className="bg-card rounded-2xl p-6 border border-border">
-          <h2 className="text-sm font-bold text-foreground">Action Plan</h2>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc pl-5">
-            {(data.action_plan || []).map((a, i) => (
-              <li key={i}>
-                {(a.title || "Step")} — {a.timeline || ""}
-              </li>
-            ))}
-          </ul>
         </section>
       </div>
     </DashboardLayout>
