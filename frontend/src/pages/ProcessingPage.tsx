@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Search, Lightbulb, Target, Megaphone, Check, Loader2 } from "lucide-react";
 
 const agentSteps = [
@@ -11,14 +11,15 @@ const agentSteps = [
 
 export default function ProcessingPage() {
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // ✅ SAFE QUERY FIX (IMPORTANT)
+  // ✅ SAFE QUERY HANDLING
   const state = location.state as any;
   const query = state?.query || "Business analysis";
 
   const [activeStep, setActiveStep] = useState(0);
 
-  // ✅ FIXED STEP FLOW + REDIRECT
+  // ✅ FIXED STEP FLOW + SAFE NAVIGATION
   useEffect(() => {
     let step = 0;
 
@@ -26,18 +27,17 @@ export default function ProcessingPage() {
       step++;
       setActiveStep(step);
 
-      // when all steps done
       if (step >= agentSteps.length) {
         clearInterval(interval);
 
         setTimeout(() => {
-          window.location.href = "/report";
+          navigate("/report");
         }, 1500);
       }
     }, 1200);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
@@ -102,4 +102,4 @@ export default function ProcessingPage() {
       </div>
     </div>
   );
-}gi
+}
