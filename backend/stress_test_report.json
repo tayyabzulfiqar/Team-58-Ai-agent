@@ -1,0 +1,1445 @@
+{
+  "generated_at": "2026-04-08T15:49:24Z",
+  "total": 146,
+  "pass": 74,
+  "fail": 72,
+  "pass_rate": 0.5068,
+  "failures_by_layer": {
+    "intent_mapping": 72,
+    "signal_extraction": 72
+  },
+  "failure_examples": {
+    "intent_mapping": [
+      {
+        "input_id": 5,
+        "input": "cricket match kal kisne jeeta tha",
+        "issue": "missing intent"
+      },
+      {
+        "input_id": 8,
+        "input": "bro system not working properly check karo",
+        "issue": "missing intent"
+      },
+      {
+        "input_id": 10,
+        "input": "my landing page sucks maybe idk",
+        "issue": "missing intent"
+      },
+      {
+        "input_id": 18,
+        "input": "funnel broken or what",
+        "issue": "missing intent"
+      },
+      {
+        "input_id": 21,
+        "input": "i think audience wrong maybe",
+        "issue": "missing intent"
+      }
+    ],
+    "signal_extraction": [
+      {
+        "input_id": 5,
+        "input": "cricket match kal kisne jeeta tha",
+        "issue": "missing signal"
+      },
+      {
+        "input_id": 8,
+        "input": "bro system not working properly check karo",
+        "issue": "missing signal"
+      },
+      {
+        "input_id": 10,
+        "input": "my landing page sucks maybe idk",
+        "issue": "missing signal"
+      },
+      {
+        "input_id": 18,
+        "input": "funnel broken or what",
+        "issue": "missing signal"
+      },
+      {
+        "input_id": 21,
+        "input": "i think audience wrong maybe",
+        "issue": "missing signal"
+      }
+    ]
+  },
+  "results": [
+    {
+      "input_id": 1,
+      "status": "pass"
+    },
+    {
+      "input_id": 2,
+      "status": "pass"
+    },
+    {
+      "input_id": 3,
+      "status": "pass"
+    },
+    {
+      "input_id": 4,
+      "status": "pass"
+    },
+    {
+      "input_id": 5,
+      "input": "cricket match kal kisne jeeta tha",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 6,
+      "status": "pass"
+    },
+    {
+      "input_id": 7,
+      "status": "pass"
+    },
+    {
+      "input_id": 8,
+      "input": "bro system not working properly check karo",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 9,
+      "status": "pass"
+    },
+    {
+      "input_id": 10,
+      "input": "my landing page sucks maybe idk",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 11,
+      "status": "pass"
+    },
+    {
+      "input_id": 12,
+      "status": "pass"
+    },
+    {
+      "input_id": 13,
+      "status": "pass"
+    },
+    {
+      "input_id": 14,
+      "status": "pass"
+    },
+    {
+      "input_id": 15,
+      "status": "pass"
+    },
+    {
+      "input_id": 16,
+      "status": "pass"
+    },
+    {
+      "input_id": 17,
+      "status": "pass"
+    },
+    {
+      "input_id": 18,
+      "input": "funnel broken or what",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 19,
+      "status": "pass"
+    },
+    {
+      "input_id": 20,
+      "status": "pass"
+    },
+    {
+      "input_id": 21,
+      "input": "i think audience wrong maybe",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 22,
+      "input": "or landing page problem?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 23,
+      "status": "pass"
+    },
+    {
+      "input_id": 24,
+      "status": "pass"
+    },
+    {
+      "input_id": 25,
+      "status": "pass"
+    },
+    {
+      "input_id": 26,
+      "status": "pass"
+    },
+    {
+      "input_id": 27,
+      "status": "pass"
+    },
+    {
+      "input_id": 28,
+      "status": "pass"
+    },
+    {
+      "input_id": 29,
+      "input": "maybe copy issue idk",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 30,
+      "status": "pass"
+    },
+    {
+      "input_id": 31,
+      "input": "why people not trusting my page",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 32,
+      "input": "no testimonials added is that problem",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 33,
+      "status": "pass"
+    },
+    {
+      "input_id": 34,
+      "input": "system seems broken",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 35,
+      "status": "pass"
+    },
+    {
+      "input_id": 36,
+      "input": "why no one buying bro",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 37,
+      "status": "pass"
+    },
+    {
+      "input_id": 38,
+      "input": "confusing situation help",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 39,
+      "input": "do i need better offer?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 40,
+      "input": "or better design?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 41,
+      "status": "pass"
+    },
+    {
+      "input_id": 42,
+      "input": "or user intent mismatch?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 43,
+      "input": "what is the actual issue",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 44,
+      "status": "pass"
+    },
+    {
+      "input_id": 45,
+      "status": "pass"
+    },
+    {
+      "input_id": 46,
+      "status": "pass"
+    },
+    {
+      "input_id": 47,
+      "input": "funnel optimization needed?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 48,
+      "status": "pass"
+    },
+    {
+      "input_id": 49,
+      "status": "pass"
+    },
+    {
+      "input_id": 50,
+      "input": "dont understand problem clearly",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 51,
+      "input": "need help asap",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 52,
+      "status": "pass"
+    },
+    {
+      "input_id": 53,
+      "input": "cricket score kya tha kal",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 54,
+      "status": "pass"
+    },
+    {
+      "input_id": 55,
+      "status": "pass"
+    },
+    {
+      "input_id": 56,
+      "input": "no guarantee on page",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 57,
+      "status": "pass"
+    },
+    {
+      "input_id": 58,
+      "input": "too many steps in funnel",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 59,
+      "status": "pass"
+    },
+    {
+      "input_id": 60,
+      "input": "no urgency on page",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 61,
+      "input": "maybe no offer clarity",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 62,
+      "input": "message not clear",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 63,
+      "input": "what should i fix first",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 64,
+      "input": "everything confusing",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 65,
+      "status": "pass"
+    },
+    {
+      "input_id": 66,
+      "input": "bad copywriting?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 67,
+      "status": "pass"
+    },
+    {
+      "input_id": 68,
+      "input": "CTA not strong?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 69,
+      "input": "what is main issue bro",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 70,
+      "status": "pass"
+    },
+    {
+      "input_id": 71,
+      "input": "landing mismatch?",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 72,
+      "input": "user expectation different",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 73,
+      "input": "offer not attractive",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 74,
+      "status": "pass"
+    },
+    {
+      "input_id": 75,
+      "input": "or value not clear",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 76,
+      "status": "pass"
+    },
+    {
+      "input_id": 77,
+      "input": "no emotional trigger",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 78,
+      "input": "no urgency",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 79,
+      "input": "no scarcity",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 80,
+      "status": "pass"
+    },
+    {
+      "input_id": 81,
+      "input": "serious issue bro",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 82,
+      "status": "pass"
+    },
+    {
+      "input_id": 83,
+      "status": "pass"
+    },
+    {
+      "input_id": 84,
+      "input": "no returns coming",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 85,
+      "status": "pass"
+    },
+    {
+      "input_id": 86,
+      "input": "need quick fix",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 87,
+      "input": "what is biggest mistake here",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 88,
+      "input": "where system failing",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 89,
+      "input": "how to diagnose properly",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 90,
+      "status": "pass"
+    },
+    {
+      "input_id": 91,
+      "input": "need clarity",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 92,
+      "input": "everything unclear",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 93,
+      "input": "data not helping",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 94,
+      "input": "metrics confusing",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 95,
+      "input": "need simple answer",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 96,
+      "input": "what should i do first",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 97,
+      "input": "step by step fix needed",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 98,
+      "input": "help me understand problem",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 99,
+      "status": "pass"
+    },
+    {
+      "input_id": 100,
+      "input": "what is root cause",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 101,
+      "status": "pass"
+    },
+    {
+      "input_id": 102,
+      "input": "i think my funnel is trash",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 103,
+      "status": "pass"
+    },
+    {
+      "input_id": 104,
+      "status": "pass"
+    },
+    {
+      "input_id": 105,
+      "status": "pass"
+    },
+    {
+      "input_id": 106,
+      "status": "pass"
+    },
+    {
+      "input_id": 107,
+      "status": "pass"
+    },
+    {
+      "input_id": 108,
+      "status": "pass"
+    },
+    {
+      "input_id": 109,
+      "status": "pass"
+    },
+    {
+      "input_id": 110,
+      "input": "something wrong with landing page",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 111,
+      "status": "pass"
+    },
+    {
+      "input_id": 112,
+      "input": "help me fix funnel bro",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 113,
+      "status": "pass"
+    },
+    {
+      "input_id": 114,
+      "input": "people not trusting my brand",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 115,
+      "input": "no reviews on page maybe issue",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 116,
+      "input": "landing page confusing af",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 117,
+      "input": "cta not working maybe",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 118,
+      "status": "pass"
+    },
+    {
+      "input_id": 119,
+      "input": "too much info on page maybe",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 120,
+      "input": "people drop at pricing section",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 121,
+      "status": "pass"
+    },
+    {
+      "input_id": 122,
+      "status": "pass"
+    },
+    {
+      "input_id": 123,
+      "status": "pass"
+    },
+    {
+      "input_id": 124,
+      "status": "pass"
+    },
+    {
+      "input_id": 125,
+      "input": "need funnel audit",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 126,
+      "status": "pass"
+    },
+    {
+      "input_id": 127,
+      "input": "maybe wrong targeting idk",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 128,
+      "input": "message mismatch between ad and page",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 129,
+      "status": "pass"
+    },
+    {
+      "input_id": 130,
+      "status": "pass"
+    },
+    {
+      "input_id": 131,
+      "status": "pass"
+    },
+    {
+      "input_id": 132,
+      "input": "need help fixing this asap",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 133,
+      "input": "what am i doing wrong",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 134,
+      "status": "pass"
+    },
+    {
+      "input_id": 135,
+      "status": "pass"
+    },
+    {
+      "input_id": 136,
+      "status": "pass"
+    },
+    {
+      "input_id": 137,
+      "input": "i cant figure this out",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 138,
+      "status": "pass"
+    },
+    {
+      "input_id": 139,
+      "status": "pass"
+    },
+    {
+      "input_id": 140,
+      "status": "pass"
+    },
+    {
+      "input_id": 141,
+      "input": "no emotional connection",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 142,
+      "input": "no trust signals present",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 143,
+      "input": "page looks basic maybe",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 144,
+      "input": "need premium feel",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    },
+    {
+      "input_id": 145,
+      "status": "pass"
+    },
+    {
+      "input_id": 146,
+      "input": "need serious fix now",
+      "status": "fail",
+      "errors": [
+        {
+          "layer": "intent_mapping",
+          "issue": "missing intent"
+        },
+        {
+          "layer": "signal_extraction",
+          "issue": "missing signal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,22 @@
-from datetime import datetime, timezone
-from typing import Any
-
 from fastapi import Body
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from core.guarded_pipeline import validate_input_payload
+from core.input_utils import extract_query_text
+from core.logging_utils import configure_logging
+from core.logging_utils import get_logger
 from core.orchestrator import run_system
+from tools.output_validator import validate_output
+from tools.report_generator import report_generator
+from tools.report_store import create_report
+from tools.report_store import get_all_reports
+from tools.report_store import get_report
+from tools.report_store import get_saved_reports
+from tools.report_store import toggle_save
 
+configure_logging()
+logger = get_logger("team58.api")
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -16,201 +26,199 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def _normalize_result(input_data: dict, pipeline_result: dict) -> dict:
+    if isinstance(pipeline_result, dict) and pipeline_result.get("validation_type") == "low_quality" and len(pipeline_result.keys()) == 1:
+        return {"validation_type": "low_quality"}
 
-def _timestamp() -> str:
-    return datetime.now(timezone.utc).isoformat()
-
-
-def _extract_input_text(input_data: Any) -> str:
-    if isinstance(input_data, dict):
-        raw = input_data.get("input") or input_data.get("query") or input_data.get("prompt") or ""
-        return str(raw).strip()
-    return str(input_data).strip()
-
-
-def _build_default_campaigns(subject: str) -> list[dict[str, str]]:
-    base_subject = subject or "your business"
-    return [
-        {
-            "strategy": "Performance marketing",
-            "headline": f"Scale faster with a performance push for {base_subject}",
-            "hook": "Turn intent signals into measurable conversions.",
-            "cta": "Launch the optimized campaign",
-        },
-        {
-            "strategy": "Emotional marketing",
-            "headline": f"Build trust and momentum around {base_subject}",
-            "hook": "Lead with narrative, credibility, and audience connection.",
-            "cta": "Activate the story-led campaign",
-        },
-        {
-            "strategy": "Brand awareness",
-            "headline": f"Expand visibility for {base_subject} across key channels",
-            "hook": "Own attention early with a memorable awareness strategy.",
-            "cta": "Start the awareness rollout",
-        },
-    ]
-
-
-def _simulate_pipeline(input_data: Any, error_message: str | None = None) -> dict[str, Any]:
-    subject = _extract_input_text(input_data) or "business growth"
-    campaigns = _build_default_campaigns(subject)
-    best_campaign = campaigns[0]
-
-    return {
-        "best_campaign": best_campaign,
-        "all_campaigns": campaigns,
-        "optimization_score": 86,
-        "decision_meta": {
-            "selected_strategy": best_campaign["strategy"],
-            "alternatives": [campaign["strategy"] for campaign in campaigns[1:]],
-            "reason": "Fallback simulation executed while keeping the multi-agent flow available.",
-            "confidence": 86,
-            "status": "simulated",
-        },
-        "objective": "conversion",
-        "simulation_error": error_message,
+    # Keep the pipeline output as-is (product-level output), but ensure required contract keys exist.
+    normalized = {
+        "domain": "business",
+        "validation_type": "valid_weak",
+        "signals": [],
+        "clusters": [],
+        "top_cluster": "",
+        "confidence": 0.5,
     }
-
-
-def _normalize_result(input_data: Any, pipeline_result: dict[str, Any], simulated: bool) -> dict[str, Any]:
-    subject = _extract_input_text(input_data) or "business growth"
-    decision_meta = pipeline_result.get("decision_meta", {}) if isinstance(pipeline_result, dict) else {}
-    campaigns = pipeline_result.get("all_campaigns") if isinstance(pipeline_result, dict) else None
-
-    if not isinstance(campaigns, list) or not campaigns:
-        campaigns = _build_default_campaigns(subject)
-
-    best_campaign = pipeline_result.get("best_campaign") if isinstance(pipeline_result, dict) else None
-    if not isinstance(best_campaign, dict):
-        selected_strategy = decision_meta.get("selected_strategy")
-        best_campaign = next(
-            (campaign for campaign in campaigns if campaign.get("strategy") == selected_strategy),
-            campaigns[0],
-        )
-
-    optimization_score = pipeline_result.get("optimization_score") if isinstance(pipeline_result, dict) else None
-    if not isinstance(optimization_score, (int, float)):
-        optimization_score = int(decision_meta.get("confidence", 82))
-
-    objective = "mixed"
     if isinstance(pipeline_result, dict):
-        objective = str(pipeline_result.get("objective") or "mixed")
+        normalized.update(dict(pipeline_result))
+        normalized.setdefault("domain", "business")
+        normalized.setdefault("validation_type", "valid_weak")
+        normalized.setdefault("signals", [])
+        normalized.setdefault("clusters", [])
+        normalized.setdefault("top_cluster", "")
+        normalized.setdefault("confidence", 0.5)
 
-    agent_states = [
-        {
-            "id": "research",
-            "name": "Research Agent",
-            "shortName": "RESEARCH",
-            "status": "active",
-            "currentTask": f"Collected market context for '{subject}'",
-            "confidence": max(int(decision_meta.get("confidence", 82)) - 4, 50),
-        },
-        {
-            "id": "processing",
-            "name": "Data Agent",
-            "shortName": "DATA",
-            "status": "processing",
-            "currentTask": "Normalized signals and prepared structured analysis",
-            "confidence": max(int(decision_meta.get("confidence", 82)) - 2, 50),
-        },
-        {
-            "id": "intelligence",
-            "name": "Intelligence Agent",
-            "shortName": "INTEL",
-            "status": "active",
-            "currentTask": f"Ranked '{decision_meta.get('selected_strategy', 'best-fit strategy')}' opportunities",
-            "confidence": int(decision_meta.get("confidence", 82)),
-        },
-        {
-            "id": "decision",
-            "name": "Decision Agent",
-            "shortName": "DECIDE",
-            "status": "active",
-            "currentTask": decision_meta.get("reason", "Selected the strongest campaign strategy"),
-            "confidence": int(decision_meta.get("confidence", 82)),
-        },
-        {
-            "id": "campaign",
-            "name": "Campaign Agent",
-            "shortName": "CAMPAIGN",
-            "status": "active",
-            "currentTask": f"Prepared launch assets for '{best_campaign.get('strategy', 'campaign execution')}'",
-            "confidence": min(int(decision_meta.get("confidence", 82)) + 1, 99),
-        },
-    ]
-
-    feed = [
-        {
-            "id": "feed-research",
-            "agent": "Research Agent",
-            "type": "success",
-            "message": f"Research stage completed for '{subject}'.",
-            "detail": f"Objective detected: {objective}",
-            "timestamp": _timestamp(),
-        },
-        {
-            "id": "feed-data",
-            "agent": "Data Agent",
-            "type": "processing",
-            "message": "Data agent converted findings into structured campaign inputs.",
-            "detail": f"{len(campaigns)} campaign options are ready for scoring.",
-            "timestamp": _timestamp(),
-        },
-        {
-            "id": "feed-decision",
-            "agent": "Decision Agent",
-            "type": "info",
-            "message": decision_meta.get("reason", "Decision engine selected the best strategy."),
-            "detail": f"Chosen strategy: {decision_meta.get('selected_strategy', best_campaign.get('strategy', 'N/A'))}",
-            "timestamp": _timestamp(),
-        },
-        {
-            "id": "feed-campaign",
-            "agent": "Campaign Agent",
-            "type": "success" if not simulated else "warning",
-            "message": "Campaign payload prepared for the dashboard.",
-            "detail": "Simulation mode is active." if simulated else "Live pipeline response delivered.",
-            "timestamp": _timestamp(),
-        },
-    ]
-
-    return {
-        "status": "success",
-        "message": "System executed" if not simulated else "System executed in simulation mode",
-        "data": {
-            "input": subject,
-            "objective": objective,
-            "insight": best_campaign.get("headline", "Campaign recommendation generated."),
-            "summary": decision_meta.get("reason", "Decision engine selected the strongest option."),
-            "best_campaign": best_campaign,
-            "all_campaigns": campaigns,
-            "optimization_score": optimization_score,
-            "decision_meta": decision_meta,
-            "agent_states": agent_states,
-            "feed": feed,
-            "simulated": simulated,
-            "error": pipeline_result.get("simulation_error") if simulated else None,
-        },
-    }
+    errors = validate_output(normalized)
+    if errors:
+        logger.warning("api:output-validation-failed errors=%s", errors)
+        normalized = {
+            "domain": "general",
+            "validation_type": "low_quality",
+            "signals": [],
+            "clusters": [],
+            "top_cluster": "",
+            "confidence": 0.0,
+            "primary_signal": "",
+            "secondary_signals": [],
+            "intent_weights": [],
+            "reasoning": "",
+            "root_causes": [],
+            "ambiguity": False,
+            "status": "needs_clarification",
+            "status_reason": "Output validation failed",
+            "status_suggestion": "Ask user for more detail",
+            "decision_path": "clarification",
+            "final_signals": [],
+        }
+    return normalized
 
 # Root endpoint
 @app.get("/")
 def root():
     return {
         "status": "AI Engine Running",
-        "agents": ["research", "data", "campaign"]
+        "agents": ["research", "data", "campaign"],
+        "contract_status": "ENFORCED",
     }
 
 @app.post("/run-system")
 @app.post("/api/run-system")
 def run_system_endpoint(input_data: dict = Body(default={})):
     try:
-        pipeline_result = run_system(input_data)
+        logger.info("api:run-system:start")
+        if not validate_input_payload(input_data):
+            logger.info("api:run-system:invalid-input-contract")
+            return {"validation_type": "low_quality"}
+        patched_input = dict(input_data)
+        patched_input["query"] = extract_query_text(input_data)
+        pipeline_result = run_system(patched_input)
         if not isinstance(pipeline_result, dict):
-            pipeline_result = _simulate_pipeline(input_data, "Pipeline returned a non-dict response.")
-            return _normalize_result(input_data, pipeline_result, simulated=True)
-        return _normalize_result(input_data, pipeline_result, simulated=False)
+            return _normalize_result(patched_input, {})
+        logger.info("api:run-system:success")
+        return _normalize_result(patched_input, pipeline_result)
     except Exception as exc:
-        pipeline_result = _simulate_pipeline(input_data, str(exc))
-        return _normalize_result(input_data, pipeline_result, simulated=True)
+        logger.exception("api:run-system:failure")
+        return {
+            "domain": "general",
+            "validation_type": "low_quality",
+            "signals": [],
+            "clusters": [],
+            "top_cluster": "",
+            "confidence": 0.0,
+            "primary_signal": "",
+            "secondary_signals": [],
+            "intent_weights": [],
+            "reasoning": "",
+            "root_causes": [],
+            "ambiguity": False,
+            "status": "needs_clarification",
+            "status_reason": "Pipeline exception",
+            "status_suggestion": "Ask user for more detail",
+            "decision_path": "clarification",
+            "final_signals": [],
+        }
+
+
+@app.post("/api/analyze")
+def analyze(data=Body(default={})):
+    payload = data if isinstance(data, dict) else {"query": str(data)}
+    query = payload.get("query", "")
+    raw = run_system({"query": query})
+    if not isinstance(raw, dict):
+        raw = {}
+
+    actions = list(raw.get("actions") or [])
+    opportunities = []
+    for item in actions:
+        if not isinstance(item, dict):
+            continue
+        title = item.get("action")
+        if not title:
+            continue
+        opp = {"title": title}
+        for k in ("impact", "difficulty", "priority", "reason"):
+            if item.get(k) is not None:
+                opp[k] = item.get(k)
+        opportunities.append(opp)
+
+    if not opportunities:
+        plan = list((raw.get("campaign") or {}).get("plan") or [])
+        for step in plan:
+            if isinstance(step, str) and step.strip():
+                opportunities.append({"title": step.strip()})
+
+    research = list(raw.get("research") or [])
+    top_title = research[0] if research else (raw.get("insights") or raw.get("primary_signal") or "")
+    score = raw.get("confidence") or 0
+
+    steps = list((raw.get("campaign") or {}).get("plan") or [])
+    if not steps:
+        steps = [op.get("title") for op in opportunities if op.get("title")]
+
+    signal_to_channels = {
+        "conversion optimization": ["facebook", "instagram"],
+        "paid ads": ["facebook", "instagram", "google"],
+        "lead generation": ["facebook", "instagram", "linkedin"],
+        "seo": ["google"],
+        "retention": ["email", "push"],
+    }
+    platforms = []
+    primary = str(raw.get("primary_signal") or "").strip().lower()
+    if primary in signal_to_channels:
+        platforms.extend(signal_to_channels[primary])
+
+    adapted = {
+        "scoring": {"validated_opportunities": opportunities, "top": {"title": top_title, "score": float(score or 0)}},
+        "decision": {"decision": raw.get("main_problem") or raw.get("status_reason") or raw.get("reasoning") or ""},
+        "execution": {"steps": [s for s in steps if isinstance(s, str) and s.strip()], "platforms": platforms},
+    }
+    report = report_generator(adapted)
+    saved_report = create_report(report)
+    return saved_report
+
+
+@app.get("/api/reports")
+def get_reports():
+    reports = get_all_reports()
+    # return only summary (lightweight)
+    return [
+        {
+            "report_id": r.get("report_id"),
+            "title": r.get("title"),
+            "confidence_score": r.get("confidence_score"),
+            "created_at": r.get("created_at"),
+        }
+        for r in list(reports)[::-1]  # latest first
+        if isinstance(r, dict)
+    ]
+
+
+@app.get("/api/reports/saved")
+def fetch_saved_reports():
+    reports = get_saved_reports()
+    return [
+        {
+            "report_id": r.get("report_id"),
+            "title": r.get("title"),
+            "confidence_score": r.get("confidence_score"),
+            "created_at": r.get("created_at"),
+        }
+        for r in list(reports)[::-1]
+        if isinstance(r, dict)
+    ]
+
+
+@app.post("/api/reports/{report_id}/save")
+def save_report(report_id: str):
+    report = toggle_save(report_id)
+    if not report:
+        return {"error": "Report not found"}
+    return {"message": "Saved status updated", "saved": report.get("saved", False)}
+
+
+@app.get("/api/reports/{report_id}")
+def fetch_report(report_id: str):
+    report = get_report(report_id)
+    if not report:
+        return {"error": "Report not found"}
+    return report

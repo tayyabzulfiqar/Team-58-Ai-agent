@@ -1,33 +1,49 @@
+import os
+
 import requests
 
-
-API_KEY = "sk-36f731a2000b49f4b76b2b6bb3b6a1ca"
-BASE_URL = "https://ws-7cdqxbw1m3iabksm.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
+from core.logging_utils import get_logger
 
 
-def qwen_generate(prompt):
-    try:
-        url = f"{BASE_URL}/chat/completions"
+logger = get_logger("team58.qwen")
+API_KEY = os.getenv("QWEN_API_KEY") or "sk-36f731a2000b49f4b76b2b6bb3b6a1ca"
+BASE_URL = os.getenv("QWEN_BASE_URL") or "https://ws-7cdqxbw1m3iabksm.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
+MODEL_NAME = os.getenv("QWEN_MODEL", "qwen-plus")
 
-        headers = {
+
+def qwen_generate(prompt: str, *, system_prompt: str = "You are an AI analyst helping extract insights.") -> str:
+    if not API_KEY:
+        raise RuntimeError("QWEN_API_KEY is not configured.")
+
+    url = f"{BASE_URL}/chat/completions"
+    logger.info("qwen:start prompt_chars=%s", len(prompt))
+
+    response = requests.post(
+        url,
+        headers={
             "Authorization": f"Bearer {API_KEY}",
-            "Content-Type": "application/json"
-        }
-
-        payload = {
-            "model": "qwen-plus",
+            "Content-Type": "application/json",
+        },
+        json={
+            "model": MODEL_NAME,
             "messages": [
-                {"role": "system", "content": "You are an AI analyst helping extract insights."},
-                {"role": "user", "content": prompt[:2000]}
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt[:6000]},
             ],
-            "temperature": 0.7
-        }
+            "temperature": 0,
+        },
+        timeout=90,
+    )
+    response.raise_for_status()
+    data = response.json()
 
-        res = requests.post(url, headers=headers, json=payload)
-        data = res.json()
+    try:
+        content = data["choices"][0]["message"]["content"]
+    except (KeyError, IndexError, TypeError) as exc:
+        raise RuntimeError(f"Invalid Qwen response payload: {data}") from exc
 
-        return data["choices"][0]["message"]["content"]
+    if not content or not str(content).strip():
+        raise RuntimeError("Qwen returned an empty response.")
 
-    except Exception as e:
-        print("Qwen error:", e)
-        return "AI insight unavailable"
+    logger.info("qwen:done response_chars=%s", len(content))
+    return str(content).strip()

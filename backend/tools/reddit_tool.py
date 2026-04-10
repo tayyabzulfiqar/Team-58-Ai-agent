@@ -7,16 +7,27 @@ def reddit_tool(query):
         headers = {"User-Agent": "Mozilla/5.0"}
 
         res = requests.get(url, headers=headers)
+        res.raise_for_status()
         data = res.json()
 
         posts = []
 
         for post in data.get("data", {}).get("children", []):
             p = post.get("data", {})
-            posts.append({
-                "title": p.get("title", ""),
-                "text": p.get("selftext", "")
-            })
+            title = (p.get("title") or "").strip()
+            text = (p.get("selftext") or "").strip()
+            if not title and not text:
+                continue
+            permalink = p.get("permalink") or ""
+            posts.append(
+                {
+                    "title": title,
+                    "text": text,
+                    "url": f"https://www.reddit.com{permalink}" if permalink else "",
+                    "subreddit": p.get("subreddit", ""),
+                    "score": p.get("score", 0),
+                }
+            )
 
         return {"reddit_data": posts}
 

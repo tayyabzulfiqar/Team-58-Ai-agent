@@ -1,0 +1,177 @@
+[
+  {
+    "report_id": "abcbd1f2-8d39-48f3-ba1e-7a20579b5fe7",
+    "created_at": "2026-04-10T01:09:55.390135",
+    "title": "conversion optimization",
+    "confidence_score": 70,
+    "data": {
+      "main_problem": "conversion optimization",
+      "key_insight": "Top keywords: saas, conversion, customer, https, rates, product",
+      "strategy": {
+        "title": "conversion optimization",
+        "points": [
+          "Week 1: audit funnel and messaging",
+          "Week 2: launch paid experiments",
+          "Weeks 3-4: optimize conversion paths"
+        ]
+      },
+      "whats_happening": [
+        "Users experiencing: Strengthen offer-proof block on high-traffic landing pages",
+        "Users experiencing: Audit checkout step abandonment and remove top friction point",
+        "Users experiencing: Prioritize channels with highest qualified traffic share"
+      ],
+      "root_causes": [
+        "Caused by: Strengthen offer-proof block on high-traffic landing pages",
+        "Caused by: Audit checkout step abandonment and remove top friction point",
+        "Caused by: Prioritize channels with highest qualified traffic share"
+      ],
+      "action_plan": [
+        {
+          "step": 1,
+          "title": "Week 1: audit funnel and messaging",
+          "description": "Execute step: Week 1: audit funnel and messaging",
+          "timeline": "3 days"
+        },
+        {
+          "step": 2,
+          "title": "Week 2: launch paid experiments",
+          "description": "Execute step: Week 2: launch paid experiments",
+          "timeline": "6 days"
+        },
+        {
+          "step": 3,
+          "title": "Weeks 3-4: optimize conversion paths",
+          "description": "Execute step: Weeks 3-4: optimize conversion paths",
+          "timeline": "9 days"
+        }
+      ],
+      "campaign_plan": {
+        "offer": "Targeted offer based on Top keywords: saas, conversion, customer, https, rates, product",
+        "message": "Addressing conversion optimization with clear value proposition",
+        "channels": [
+          "facebook",
+          "instagram"
+        ],
+        "goal": "Increase conversion rate and user engagement"
+      },
+      "confidence_score": 70
+    }
+  },
+  {
+    "report_id": "1d56091f-ed1b-4ea1-b324-0a114725d0ba",
+    "created_at": "2026-04-10T01:09:55.643818",
+    "title": "conversion optimization",
+    "confidence_score": 70,
+    "data": {
+      "main_problem": "conversion optimization",
+      "key_insight": "Top keywords: saas, conversion, customer, https, rates, product",
+      "strategy": {
+        "title": "conversion optimization",
+        "points": [
+          "Week 1: audit funnel and messaging",
+          "Week 2: launch paid experiments",
+          "Weeks 3-4: optimize conversion paths"
+        ]
+      },
+      "whats_happening": [
+        "Users experiencing: Strengthen offer-proof block on high-traffic landing pages",
+        "Users experiencing: Audit checkout step abandonment and remove top friction point",
+        "Users experiencing: Prioritize channels with highest qualified traffic share"
+      ],
+      "root_causes": [
+        "Caused by: Strengthen offer-proof block on high-traffic landing pages",
+        "Caused by: Audit checkout step abandonment and remove top friction point",
+        "Caused by: Prioritize channels with highest qualified traffic share"
+      ],
+      "action_plan": [
+        {
+          "step": 1,
+          "title": "Week 1: audit funnel and messaging",
+          "description": "Execute step: Week 1: audit funnel and messaging",
+          "timeline": "3 days"
+        },
+        {
+          "step": 2,
+          "title": "Week 2: launch paid experiments",
+          "description": "Execute step: Week 2: launch paid experiments",
+          "timeline": "6 days"
+        },
+        {
+          "step": 3,
+          "title": "Weeks 3-4: optimize conversion paths",
+          "description": "Execute step: Weeks 3-4: optimize conversion paths",
+          "timeline": "9 days"
+        }
+      ],
+      "campaign_plan": {
+        "offer": "Targeted offer based on Top keywords: saas, conversion, customer, https, rates, product",
+        "message": "Addressing conversion optimization with clear value proposition",
+        "channels": [
+          "facebook",
+          "instagram"
+        ],
+        "goal": "Increase conversion rate and user engagement"
+      },
+      "confidence_score": 70
+    }
+  },
+  {
+    "report_id": "5e116e58-70a5-4df7-8002-951eece28210",
+    "created_at": "2026-04-10T01:09:55.899304",
+    "title": "conversion optimization",
+    "confidence_score": 70,
+    "data": {
+      "main_problem": "conversion optimization",
+      "key_insight": "Top keywords: saas, conversion, customer, https, rates, product",
+      "strategy": {
+        "title": "conversion optimization",
+        "points": [
+          "Week 1: audit funnel and messaging",
+          "Week 2: launch paid experiments",
+          "Weeks 3-4: optimize conversion paths"
+        ]
+      },
+      "whats_happening": [
+        "Users experiencing: Strengthen offer-proof block on high-traffic landing pages",
+        "Users experiencing: Audit checkout step abandonment and remove top friction point",
+        "Users experiencing: Prioritize channels with highest qualified traffic share"
+      ],
+      "root_causes": [
+        "Caused by: Strengthen offer-proof block on high-traffic landing pages",
+        "Caused by: Audit checkout step abandonment and remove top friction point",
+        "Caused by: Prioritize channels with highest qualified traffic share"
+      ],
+      "action_plan": [
+        {
+          "step": 1,
+          "title": "Week 1: audit funnel and messaging",
+          "description": "Execute step: Week 1: audit funnel and messaging",
+          "timeline": "3 days"
+        },
+        {
+          "step": 2,
+          "title": "Week 2: launch paid experiments",
+          "description": "Execute step: Week 2: launch paid experiments",
+          "timeline": "6 days"
+        },
+        {
+          "step": 3,
+          "title": "Weeks 3-4: optimize conversion paths",
+          "description": "Execute step: Weeks 3-4: optimize conversion paths",
+          "timeline": "9 days"
+        }
+      ],
+      "campaign_plan": {
+        "offer": "Targeted offer based on Top keywords: saas, conversion, customer, https, rates, product",
+        "message": "Addressing conversion optimization with clear value proposition",
+        "channels": [
+          "facebook",
+          "instagram"
+        ],
+        "goal": "Increase conversion rate and user engagement"
+      },
+      "confidence_score": 70
+    },
+    "saved": true
+  }
+]

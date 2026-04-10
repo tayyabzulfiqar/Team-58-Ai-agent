@@ -1,0 +1,72 @@
+[
+  {
+    "timestamp": "2026-04-07T01:13:41.690968+00:00",
+    "input": {
+      "query": "enterprise saas lead generation funnel optimization"
+    },
+    "strategy": "Performance marketing",
+    "confidence": 85,
+    "decision_inputs": {
+      "budget_tier": "medium",
+      "competition_level": "high",
+      "audience_behavior": "research-heavy",
+      "top_opportunity": "Trial-to-paid conversion acceleration"
+    }
+  },
+  {
+    "timestamp": "2026-04-07T01:14:01.124517+00:00",
+    "input": {
+      "query": "enterprise saas lead generation funnel optimization"
+    },
+    "strategy": "Performance marketing",
+    "confidence": 85,
+    "decision_inputs": {
+      "budget_tier": "medium",
+      "competition_level": "high",
+      "audience_behavior": "research-heavy",
+      "top_opportunity": "Trial-to-paid conversion acceleration"
+    }
+  },
+  {
+    "timestamp": "2026-04-07T01:16:10.689887+00:00",
+    "input": {
+      "query": "enterprise saas lead generation funnel optimization"
+    },
+    "strategy": "Performance marketing",
+    "confidence": 85,
+    "decision_inputs": {
+      "budget_tier": "medium",
+      "competition_level": "high",
+      "audience_behavior": "research-heavy",
+      "top_opportunity": "Trial-to-paid conversion acceleration"
+    }
+  },
+  {
+    "timestamp": "2026-04-07T01:18:53.016615+00:00",
+    "input": {
+      "query": "enterprise saas lead generation funnel optimization"
+    },
+    "strategy": "Performance marketing",
+    "confidence": 85,
+    "decision_inputs": {
+      "budget_tier": "medium",
+      "competition_level": "high",
+      "audience_behavior": "research-heavy",
+      "top_opportunity": "Trial-to-paid conversion acceleration"
+    }
+  },
+  {
+    "timestamp": "2026-04-07T01:21:45.882562+00:00",
+    "input": {
+      "query": "enterprise saas lead generation funnel optimization"
+    },
+    "strategy": "Performance marketing",
+    "confidence": 85,
+    "decision_inputs": {
+      "budget_tier": "medium",
+      "competition_level": "high",
+      "audience_behavior": "research-heavy",
+      "top_opportunity": "Trial-to-paid conversion acceleration"
+    }
+  }
+]

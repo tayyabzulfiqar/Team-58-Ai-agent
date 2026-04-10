@@ -1,0 +1,1353 @@
+[
+  {
+    "input": "funnel me kahi issue hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:44.858965+00:00"
+  },
+  {
+    "input": "funnel me kahi issue hai do not understand",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:44.883099+00:00"
+  },
+  {
+    "input": "marketing kar raha but growth not",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:45.227163+00:00"
+  },
+  {
+    "input": "marketing kar raha but growth not",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:45.252782+00:00"
+  },
+  {
+    "input": "trust issue lag raha brand pe",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:45.744833+00:00"
+  },
+  {
+    "input": "trust issue lag raha brand pe",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:45.766928+00:00"
+  },
+  {
+    "input": "pricing issue lag raha",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:45.981913+00:00"
+  },
+  {
+    "input": "pricing issue lag raha",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:46.005155+00:00"
+  },
+  {
+    "input": "growth slow hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:46.342732+00:00"
+  },
+  {
+    "input": "growth slow hai do not understand",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:46.361474+00:00"
+  },
+  {
+    "input": "growth hack kaam not kar raha",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:47.157922+00:00"
+  },
+  {
+    "input": "growth hack kaam not kar raha",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:47.183033+00:00"
+  },
+  {
+    "input": "scaling me problem hai",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:47.226054+00:00"
+  },
+  {
+    "input": "scaling me problem hai",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:49:47.252212+00:00"
+  },
+  {
+    "input": "funnel me kahi issue hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.146933+00:00"
+  },
+  {
+    "input": "funnel me kahi issue hai do not understand",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.178175+00:00"
+  },
+  {
+    "input": "marketing kar raha but growth not",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.501726+00:00"
+  },
+  {
+    "input": "marketing kar raha but growth not",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.523289+00:00"
+  },
+  {
+    "input": "trust issue lag raha brand pe",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.880303+00:00"
+  },
+  {
+    "input": "trust issue lag raha brand pe",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:02.899474+00:00"
+  },
+  {
+    "input": "pricing issue lag raha",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:03.139234+00:00"
+  },
+  {
+    "input": "pricing issue lag raha",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:03.160297+00:00"
+  },
+  {
+    "input": "growth slow hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:03.482436+00:00"
+  },
+  {
+    "input": "growth slow hai do not understand",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:03.502210+00:00"
+  },
+  {
+    "input": "growth hack kaam not kar raha",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:04.391259+00:00"
+  },
+  {
+    "input": "growth hack kaam not kar raha",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:04.413762+00:00"
+  },
+  {
+    "input": "scaling me problem hai",
+    "expected": "business_signals_present",
+    "actual": "empty_signals",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:04.450483+00:00"
+  },
+  {
+    "input": "scaling me problem hai",
+    "expected": "business_has_signals",
+    "actual": "none",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T03:51:04.475460+00:00"
+  },
+  {
+    "input": "cost barh rahi revenue gir happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.016452+00:00"
+  },
+  {
+    "input": "repeat customers not coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.187226+00:00"
+  },
+  {
+    "input": "revenue stuck hai grow not is happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.236701+00:00"
+  },
+  {
+    "input": "funnel me kahi issue hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.260158+00:00"
+  },
+  {
+    "input": "brand awareness bilkul low hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.479201+00:00"
+  },
+  {
+    "input": "business ruk gaya hai do not understand",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.522045+00:00"
+  },
+  {
+    "input": "ctr low hai what karun",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.624099+00:00"
+  },
+  {
+    "input": "targeting sahi not lag rahi",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.660341+00:00"
+  },
+  {
+    "input": "scale karte hi loss is jata",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.750681+00:00"
+  },
+  {
+    "input": "product market fit not lag happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.774617+00:00"
+  },
+  {
+    "input": "customers complain doing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.807597+00:00"
+  },
+  {
+    "input": "reviews negative coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.833764+00:00"
+  },
+  {
+    "input": "log refund maang rahe",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.870801+00:00"
+  },
+  {
+    "input": "repeat orders not coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.918085+00:00"
+  },
+  {
+    "input": "subscription cancel is rahi",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.936982+00:00"
+  },
+  {
+    "input": "email open rate low hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:01.977949+00:00"
+  },
+  {
+    "input": "sms ka response not coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.004153+00:00"
+  },
+  {
+    "input": "follow up ke baad bhi close not",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.066541+00:00"
+  },
+  {
+    "input": "competition cheap hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.274581+00:00"
+  },
+  {
+    "input": "offer strong not lag happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.311703+00:00"
+  },
+  {
+    "input": "copywriting weak hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.355739+00:00"
+  },
+  {
+    "input": "cta strong not hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.388345+00:00"
+  },
+  {
+    "input": "funnel broken lag happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.419088+00:00"
+  },
+  {
+    "input": "payment fail is jati hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.468703+00:00"
+  },
+  {
+    "input": "trust badges not hain",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.500848+00:00"
+  },
+  {
+    "input": "buying decision delay hota hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.543422+00:00"
+  },
+  {
+    "input": "cost per acquisition high hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.621959+00:00"
+  },
+  {
+    "input": "ltv low hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.647045+00:00"
+  },
+  {
+    "input": "cac zyada hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.671997+00:00"
+  },
+  {
+    "input": "business loss me ja happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.710444+00:00"
+  },
+  {
+    "input": "kuch do not understand what problem hai",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:37:02.754894+00:00"
+  },
+  {
+    "input": "impressions high but no clicks",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.140230+00:00"
+  },
+  {
+    "input": "cost increasing revenue dropping",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.209558+00:00"
+  },
+  {
+    "input": "repeat customers not coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.383214+00:00"
+  },
+  {
+    "input": "revenue stuck not growing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.424687+00:00"
+  },
+  {
+    "input": "something wrong in funnel not sure",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.483837+00:00"
+  },
+  {
+    "input": "sign up happening but no activation",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.584063+00:00"
+  },
+  {
+    "input": "brand awareness very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.767370+00:00"
+  },
+  {
+    "input": "business stuck no idea why",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.890308+00:00"
+  },
+  {
+    "input": "people see but dont react",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:13.983938+00:00"
+  },
+  {
+    "input": "ctr very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.017307+00:00"
+  },
+  {
+    "input": "targeting seems wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.055611+00:00"
+  },
+  {
+    "input": "impressions ok clicks missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.096818+00:00"
+  },
+  {
+    "input": "scaling causes losses",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.166027+00:00"
+  },
+  {
+    "input": "product market fit not clear",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.199073+00:00"
+  },
+  {
+    "input": "customers complaining",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.224885+00:00"
+  },
+  {
+    "input": "reviews becoming negative",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.252036+00:00"
+  },
+  {
+    "input": "customers asking refunds",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.289728+00:00"
+  },
+  {
+    "input": "repeat orders missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.334982+00:00"
+  },
+  {
+    "input": "subscriptions getting cancelled",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.368066+00:00"
+  },
+  {
+    "input": "email open rate very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.399974+00:00"
+  },
+  {
+    "input": "sms not getting response",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.434347+00:00"
+  },
+  {
+    "input": "followups not working",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.515779+00:00"
+  },
+  {
+    "input": "demos given but no deal",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.542578+00:00"
+  },
+  {
+    "input": "competitors cheaper",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.586734+00:00"
+  },
+  {
+    "input": "offer not attractive",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.619692+00:00"
+  },
+  {
+    "input": "copywriting bad",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.682348+00:00"
+  },
+  {
+    "input": "call to action not strong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.712202+00:00"
+  },
+  {
+    "input": "funnel seems broken",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.733377+00:00"
+  },
+  {
+    "input": "payment failing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.780680+00:00"
+  },
+  {
+    "input": "no trust signals on site",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.809608+00:00"
+  },
+  {
+    "input": "decision taking too long",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:46:14.848371+00:00"
+  },
+  {
+    "input": "impressions high but no clicks",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:01.939515+00:00"
+  },
+  {
+    "input": "cost increasing revenue dropping",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:01.993051+00:00"
+  },
+  {
+    "input": "repeat customers not coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.142428+00:00"
+  },
+  {
+    "input": "revenue stuck not growing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.175551+00:00"
+  },
+  {
+    "input": "something wrong in funnel not sure",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.208636+00:00"
+  },
+  {
+    "input": "sign up happening but no activation",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.292009+00:00"
+  },
+  {
+    "input": "brand awareness very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.442214+00:00"
+  },
+  {
+    "input": "business stuck no idea why",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.494177+00:00"
+  },
+  {
+    "input": "people see but dont react",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.599869+00:00"
+  },
+  {
+    "input": "ctr very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.643931+00:00"
+  },
+  {
+    "input": "targeting seems wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.691285+00:00"
+  },
+  {
+    "input": "impressions ok clicks missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.729136+00:00"
+  },
+  {
+    "input": "scaling causes losses",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.811053+00:00"
+  },
+  {
+    "input": "product market fit not clear",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.845934+00:00"
+  },
+  {
+    "input": "customers complaining",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.878242+00:00"
+  },
+  {
+    "input": "reviews becoming negative",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.914448+00:00"
+  },
+  {
+    "input": "customers asking refunds",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.949724+00:00"
+  },
+  {
+    "input": "repeat orders missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:02.999825+00:00"
+  },
+  {
+    "input": "subscriptions getting cancelled",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.025729+00:00"
+  },
+  {
+    "input": "email open rate very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.160296+00:00"
+  },
+  {
+    "input": "sms not getting response",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.195588+00:00"
+  },
+  {
+    "input": "followups not working",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.266862+00:00"
+  },
+  {
+    "input": "demos given but no deal",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.297130+00:00"
+  },
+  {
+    "input": "competitors cheaper",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.342042+00:00"
+  },
+  {
+    "input": "offer not attractive",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.359941+00:00"
+  },
+  {
+    "input": "copywriting bad",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.426176+00:00"
+  },
+  {
+    "input": "call to action not strong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.449785+00:00"
+  },
+  {
+    "input": "funnel seems broken",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.479652+00:00"
+  },
+  {
+    "input": "payment failing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.520115+00:00"
+  },
+  {
+    "input": "no trust signals on site",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.548720+00:00"
+  },
+  {
+    "input": "decision taking too long",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:47:03.591706+00:00"
+  },
+  {
+    "input": "impressions are high but click through rate is low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:34.857848+00:00"
+  },
+  {
+    "input": "costs are increasing while revenue is decreasing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:34.955106+00:00"
+  },
+  {
+    "input": "repeat customers are not increasing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.168778+00:00"
+  },
+  {
+    "input": "there is an issue somewhere in the funnel",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.226678+00:00"
+  },
+  {
+    "input": "sign ups are happening but activation is low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.328449+00:00"
+  },
+  {
+    "input": "customers do not understand the product",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.478732+00:00"
+  },
+  {
+    "input": "brand awareness is very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.511535+00:00"
+  },
+  {
+    "input": "the business is stuck and not progressing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.574991+00:00"
+  },
+  {
+    "input": "click through rate is very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.804334+00:00"
+  },
+  {
+    "input": "targeting strategy is ineffective",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.879379+00:00"
+  },
+  {
+    "input": "impressions are fine but clicks are missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.928275+00:00"
+  },
+  {
+    "input": "clicks are fine but conversions are missing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:35.974572+00:00"
+  },
+  {
+    "input": "product market fit is unclear",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.053275+00:00"
+  },
+  {
+    "input": "customers are complaining frequently",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.090291+00:00"
+  },
+  {
+    "input": "reviews are becoming negative",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.126402+00:00"
+  },
+  {
+    "input": "customers are requesting refunds",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.171380+00:00"
+  },
+  {
+    "input": "repeat orders are not happening",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.221480+00:00"
+  },
+  {
+    "input": "subscriptions are being cancelled",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.280111+00:00"
+  },
+  {
+    "input": "email open rate is very low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.362543+00:00"
+  },
+  {
+    "input": "cold calling is not producing results",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.429684+00:00"
+  },
+  {
+    "input": "follow ups are ineffective",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.492942+00:00"
+  },
+  {
+    "input": "competitors are offering lower prices",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.555183+00:00"
+  },
+  {
+    "input": "the offer is not attractive enough",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.588369+00:00"
+  },
+  {
+    "input": "copywriting is ineffective",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.649669+00:00"
+  },
+  {
+    "input": "call to action is not compelling",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.677491+00:00"
+  },
+  {
+    "input": "the funnel appears broken",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.705663+00:00"
+  },
+  {
+    "input": "payments are failing",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.750909+00:00"
+  },
+  {
+    "input": "there are no trust signals on the website",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.782623+00:00"
+  },
+  {
+    "input": "decision making takes too long",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.829819+00:00"
+  },
+  {
+    "input": "cost per acquisition is too high",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.900869+00:00"
+  },
+  {
+    "input": "customer lifetime value is low",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.942008+00:00"
+  },
+  {
+    "input": "customer acquisition cost is too high",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:36.970651+00:00"
+  },
+  {
+    "input": "the business is operating at a loss",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:37.144682+00:00"
+  },
+  {
+    "input": "it is unclear what the problem is",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T04:55:37.198616+00:00"
+  },
+  {
+    "input": "business issue",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T05:22:54.070472+00:00"
+  },
+  {
+    "input": "why",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T05:22:54.178046+00:00"
+  },
+  {
+    "input": "maybe something is off",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T05:23:31.251244+00:00"
+  },
+  {
+    "input": "business issue",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T05:30:10.628504+00:00"
+  },
+  {
+    "input": "business issue",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T05:30:35.828720+00:00"
+  },
+  {
+    "input": "customers are leaving the platform quickly",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:14.478894+00:00"
+  },
+  {
+    "input": "people visit once and never come back",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:14.652709+00:00"
+  },
+  {
+    "input": "there seems to be an issue in the funnel",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:14.877962+00:00"
+  },
+  {
+    "input": "the offer does not look attractive",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:14.961212+00:00"
+  },
+  {
+    "input": "something is wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:14.999801+00:00"
+  },
+  {
+    "input": "i think there is a problem",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:15.049705+00:00"
+  },
+  {
+    "input": "performance looks weird",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:15.170391+00:00"
+  },
+  {
+    "input": "it is not working properly",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:15.212428+00:00"
+  },
+  {
+    "input": "everything feels wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:15.244600+00:00"
+  },
+  {
+    "input": "business is struggling",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T11:59:15.437137+00:00"
+  },
+  {
+    "input": "customers are leaving the platform quickly",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.145450+00:00"
+  },
+  {
+    "input": "people visit once and never come back",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.220607+00:00"
+  },
+  {
+    "input": "there seems to be an issue in the funnel",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.451080+00:00"
+  },
+  {
+    "input": "the offer does not look attractive",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.520114+00:00"
+  },
+  {
+    "input": "something is wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.550274+00:00"
+  },
+  {
+    "input": "i think there is a problem",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.596851+00:00"
+  },
+  {
+    "input": "performance looks weird",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.715980+00:00"
+  },
+  {
+    "input": "it is not working properly",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.750202+00:00"
+  },
+  {
+    "input": "everything feels wrong",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.799566+00:00"
+  },
+  {
+    "input": "business is struggling",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T12:00:07.982117+00:00"
+  },
+  {
+    "input": "my landing page sucks maybe",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:20.545337+00:00"
+  },
+  {
+    "input": "or landing page problem",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:20.791137+00:00"
+  },
+  {
+    "input": "why people not trusting my page",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:20.933544+00:00"
+  },
+  {
+    "input": "why no one buying",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:21.092736+00:00"
+  },
+  {
+    "input": "maybe no offer clarity",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:21.732613+00:00"
+  },
+  {
+    "input": "landing mismatch",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:21.916639+00:00"
+  },
+  {
+    "input": "offer not attractive",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:21.999236+00:00"
+  },
+  {
+    "input": "no returns coming",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:22.254030+00:00"
+  },
+  {
+    "input": "something wrong with landing page",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:22.747101+00:00"
+  },
+  {
+    "input": "people not trusting my brand",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:22.821954+00:00"
+  },
+  {
+    "input": "landing page confusing af",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:22.899359+00:00"
+  },
+  {
+    "input": "people drop at pricing section",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:23.023222+00:00"
+  },
+  {
+    "input": "no trust signals present",
+    "expected": "business_signals_present",
+    "actual": "no_signals domain_source=semantic_fallback",
+    "broken_layer": "signals",
+    "timestamp": "2026-04-08T15:49:24.165655+00:00"
+  }
+]
