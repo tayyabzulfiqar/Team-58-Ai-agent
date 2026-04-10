@@ -175,6 +175,8 @@ def analyze(data=Body(default={})):
         platforms.extend(signal_to_channels[primary])
 
     adapted = {
+        "query": query,
+        "raw": raw,
         "scoring": {"validated_opportunities": opportunities, "top": {"title": top_title, "score": float(score or 0)}},
         "decision": {"decision": raw.get("main_problem") or raw.get("status_reason") or raw.get("reasoning") or ""},
         "execution": {"steps": [s for s in steps if isinstance(s, str) and s.strip()], "platforms": platforms},

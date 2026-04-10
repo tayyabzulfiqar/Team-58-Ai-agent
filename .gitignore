@@ -65,3 +65,4 @@ node_modules/
 .cache/
 backend/memory/data.json
 backend/memory/*.json
+backend/data/*.jsonl

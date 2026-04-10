@@ -8,6 +8,7 @@ from fastapi.testclient import TestClient
 
 from main import app
 from tools.report_store import get_all_reports
+from tools.report_generator import report_generator
 
 
 class PremiumEndpointsTest(unittest.TestCase):
@@ -67,7 +68,24 @@ class PremiumEndpointsTest(unittest.TestCase):
         self.assertEqual(res2.status_code, 200)
         self.assertEqual(res2.json().get("report_id"), rid)
 
+    def test_decision_intelligence_fields(self):
+        report = report_generator(
+            {
+                "query": "I run a SaaS but users sign up and never convert",
+                "raw": {},
+            }
+        )
+        self.assertIn("reasoning", report)
+        self.assertIn("scoring", report)
+        self.assertIn("action_plan", report)
+        self.assertIn("strategy", report)
+
+        scoring = report.get("scoring") or {}
+        self.assertGreater(int(scoring.get("severity") or 0), 70)
+
+        reasoning = report.get("reasoning") or {}
+        self.assertTrue(isinstance(reasoning.get("why_this_problem"), str) and len(reasoning.get("why_this_problem").strip()) > 0)
+
 
 if __name__ == "__main__":
     unittest.main()
-
