@@ -11,10 +11,14 @@ const agentSteps = [
 
 export default function ProcessingPage() {
   const location = useLocation();
-  const query = (location.state as { query?: string })?.query || "Business analysis";
+
+  // ✅ SAFE QUERY FIX (IMPORTANT)
+  const state = location.state as any;
+  const query = state?.query || "Business analysis";
+
   const [activeStep, setActiveStep] = useState(0);
 
-  // ✅ FIXED STEP + REDIRECT LOGIC
+  // ✅ FIXED STEP FLOW + REDIRECT
   useEffect(() => {
     let step = 0;
 
@@ -22,7 +26,8 @@ export default function ProcessingPage() {
       step++;
       setActiveStep(step);
 
-      if (step === agentSteps.length) {
+      // when all steps done
+      if (step >= agentSteps.length) {
         clearInterval(interval);
 
         setTimeout(() => {
@@ -43,9 +48,11 @@ export default function ProcessingPage() {
           <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center mx-auto font-bold text-primary-foreground text-lg shadow-[0_10px_30px_rgba(59,130,246,0.3)]">
             58
           </div>
+
           <h1 className="text-2xl font-bold text-foreground tracking-tight">
             Processing Your Analysis
           </h1>
+
           <p className="text-sm text-muted-foreground">"{query}"</p>
         </div>
 
@@ -67,4 +74,32 @@ export default function ProcessingPage() {
               >
                 <div
                   className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
-                    done ? "bg-primary/
+                    done ? "bg-primary/15" : current ? "bg-primary/10" : "bg-accent"
+                  }`}
+                >
+                  {done ? (
+                    <Check className="h-5 w-5 text-primary" />
+                  ) : current ? (
+                    <Loader2 className={`h-5 w-5 ${step.color} animate-spin`} />
+                  ) : (
+                    <step.icon className="h-5 w-5 text-muted-foreground" />
+                  )}
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    {step.title}
+                  </p>
+
+                  <p className="text-xs text-muted-foreground">
+                    {done ? "Complete" : current ? step.status : "Waiting..."}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}gi
