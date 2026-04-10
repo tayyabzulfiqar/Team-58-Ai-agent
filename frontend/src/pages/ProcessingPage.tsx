@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Search, Lightbulb, Target, Megaphone, Check, Loader2 } from "lucide-react";
 
 const agentSteps = [
@@ -10,33 +10,32 @@ const agentSteps = [
 ];
 
 export default function ProcessingPage() {
-  const navigate = useNavigate();
   const location = useLocation();
   const query = (location.state as { query?: string })?.query || "Business analysis";
   const [activeStep, setActiveStep] = useState(0);
 
+  // ✅ FIXED STEP + REDIRECT LOGIC
   useEffect(() => {
+    let step = 0;
+
     const interval = setInterval(() => {
-      setActiveStep((prev) => {
-        if (prev >= agentSteps.length) {
-          clearInterval(interval);
-          return prev;
-        }
-        return prev + 1;
-      });
+      step++;
+      setActiveStep(step);
+
+      if (step === agentSteps.length) {
+        clearInterval(interval);
+
+        setTimeout(() => {
+          window.location.href = "/report";
+        }, 1500);
+      }
     }, 1200);
+
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (activeStep > agentSteps.length) {
-      navigate("/report", { state: { query } });
-    }
-  }, [activeStep, navigate, query]);
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-background relative overflow-hidden">
-      {/* Subtle background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="max-w-lg w-full mx-auto p-8 space-y-8 relative z-10">
@@ -44,7 +43,9 @@ export default function ProcessingPage() {
           <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center mx-auto font-bold text-primary-foreground text-lg shadow-[0_10px_30px_rgba(59,130,246,0.3)]">
             58
           </div>
-          <h1 className="text-2xl font-bold text-foreground tracking-tight">Processing Your Analysis</h1>
+          <h1 className="text-2xl font-bold text-foreground tracking-tight">
+            Processing Your Analysis
+          </h1>
           <p className="text-sm text-muted-foreground">"{query}"</p>
         </div>
 
@@ -65,29 +66,5 @@ export default function ProcessingPage() {
                 }`}
               >
                 <div
-                  className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                    done ? "bg-primary/15" : current ? "bg-primary/10" : "bg-accent"
-                  }`}
-                >
-                  {done ? (
-                    <Check className="h-5 w-5 text-primary" />
-                  ) : current ? (
-                    <Loader2 className={`h-5 w-5 ${step.color} animate-spin`} />
-                  ) : (
-                    <step.icon className="h-5 w-5 text-muted-foreground" />
-                  )}
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{step.title}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {done ? "Complete" : current ? step.status : "Waiting..."}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
+                    done ? "bg-primary/
