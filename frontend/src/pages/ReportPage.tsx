@@ -11,6 +11,7 @@ type ReportData = {
 
   reasoning?: { analysis?: string; why_this_problem?: string; impact_explanation?: string };
   scoring?: { severity?: number; opportunity?: number; confidence?: number };
+  big_opportunity?: { title?: string; impact?: string; estimated_uplift?: string };
 
   strategy?: { title?: string; points?: string[] };
 
@@ -19,6 +20,7 @@ type ReportData = {
     title?: string;
     timeline?: string;
     impact_score?: number;
+    reason?: string;
     description?: string;
   }[];
 
@@ -160,6 +162,7 @@ export default function ReportPage() {
         const data = (await res.json()) as StoredReport;
         if (!active) return;
         console.log("REAL BACKEND DATA:", data);
+        console.log("ENRICHED REPORT:", data);
         setReport(data);
 
         if (data?.status === "processing" && Date.now() - startedAt < maxWaitMs) {
@@ -295,6 +298,7 @@ export default function ReportPage() {
   const campaign = data.campaign_plan || {};
   const reasoning = data.reasoning || {};
   const scoring = data.scoring || {};
+  const bigOpportunity = data.big_opportunity || {};
   const currentOverlayStep = progressSteps[progressStepIndex % progressSteps.length];
 
   const confidenceValue =
@@ -372,6 +376,15 @@ export default function ReportPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="md:col-span-2 rounded-2xl p-6 border border-primary/30 shadow-md bg-gradient-to-r from-primary/15 to-accent">
+            <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Big Opportunity</div>
+            <div className="mt-2 text-xl font-bold text-foreground">{bigOpportunity.title?.trim() || "â€”"}</div>
+            <div className="mt-2 text-sm text-foreground">{bigOpportunity.impact?.trim() || "â€”"}</div>
+            <div className="mt-3 inline-flex items-center rounded-full border border-primary/40 px-3 py-1 text-xs font-semibold text-foreground">
+              Estimated uplift: {bigOpportunity.estimated_uplift?.trim() || "â€”"}
+            </div>
+          </div>
+
           {mode === "ai" && aiText.trim() ? (
             <div className="md:col-span-2">
               <Card title="AI Enhanced Report">
@@ -472,12 +485,17 @@ export default function ReportPage() {
                     <div className="font-medium">
                       {typeof step?.title === "string" && step.title.trim() ? step.title : "—"}
                       {typeof step?.impact_score === "number" ? (
-                        <span className="text-xs text-muted-foreground ml-2">(Impact: {step.impact_score}%)</span>
+                        <span className="ml-2 inline-flex items-center rounded-full border border-border px-2 py-0.5 text-[11px] font-semibold text-foreground">
+                          Impact {step.impact_score}%
+                        </span>
                       ) : null}
                     </div>
                     <div className="text-xs text-muted-foreground mt-0.5">
                       {typeof step?.timeline === "string" ? step.timeline : ""}
                     </div>
+                    {typeof step?.reason === "string" && step.reason.trim() ? (
+                      <div className="text-xs text-foreground mt-1">{step.reason}</div>
+                    ) : null}
                     {typeof step?.description === "string" && step.description.trim() ? (
                       <div className="text-xs text-muted-foreground mt-1">{step.description}</div>
                     ) : null}

@@ -10,6 +10,7 @@ from core.input_utils import extract_query_text
 from core.logging_utils import configure_logging
 from core.logging_utils import get_logger
 from core.orchestrator import run_system
+from tools.insight_enricher import enrich_insights
 from tools.output_validator import validate_output
 from tools.dashscope_client import generate_consulting_report
 from tools.pdf_generator import generate_report_pdf
@@ -181,7 +182,9 @@ def _build_report_from_query(query: str) -> dict:
         "decision": {"decision": raw.get("main_problem") or raw.get("status_reason") or raw.get("reasoning") or ""},
         "execution": {"steps": [s for s in steps if isinstance(s, str) and s.strip()], "platforms": platforms},
     }
-    return report_generator(adapted)
+    report = report_generator(adapted)
+    report = enrich_insights(query, raw, report)
+    return report
 
 
 def _generate_report_task(report_id: str, query: str) -> None:
