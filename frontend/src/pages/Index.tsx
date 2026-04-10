@@ -10,12 +10,6 @@ type ReportSummary = {
   created_at?: string;
 };
 
-const suggestions = [
-  "Luxury gym in Dubai struggling with retention",
-  "B2B SaaS trial-to-paid conversion is low",
-  "E-commerce store has high checkout drop-off",
-];
-
 function formatTimestamp(ts: string | undefined): string {
   if (!ts) return "";
   const d = new Date(ts);
@@ -92,18 +86,6 @@ export default function HomePage() {
               Generate <ArrowRight className="inline-block h-3.5 w-3.5 ml-1" />
             </button>
           </div>
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            {suggestions.map((s) => (
-              <button
-                key={s}
-                onClick={() => handleGenerate(s)}
-                className="px-3 py-1.5 rounded-full border border-border hover:bg-accent text-xs text-foreground"
-              >
-                {s}
-              </button>
-            ))}
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -178,4 +160,3 @@ export default function HomePage() {
     </DashboardLayout>
   );
 }
-

@@ -191,14 +191,14 @@ def _strategy_points(ctx: Dict[str, str], raw: Dict[str, Any]) -> List[str]:
     if symptom == "activation_gap" and business == "saas":
         points = [
             "Define one activation milestone that correlates with retention (e.g., completing the first meaningful workflow).",
-            "Instrument the onboarding path to locate the exact step where intent drops (first session, day 1–3).",
+            "Instrument the onboarding path to locate the exact step where intent drops (first session, day 1-3).",
             "Replace generic onboarding screens with a guided setup that produces a visible outcome quickly.",
             "Trigger lifecycle messaging (in-app + email) only when a user is stuck on a specific step.",
         ]
     elif symptom == "retention" and business == "gym":
         points = [
             "Segment members by lifecycle stage (new, at-risk, loyal) and personalize engagement based on attendance patterns.",
-            "Create a 14–30 day habit-building program with milestones and visible progress signals.",
+            "Create a 14-30 day habit-building program with milestones and visible progress signals.",
             "Introduce a recovery flow for missed sessions (same-day nudge + rebooking path).",
             "Collect cancellation reasons and map them to fixable experience gaps (schedule, coaching, results).",
         ]
@@ -209,12 +209,6 @@ def _strategy_points(ctx: Dict[str, str], raw: Dict[str, Any]) -> List[str]:
             "Add trust proofs at the payment moment (returns policy, secure payments, verified reviews).",
             "Offer at least one alternate payment option aligned with your buyer base.",
         ]
-
-    # If raw contains execution steps/opportunities, include them only if not generic
-    raw_steps = _as_list((raw.get("campaign") or {}).get("plan") if isinstance(raw.get("campaign"), dict) else None)
-    for s in raw_steps:
-        if isinstance(s, str):
-            points.append(s)
 
     return _filter_generic_phrases(points)
 
@@ -309,4 +303,3 @@ def report_generator(data: Any) -> Dict[str, Any]:
         "campaign_plan": campaign_plan,
         "confidence_score": confidence_score,
     }
-

@@ -31,6 +31,7 @@ type StoredReport = {
   created_at: string;
   title: string;
   confidence_score: number;
+  status?: "processing" | "ready" | "error" | string;
   saved?: boolean;
   data?: ReportData;
   error?: string;
@@ -38,7 +39,7 @@ type StoredReport = {
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-card rounded-2xl p-5 shadow-premium border border-border">
+    <div className="bg-card rounded-2xl p-6 border border-border shadow-md hover:shadow-lg transition-shadow">
       <h3 className="text-sm font-bold text-foreground">{title}</h3>
       <div className="mt-3 text-sm text-muted-foreground">{children}</div>
     </div>
@@ -81,6 +82,28 @@ function ProgressBar({ value }: { value: unknown }) {
   );
 }
 
+const progressSteps = [
+  "Researching market...",
+  "Analyzing behavior...",
+  "Building strategy...",
+  "Generating report...",
+];
+
+function toBulletItems(value: unknown): string[] {
+  if (typeof value !== "string") return [];
+  const text = value.trim();
+  if (!text) return [];
+  const lines = text
+    .split(/\n+/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (lines.length > 1) return lines;
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 export default function ReportPage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -96,6 +119,7 @@ export default function ReportPage() {
 
   const [report, setReport] = useState<StoredReport | null>(null);
   const [loading, setLoading] = useState(true);
+  const [progressStepIndex, setProgressStepIndex] = useState(0);
 
   const [mode, setMode] = useState<"fast" | "ai">("fast");
   const [aiLoading, setAiLoading] = useState(false);
@@ -107,6 +131,7 @@ export default function ReportPage() {
     setReport(null);
     setAiLoading(false);
     setAiText("");
+    setProgressStepIndex(0);
 
     if (!reportId) {
       fetch(`${API_BASE}/api/reports`, { signal: controller.signal })
@@ -123,21 +148,47 @@ export default function ReportPage() {
       return () => controller.abort();
     }
 
-    fetch(`${API_BASE}/api/reports/${reportId}`, { signal: controller.signal })
-      .then(async (res) => {
-        if (!res.ok) throw new Error(`Request failed (${res.status})`);
-        return res.json();
-      })
-      .then((data) => {
-        const stored = data as StoredReport;
-        console.log("REAL BACKEND DATA:", stored);
-        setReport(stored);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    let active = true;
+    let pollTimer: number | null = null;
+    const startedAt = Date.now();
+    const maxWaitMs = 3 * 60 * 1000;
 
-    return () => controller.abort();
+    const poll = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/reports/${reportId}`, { signal: controller.signal });
+        if (!res.ok) throw new Error(`Request failed (${res.status})`);
+        const data = (await res.json()) as StoredReport;
+        if (!active) return;
+        console.log("REAL BACKEND DATA:", data);
+        setReport(data);
+
+        if (data?.status === "processing" && Date.now() - startedAt < maxWaitMs) {
+          setLoading(true);
+          pollTimer = window.setTimeout(poll, 1500);
+        } else {
+          setLoading(false);
+        }
+      } catch {
+        if (!active) return;
+        setLoading(false);
+      }
+    };
+
+    poll();
+
+    return () => {
+      active = false;
+      if (pollTimer) window.clearTimeout(pollTimer);
+      controller.abort();
+    };
   }, [API_BASE, navigate, reportId]);
+
+  useEffect(() => {
+    const showOverlay = loading || report?.status === "processing";
+    if (!showOverlay) return;
+    const interval = window.setInterval(() => setProgressStepIndex((s) => s + 1), 1000);
+    return () => window.clearInterval(interval);
+  }, [loading, report?.status]);
 
   useEffect(() => {
     if (!report || report.error) return;
@@ -181,33 +232,51 @@ export default function ReportPage() {
     };
   }, [API_BASE, mode, report]);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!report?.report_id) return;
-    window.open(`${API_BASE}/api/reports/${report.report_id}/pdf`);
+    try {
+      const res = await fetch(`${API_BASE}/api/reports/${report.report_id}/pdf`, {
+        headers: { Accept: "application/pdf" },
+      });
+      if (!res.ok) {
+        if (res.status === 409) throw new Error("Report is still processing. Try again in a moment.");
+        throw new Error(`Download failed (${res.status})`);
+      }
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `report-${report.report_id}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Failed to download PDF");
+    }
   };
 
   const handleShare = async () => {
     if (!report?.report_id) return;
-    const res = await fetch(`${API_BASE}/api/reports/${report.report_id}/share`, {
-      method: "POST",
-    });
+    try {
+      const res = await fetch(`${API_BASE}/api/reports/${report.report_id}/share`, { method: "POST" });
+      if (!res.ok) throw new Error(`Share failed (${res.status})`);
+      const data = (await res.json()) as { share_url?: string };
+      if (!data?.share_url) throw new Error("Backend did not return share_url");
 
-    const data = await res.json();
-    const fullUrl = window.location.origin + data.share_url;
-
-    await navigator.clipboard.writeText(fullUrl);
-    alert("Link copied!");
+      const fullUrl = window.location.origin + data.share_url;
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(fullUrl);
+        alert("Link copied!");
+      } else {
+        window.prompt("Copy link:", fullUrl);
+      }
+    } catch (e) {
+      alert(e instanceof Error ? e.message : "Failed to share report");
+    }
   };
 
-  if (loading) {
-    return (
-      <DashboardLayout showRight={false}>
-        <div className="p-8 text-sm text-muted-foreground">Loading report...</div>
-      </DashboardLayout>
-    );
-  }
-
-  if (!report || report.error) {
+  if (!loading && (!report || report.error || report.status === "error")) {
     return (
       <DashboardLayout showRight={false}>
         <div className="p-8 space-y-3">
@@ -220,20 +289,57 @@ export default function ReportPage() {
     );
   }
 
-  const data = report.data || {};
+  const data = report?.data || {};
   const strategyPoints = data.strategy?.points || [];
   const actionPlan = data.action_plan || [];
   const campaign = data.campaign_plan || {};
   const reasoning = data.reasoning || {};
   const scoring = data.scoring || {};
+  const currentOverlayStep = progressSteps[progressStepIndex % progressSteps.length];
+
+  const confidenceValue =
+    typeof data.confidence_score === "number"
+      ? data.confidence_score
+      : typeof report?.confidence_score === "number"
+        ? report.confidence_score
+        : null;
 
   return (
     <DashboardLayout showRight={false}>
       <div className="p-8 space-y-6">
+        {loading || report?.status === "processing" ? (
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50">
+            <div className="w-full max-w-md bg-card rounded-2xl border border-border shadow-xl p-6">
+              <div className="text-center">
+                <div className="w-14 h-14 rounded-2xl gradient-primary flex items-center justify-center mx-auto font-bold text-primary-foreground text-lg">
+                  58
+                </div>
+                <h2 className="mt-4 text-xl font-bold text-foreground tracking-tight">
+                  AI agents are analyzing your business...
+                </h2>
+                <p className="mt-2 text-xs text-muted-foreground">{currentOverlayStep}</p>
+              </div>
+              <div className="mt-6 space-y-3">
+                <div className="h-2 bg-accent rounded-full overflow-hidden">
+                  <div
+                    className="h-full gradient-primary transition-all duration-700"
+                    style={{
+                      width: `${((progressStepIndex % progressSteps.length) + 1) * (100 / progressSteps.length)}%`,
+                    }}
+                  />
+                </div>
+                <div className="text-xs text-muted-foreground">Opening your dashboard as soon as results are ready.</div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
         <div>
-          <h1 className="text-[26px] font-bold text-foreground tracking-tight">{data.main_problem || report.title}</h1>
+          <h1 className="text-[26px] font-bold text-foreground tracking-tight">
+            {data.main_problem || report?.title || "Report"}
+          </h1>
           <p className="text-sm text-muted-foreground mt-1">
-            Confidence: {data.confidence_score ?? report.confidence_score}%
+            Confidence: <span className="text-foreground">{confidenceValue === null ? "—" : `${confidenceValue}%`}</span>
           </p>
         </div>
 
@@ -265,14 +371,15 @@ export default function ReportPage() {
           ) : null}
         </div>
 
-        {mode === "ai" && aiText.trim() ? (
-          <div className="bg-card rounded-2xl p-5 shadow-premium border border-border">
-            <h3 className="text-sm font-bold text-foreground">AI Enhanced Report</h3>
-            <div className="mt-3 text-sm text-foreground whitespace-pre-wrap leading-relaxed">{aiText}</div>
-          </div>
-        ) : null}
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {mode === "ai" && aiText.trim() ? (
+            <div className="md:col-span-2">
+              <Card title="AI Enhanced Report">
+                <div className="text-foreground whitespace-pre-wrap leading-relaxed">{aiText}</div>
+              </Card>
+            </div>
+          ) : null}
+
           <Card title="Main Problem">
             <TextValue value={data.main_problem} />
           </Card>
@@ -282,29 +389,30 @@ export default function ReportPage() {
           </Card>
 
           <Card title="Reasoning">
-            <div className="space-y-3">
-              <div>
-                <div className="text-xs text-muted-foreground">Analysis</div>
-                <div className="text-foreground">
-                  {typeof reasoning.analysis === "string" && reasoning.analysis.trim() ? reasoning.analysis : "—"}
-                </div>
-              </div>
-              <div>
-                <div className="text-xs text-muted-foreground">Why this problem</div>
-                <div className="text-foreground">
-                  {typeof reasoning.why_this_problem === "string" && reasoning.why_this_problem.trim()
-                    ? reasoning.why_this_problem
-                    : "—"}
-                </div>
-              </div>
-              <div>
-                <div className="text-xs text-muted-foreground">Impact if ignored</div>
-                <div className="text-foreground">
-                  {typeof reasoning.impact_explanation === "string" && reasoning.impact_explanation.trim()
-                    ? reasoning.impact_explanation
-                    : "—"}
-                </div>
-              </div>
+            <div className="space-y-4">
+              {[
+                { label: "Analysis", value: reasoning.analysis },
+                { label: "Why this problem", value: reasoning.why_this_problem },
+                { label: "Impact if ignored", value: reasoning.impact_explanation },
+              ].map((row) => {
+                const bullets = toBulletItems(row.value);
+                return (
+                  <div key={row.label}>
+                    <div className="text-xs text-muted-foreground">{row.label}</div>
+                    {bullets.length > 0 ? (
+                      <ul className="mt-1 list-disc pl-5 space-y-1">
+                        {bullets.map((b, idx) => (
+                          <li key={idx} className="text-foreground">
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="text-foreground">—</div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </Card>
 
@@ -403,13 +511,8 @@ export default function ReportPage() {
               </div>
             </div>
           </Card>
-
-          <Card title="Confidence (Legacy)">
-            <TextValue value={data.confidence_score ?? report.confidence_score} />
-          </Card>
         </div>
       </div>
     </DashboardLayout>
   );
 }
-

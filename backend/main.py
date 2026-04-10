@@ -1,3 +1,4 @@
+from fastapi import BackgroundTasks
 from fastapi import Body
 from fastapi import FastAPI
 from fastapi import HTTPException
@@ -15,10 +16,12 @@ from tools.pdf_generator import generate_report_pdf
 from tools.report_formatter import format_report
 from tools.report_generator import report_generator
 from tools.report_store import create_report
+from tools.report_store import create_pending_report
 from tools.report_store import get_all_reports
 from tools.report_store import get_report
 from tools.report_store import get_saved_reports
 from tools.report_store import toggle_save
+from tools.report_store import update_report
 from tools.share_store import create_share_link
 from tools.share_store import get_report_id_for_share
 
@@ -126,10 +129,7 @@ def run_system_endpoint(input_data: dict = Body(default={})):
         }
 
 
-@app.post("/api/analyze")
-def analyze(data=Body(default={})):
-    payload = data if isinstance(data, dict) else {"query": str(data)}
-    query = payload.get("query", "")
+def _build_report_from_query(query: str) -> dict:
     raw = run_system({"query": query})
     if not isinstance(raw, dict):
         raw = {}
@@ -181,9 +181,27 @@ def analyze(data=Body(default={})):
         "decision": {"decision": raw.get("main_problem") or raw.get("status_reason") or raw.get("reasoning") or ""},
         "execution": {"steps": [s for s in steps if isinstance(s, str) and s.strip()], "platforms": platforms},
     }
-    report = report_generator(adapted)
-    saved_report = create_report(report)
-    return saved_report
+    return report_generator(adapted)
+
+
+def _generate_report_task(report_id: str, query: str) -> None:
+    try:
+        report = _build_report_from_query(query)
+        title = report.get("main_problem") or query or "Report"
+        confidence = report.get("confidence_score") or 0
+        update_report(report_id, data=report, status="ready", title=title, confidence_score=confidence, error=None)
+    except Exception as exc:
+        logger.exception("api:analyze:background-failure report_id=%s", report_id)
+        update_report(report_id, status="error", error=str(exc))
+
+
+@app.post("/api/analyze")
+def analyze(background_tasks: BackgroundTasks, data=Body(default={})):
+    payload = data if isinstance(data, dict) else {"query": str(data)}
+    query = str(payload.get("query", "") or "").strip()
+    pending = create_pending_report(query)
+    background_tasks.add_task(_generate_report_task, pending.get("report_id"), query)
+    return pending
 
 
 @app.get("/api/reports")
@@ -196,6 +214,7 @@ def get_reports():
             "title": r.get("title"),
             "confidence_score": r.get("confidence_score"),
             "created_at": r.get("created_at"),
+            "status": r.get("status"),
         }
         for r in list(reports)[::-1]  # latest first
         if isinstance(r, dict)
@@ -211,6 +230,7 @@ def fetch_saved_reports():
             "title": r.get("title"),
             "confidence_score": r.get("confidence_score"),
             "created_at": r.get("created_at"),
+            "status": r.get("status"),
         }
         for r in list(reports)[::-1]
         if isinstance(r, dict)
@@ -260,6 +280,10 @@ def report_pdf(report_id: str):
     report = get_report(report_id)
     if not report:
         raise HTTPException(status_code=404, detail="Report not found")
+    if report.get("status") == "processing":
+        raise HTTPException(status_code=409, detail="Report is still processing")
+    if report.get("status") == "error":
+        raise HTTPException(status_code=409, detail="Report failed to generate")
 
     formatted_text = format_report(report.get("data") if isinstance(report, dict) else {})
     try:

@@ -32,6 +32,7 @@ def create_report(data):
         "created_at": datetime.utcnow().isoformat(),
         "title": data.get("main_problem", "Report"),
         "confidence_score": data.get("confidence_score", 0),
+        "status": "ready",
         "saved": False,
         "data": data,
     }
@@ -40,6 +41,54 @@ def create_report(data):
     save_reports(reports)
 
     return report
+
+
+def create_pending_report(query: str):
+    """
+    Create a report stub immediately (fast response) while analysis runs in the background.
+    """
+    reports = load_reports()
+    q = (query or "").strip()
+
+    report = {
+        "report_id": str(uuid.uuid4()),
+        "created_at": datetime.utcnow().isoformat(),
+        "title": q or "Report",
+        "confidence_score": 0,
+        "status": "processing",
+        "saved": False,
+        "data": {},
+    }
+
+    reports.append(report)
+    save_reports(reports)
+    return report
+
+
+def update_report(report_id: str, *, data=None, status=None, title=None, confidence_score=None, error=None):
+    reports = load_reports()
+    updated = None
+    for r in reports:
+        if r.get("report_id") != report_id:
+            continue
+        if status is not None:
+            r["status"] = status
+        if title is not None:
+            r["title"] = title
+        if confidence_score is not None:
+            r["confidence_score"] = confidence_score
+        if data is not None:
+            r["data"] = data
+        if error is not None:
+            r["error"] = error
+        updated = r
+        break
+
+    if updated is None:
+        return None
+
+    save_reports(reports)
+    return updated
 
 
 def get_all_reports():

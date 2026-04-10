@@ -8,18 +8,19 @@ def execution_tool(decision: dict, structured: dict, validated: dict, budget_tie
     logger.info("execution:start")
     chosen_strategy = decision.get("selected_strategy", "Performance marketing")
     top_opportunity = (validated.get("validated_opportunities") or [{}])[0]
+    opportunity_name = str(
+        top_opportunity.get("name") or top_opportunity.get("title") or top_opportunity.get("opportunity") or ""
+    ).strip()
+    audience = str(structured.get("audience") or "").strip()
 
     if chosen_strategy == "Performance marketing":
         platforms = ["Google Search", "LinkedIn Ads", "Retargeting"]
-        timeline = ["Week 1: audit funnel and messaging", "Week 2: launch paid experiments", "Weeks 3-4: optimize conversion paths"]
         budget_split = {"Paid acquisition": 55, "Creative/testing": 20, "Lifecycle nurture": 15, "Analytics": 10}
     elif chosen_strategy == "Emotional marketing":
         platforms = ["LinkedIn", "YouTube", "Email nurture"]
-        timeline = ["Week 1: craft narrative pillars", "Week 2: launch proof-led content", "Weeks 3-4: expand audience nurture"]
         budget_split = {"Creative/story assets": 35, "Distribution": 30, "Lifecycle nurture": 20, "Analytics": 15}
     else:
         platforms = ["LinkedIn", "Industry media", "Webinars"]
-        timeline = ["Week 1: finalize positioning", "Week 2: publish authority content", "Weeks 3-4: run awareness distribution"]
         budget_split = {"Content and proof": 35, "Awareness distribution": 35, "Events/webinars": 20, "Analytics": 10}
 
     if budget_tier == "low":
@@ -27,6 +28,16 @@ def execution_tool(decision: dict, structured: dict, validated: dict, budget_tie
         platforms = platforms[:2]
     elif budget_tier == "high":
         platforms.append("Partner programs")
+
+    # Use a dynamic, non-week-based timeline (avoid static template output).
+    headline = opportunity_name or "the top opportunity"
+    who = audience or "your target audience"
+    primary_platform = platforms[0] if platforms else "a priority channel"
+    timeline = [
+        f"Day 1: Review the current customer journey and identify the main blocker for {headline}.",
+        f"Days 2-3: Draft messaging and proof points that speak directly to {who}.",
+        f"Days 4-7: Run a controlled experiment on {primary_platform} and compare results to a baseline.",
+    ]
 
     result = {
         "campaign_strategy": chosen_strategy,
@@ -36,9 +47,9 @@ def execution_tool(decision: dict, structured: dict, validated: dict, budget_tie
         "timeline": timeline,
         "budget_allocation": budget_split,
         "actions": [
-            f"Translate '{top_opportunity.get('name')}' into channel-specific messaging.",
+            f"Translate '{headline}' into channel-specific messaging for {primary_platform}.",
             "Map each supporting source into proof points for copy and landing pages.",
-            "Launch the first wave and review source-backed performance signals weekly.",
+            "Review performance signals and adjust based on observed blockers (not assumptions).",
         ],
     }
     logger.info("execution:done strategy=%s", chosen_strategy)
