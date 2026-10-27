@@ -7,7 +7,7 @@ from core.logging_utils import get_logger
 
 
 logger = get_logger("team58.scraper")
-FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY") or "fc-a3cd43f9ccaf4eafb783d87b28168894"
+FIRECRAWL_API_KEY = os.getenv("FIRECRAWL_API_KEY")
 FIRECRAWL_URL = os.getenv("FIRECRAWL_ENDPOINT") or "https://api.firecrawl.dev/v1/scrape"
 
 

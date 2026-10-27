@@ -6,7 +6,7 @@ from core.logging_utils import get_logger
 
 
 logger = get_logger("team58.qwen")
-API_KEY = os.getenv("QWEN_API_KEY") or "sk-36f731a2000b49f4b76b2b6bb3b6a1ca"
+API_KEY = os.getenv("QWEN_API_KEY")
 BASE_URL = os.getenv("QWEN_BASE_URL") or "https://ws-7cdqxbw1m3iabksm.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1"
 MODEL_NAME = os.getenv("QWEN_MODEL", "qwen-plus")
 
